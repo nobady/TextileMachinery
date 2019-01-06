@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mainTextColor">#333333</color>
+    <color name="rankTextColor">#FFBF44</color>
+    <color name="meBackground">#F4F4F4</color>
+</resources>
