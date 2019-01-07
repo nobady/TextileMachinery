@@ -3,221 +3,237 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/meBackground"
         android:layout_height="match_parent">
+
     <com.game.base.wdget.HeaderView
             android:id="@+id/mMeHeadView"
             android:layout_width="match_parent"
             android:layout_height="44dp"/>
 
-    <ImageView
-            android:layout_width="99dp"
-            android:layout_marginTop="12dp"
-            android:layout_gravity="center"
-            android:src="@drawable/default_header"
-            android:layout_height="99dp"/>
-
-    <TextView
-            android:id="@+id/mMeNickName"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/mainTextColor"
-            android:text="往事随风"
-            android:layout_width="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:layout_height="wrap_content"/>
-
-    <TextView
-            android:id="@+id/mMeUserRank"
-            android:textSize="10sp"
-            android:textColor="@color/rankTextColor"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="初级维修工"
-            android:layout_marginTop="7dp"
-            android:padding="3dp"
-            android:background="@drawable/rank_tv_bg_shape"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <android.support.v7.widget.CardView
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:background="@color/meBackground"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:layout_height="match_parent">
 
         <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:paddingLeft="22dp"
-                android:paddingRight="22dp"
+                android:background="@color/meBackground"
                 android:layout_height="match_parent">
 
+            <ImageView
+                    android:layout_width="99dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/default_header"
+                    android:layout_height="99dp"/>
+
             <TextView
-                    android:drawableTop="@drawable/collection"
-                    android:text="我的关注"
-                    android:drawablePadding="10dp"
-                    android:layout_gravity="center_vertical"
+                    android:id="@+id/mMeNickName"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:text="往事随风"
                     android:layout_width="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:lines="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"
                     android:layout_height="wrap_content"/>
 
             <TextView
-                    android:drawableTop="@drawable/publish"
-                    android:text="我的关注"
-                    android:drawablePadding="10dp"
-                    android:layout_gravity="center_vertical"
+                    android:id="@+id/mMeUserRank"
+                    android:textSize="10sp"
+                    android:textColor="@color/rankTextColor"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="初级维修工"
+                    android:layout_marginTop="7dp"
+                    android:padding="2dp"
+                    android:background="@drawable/rank_tv_bg_shape"
                     android:layout_width="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:lines="1"
                     android:layout_height="wrap_content"/>
 
-            <TextView
-                    android:drawableTop="@drawable/follow"
-                    android:text="我的关注"
-                    android:drawablePadding="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:lines="1"
-                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.CardView
+                    android:layout_marginTop="13dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
 
-            <TextView
-                    android:drawableTop="@drawable/fans"
-                    android:text="我的关注"
-                    android:drawablePadding="10dp"
-                    android:lines="1"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:paddingLeft="22dp"
+                        android:paddingRight="22dp"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:drawableTop="@drawable/collection"
+                            android:text="我的关注"
+                            android:drawablePadding="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_marginRight="25dp"
+                            android:lines="1"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:drawableTop="@drawable/publish"
+                            android:text="我的关注"
+                            android:drawablePadding="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_marginRight="25dp"
+                            android:lines="1"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:drawableTop="@drawable/follow"
+                            android:text="我的关注"
+                            android:drawablePadding="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_marginRight="25dp"
+                            android:lines="1"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:drawableTop="@drawable/fans"
+                            android:text="我的关注"
+                            android:drawablePadding="10dp"
+                            android:lines="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <RelativeLayout
+                    android:id="@+id/mMyOrder"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:layout_height="53dp">
+
+                <ImageView
+                        android:id="@+id/orderIcon"
+                        android:layout_width="40dp"
+                        android:src="@drawable/order"
+                        android:scaleType="centerInside"
+                        android:layout_height="match_parent"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="16sp"
+                        android:text="我的订单"
+                        android:lines="1"
+                        android:layout_toRightOf="@+id/orderIcon"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_width="40dp"
+                        android:src="@drawable/next"
+                        android:scaleType="centerInside"
+                        android:layout_centerVertical="true"
+                        android:layout_height="40dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/mMyCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:layout_height="53dp">
+
+                <ImageView
+                        android:id="@+id/couponIcon"
+                        android:layout_width="40dp"
+                        android:src="@drawable/coupon"
+                        android:scaleType="centerInside"
+                        android:layout_height="match_parent"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="16sp"
+                        android:text="我的订单"
+                        android:lines="1"
+                        android:layout_toRightOf="@+id/couponIcon"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_width="40dp"
+                        android:src="@drawable/next"
+                        android:scaleType="centerInside"
+                        android:layout_centerVertical="true"
+                        android:layout_height="40dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/mMyPayType"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/white"
+                    android:layout_height="53dp">
+
+                <ImageView
+                        android:id="@+id/payTypeIcon"
+                        android:layout_width="40dp"
+                        android:src="@drawable/pay_type"
+                        android:scaleType="centerInside"
+                        android:layout_height="match_parent"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="16sp"
+                        android:text="我的支付方式"
+                        android:lines="1"
+                        android:layout_toRightOf="@+id/payTypeIcon"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_width="40dp"
+                        android:src="@drawable/next"
+                        android:scaleType="centerInside"
+                        android:layout_centerVertical="true"
+                        android:layout_height="40dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/mMyEnglish"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@android:color/white"
+                    android:layout_height="53dp">
+
+                <ImageView
+                        android:id="@+id/englishIcon"
+                        android:layout_width="40dp"
+                        android:src="@drawable/icon_en_hover"
+                        android:scaleType="centerInside"
+                        android:layout_height="match_parent"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="16sp"
+                        android:text="我的订单"
+                        android:lines="1"
+                        android:layout_toRightOf="@+id/englishIcon"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"/>
+
+                <Switch
+                        android:layout_width="52dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_height="31dp"/>
+            </RelativeLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <RelativeLayout
-            android:id="@+id/mMyOrder"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:layout_height="53dp">
-
-        <ImageView
-                android:id="@+id/orderIcon"
-                android:layout_width="40dp"
-                android:src="@drawable/order"
-                android:scaleType="centerInside"
-                android:layout_height="match_parent"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:text="我的订单"
-                android:lines="1"
-                android:layout_toRightOf="@+id/orderIcon"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:layout_alignParentRight="true"
-                android:layout_width="40dp"
-                android:src="@drawable/next"
-                android:scaleType="centerInside"
-                android:layout_centerVertical="true"
-                android:layout_height="40dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/mMyCoupon"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:layout_height="53dp">
-
-        <ImageView
-                android:id="@+id/couponIcon"
-                android:layout_width="40dp"
-                android:src="@drawable/coupon"
-                android:scaleType="centerInside"
-                android:layout_height="match_parent"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:text="我的订单"
-                android:lines="1"
-                android:layout_toRightOf="@+id/couponIcon"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:layout_alignParentRight="true"
-                android:layout_width="40dp"
-                android:src="@drawable/next"
-                android:scaleType="centerInside"
-                android:layout_centerVertical="true"
-                android:layout_height="40dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/mMyPayType"
-            android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="53dp">
-
-        <ImageView
-                android:id="@+id/payTypeIcon"
-                android:layout_width="40dp"
-                android:src="@drawable/pay_type"
-                android:scaleType="centerInside"
-                android:layout_height="match_parent"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:text="我的订单"
-                android:lines="1"
-                android:layout_toRightOf="@+id/payTypeIcon"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
-
-        <ImageView
-                android:layout_alignParentRight="true"
-                android:layout_width="40dp"
-                android:src="@drawable/next"
-                android:scaleType="centerInside"
-                android:layout_centerVertical="true"
-                android:layout_height="40dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:id="@+id/mMyEnglish"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:layout_height="53dp">
-
-        <ImageView
-                android:id="@+id/englishIcon"
-                android:layout_width="40dp"
-                android:src="@drawable/order"
-                android:scaleType="centerInside"
-                android:layout_height="match_parent"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:text="我的订单"
-                android:lines="1"
-                android:layout_toRightOf="@+id/englishIcon"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
-
-        <Switch
-                android:layout_width="52dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:layout_height="31dp"/>
-    </RelativeLayout>
+    </ScrollView>
 </LinearLayout>

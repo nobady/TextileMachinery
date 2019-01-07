@@ -2,11 +2,10 @@ package com.textile.client.home.ui
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.game.base.mvp.BaseFragment
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
+import com.yang.mac.memodule.ui.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
