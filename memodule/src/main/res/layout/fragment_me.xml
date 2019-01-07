@@ -5,30 +5,10 @@
         android:layout_width="match_parent"
         android:background="@color/meBackground"
         android:layout_height="match_parent">
-
-    <RelativeLayout
+    <com.game.base.wdget.HeaderView
+            android:id="@+id/mMeHeadView"
             android:layout_width="match_parent"
-            android:background="#03A8EC"
-            android:layout_height="44dp">
-
-        <TextView
-                android:id="@+id/mMeTitleTv"
-                android:layout_width="wrap_content"
-                android:text="我的"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:layout_centerInParent="true"
-                android:layout_height="match_parent"/>
-
-        <ImageView
-                android:id="@+id/mMeTitleRightIv"
-                android:layout_width="40dp"
-                android:layout_alignParentRight="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/message"
-                android:layout_height="40dp"/>
-    </RelativeLayout>
+            android:layout_height="44dp"/>
 
     <ImageView
             android:layout_width="99dp"
