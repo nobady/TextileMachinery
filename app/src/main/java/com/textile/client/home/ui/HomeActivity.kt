@@ -5,6 +5,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
+import com.yang.mac.memodule.ui.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -39,24 +40,24 @@ class HomeActivity : AppCompatActivity() {
         navigation.enableAnimation(false)
         navigation.enableShiftingMode(false)
 
-        fab_add.setOnClickListener {   changeOrNewFragment("add") }
+        fab_add.setOnClickListener { changeOrNewFragment("add") }
     }
 
-    private fun changeOrNewFragment(tag:String){
+    private fun changeOrNewFragment(tag: String) {
         var fragment = supportFragmentManager.findFragmentByTag(tag)
         val transaction = supportFragmentManager.beginTransaction()
 
-        fragment?:let {
-            fragment = when(tag){
-                "mall"-> MallFragment.newInstance()
-                "forum"-> MallFragment.newInstance()
-                "add"-> MallFragment.newInstance()
-                "shop_car"-> MallFragment.newInstance()
-                "me"-> MallFragment.newInstance()
+        fragment ?: let {
+            fragment = when (tag) {
+                "mall" -> MallFragment.newInstance()
+                "forum" -> MallFragment.newInstance()
+                "add" -> MallFragment.newInstance()
+                "shop_car" -> MallFragment.newInstance()
+                "me" -> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
             }
         }
-        transaction.replace(R.id.fragment,fragment!!,tag)
+        transaction.replace(R.id.fragment, fragment!!, tag)
         transaction.commit()
     }
 }

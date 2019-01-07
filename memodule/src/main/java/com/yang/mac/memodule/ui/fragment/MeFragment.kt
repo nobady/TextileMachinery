@@ -13,6 +13,10 @@ import kotlinx.android.synthetic.main.fragment_me.*
  * Created by bo on 2019/1/6.
  */
 class MeFragment : BaseFragment(), MeContract.MeView {
+    companion object {
+        fun newInstance() = MeFragment().apply {  }
+    }
+
     override fun initView(view: View) {
         initHead()
         initEvent()

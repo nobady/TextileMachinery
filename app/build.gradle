@@ -48,4 +48,5 @@ dependencies {
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(':base')
+    implementation project(':memodule')
 }
