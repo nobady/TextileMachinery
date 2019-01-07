@@ -1,10 +1,8 @@
 package com.game.base.net
 
-import android.text.format.Time
 import com.game.base.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

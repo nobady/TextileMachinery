@@ -24,10 +24,8 @@ object NetUtil {
         val connectivity = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
             val info = connectivity.activeNetworkInfo
-            if (null != info && info.isConnected) {
-                if (info.state == NetworkInfo.State.CONNECTED) {
-                    return true
-                }
+            if (null != info) {
+                return info.isConnected
             }
         return false
     }

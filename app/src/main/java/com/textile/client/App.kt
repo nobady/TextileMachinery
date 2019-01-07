@@ -16,7 +16,7 @@ class App:Application() {
 
         CrashReport.initCrashReport(this, "5e17ae2b2a", BuildConfig.DEBUG)
         RetrofitBuilder.Builder().apply {
-            baseUrl = ""
+            baseUrl = "http:www.baidu.com"
         }.build()
     }
 

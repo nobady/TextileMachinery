@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_mall"
+            android:icon="@mipmap/home_bottom_shap"
+            android:title="@string/title_mall"/>
+
+    <item
+            android:id="@+id/navigation_forum"
+            android:icon="@mipmap/home_bottom_forum"
+            android:title="@string/title_forum"/>
+
+    <item
+            android:id="@+id/navigation_add"
+            android:title="@string/title_null"/>
+
+    <item
+            android:id="@+id/navigation_shop_car"
+            android:icon="@mipmap/home_bottom_shop_car"
+            android:title="@string/title_shop_car"/>
+    <item
+            android:id="@+id/navigation_me"
+            android:icon="@mipmap/home_bottom_me"
+            android:title="@string/title_me"/>
+</menu>
