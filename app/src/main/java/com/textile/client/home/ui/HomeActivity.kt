@@ -2,29 +2,33 @@ package com.textile.client.home.ui
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import com.game.base.mvp.BaseFragment
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
+    private  var currentFragment: Fragment? = null
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_mall -> {
-                changeOrNewFragment("mall")
+                changeOrNewFragment(getString(R.string.frag_mall))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_forum -> {
-                changeOrNewFragment("forum")
+                changeOrNewFragment(getString(R.string.frag_forum))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_shop_car -> {
-                changeOrNewFragment("shop_car")
+                changeOrNewFragment(getString(R.string.frag_shop_car))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_me -> {
-                changeOrNewFragment("me")
+                changeOrNewFragment(getString(R.string.frag_me))
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -39,7 +43,9 @@ class HomeActivity : AppCompatActivity() {
         navigation.enableAnimation(false)
         navigation.enableShiftingMode(false)
 
-        fab_add.setOnClickListener {   changeOrNewFragment("add") }
+        changeOrNewFragment(getString(R.string.frag_mall))
+
+        fab_add.setOnClickListener {   changeOrNewFragment(getString(R.string.frag_add)) }
     }
 
     private fun changeOrNewFragment(tag:String){

@@ -14,4 +14,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="frag_mall">mall</string>
+    <string name="frag_forum">forum</string>
+    <string name="frag_shop_car">shop_car</string>
+    <string name="frag_me">me</string>
+    <string name="frag_add">add</string>
 </resources>
