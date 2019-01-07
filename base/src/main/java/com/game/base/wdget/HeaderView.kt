@@ -28,6 +28,10 @@ class HeaderView(context: Context?, attrs: AttributeSet?) : RelativeLayout(conte
         mHeadRootView.setBackgroundColor(context.resources.getColor(colorRes))
     }
 
+    fun setTitle(title:String = ""){
+        mHeadCenterTv.text = title
+    }
+
     fun setTitleTextColor(@ColorRes colorRes: Int) {
         mHeadCenterTv.setTextColor(context.resources.getColor(colorRes))
     }
