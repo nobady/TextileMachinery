@@ -2,5 +2,12 @@
 <resources>
     <color name="colorPrimary">#06b2f1</color>
     <color name="colorPrimaryDark">#06b2f1</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#06b2f1</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="grey">#929292</color>
+    <color name="divide_line">#F1F1F1</color>
+    <color name="text_hint_color">#CECECE</color>
+
 </resources>

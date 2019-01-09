@@ -16,7 +16,7 @@ class App:Application() {
 
         CrashReport.initCrashReport(this, "5e17ae2b2a", BuildConfig.DEBUG)
         RetrofitBuilder.Builder().apply {
-            baseUrl = "http:www.baidu.com"
+            baseUrl = "http://haroldchan.cn:8080/api/"
         }.build()
     }
 

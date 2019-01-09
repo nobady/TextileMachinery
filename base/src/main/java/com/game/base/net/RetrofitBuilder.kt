@@ -40,7 +40,17 @@ class RetrofitBuilder private constructor(builder: Builder){
             okClient.addInterceptor(builder.logInterceptor)
         }
         builder.networkInterceptor?.let { okClient.addNetworkInterceptor(it) }
-
+        takeIf { builder.headerMap.size>0 }.apply {
+            okClient.addInterceptor{ chain ->
+                val origReq = chain.request()
+                val newBuilder = origReq.newBuilder()
+                builder.headerMap.keys.forEach {
+                    newBuilder.addHeader(it,builder.headerMap[it])
+                }
+                val newReq = newBuilder.build()
+                 chain.proceed(newReq)
+            }
+        }
         return okClient.build()
     }
 
@@ -50,8 +60,13 @@ class RetrofitBuilder private constructor(builder: Builder){
         var connTime = 10L
         var logInterceptor = DefaultLogInterceptor()
         var networkInterceptor:Interceptor? = null
+        val headerMap = HashMap<String,String>()
 
         fun build() = RetrofitBuilder(this)
+
+        fun addHead(key:String,value:String){
+            headerMap[key] = value
+        }
     }
 
 
