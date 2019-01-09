@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mHeadRootView"
         android:layout_width="match_parent"
-        android:background="#03A8EC"
+        android:background="#06b2f1"
         android:layout_height="44dp">
 
     <ImageView

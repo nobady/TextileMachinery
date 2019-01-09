@@ -1,7 +1,10 @@
 package com.game.base.mvp
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
+import android.view.WindowManager
 
 /**
  * Created by lff on 2018/12/19.
@@ -14,6 +17,15 @@ abstract class BaseActivity:AppCompatActivity() {
         initView()
         initData()
         startLoad()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun setStatusBarColor(colorRes:Int){
+        takeIf { Build.VERSION.SDK_INT>=21 }.apply {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = colorRes
+        }
     }
 
     /*加载数据*/
