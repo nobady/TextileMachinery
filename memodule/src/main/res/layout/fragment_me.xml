@@ -24,6 +24,7 @@
                 android:layout_height="match_parent">
 
             <ImageView
+                    android:id="@+id/mMeAvatar"
                     android:layout_width="99dp"
                     android:layout_marginTop="12dp"
                     android:layout_gravity="center"
@@ -69,7 +70,7 @@
 
                     <TextView
                             android:drawableTop="@drawable/collection"
-                            android:text="我的关注"
+                            android:text="@string/my_collection"
                             android:drawablePadding="10dp"
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
@@ -79,7 +80,7 @@
 
                     <TextView
                             android:drawableTop="@drawable/publish"
-                            android:text="我的关注"
+                            android:text="@string/my_publish"
                             android:drawablePadding="10dp"
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
@@ -89,7 +90,7 @@
 
                     <TextView
                             android:drawableTop="@drawable/follow"
-                            android:text="我的关注"
+                            android:text="@string/my_care"
                             android:drawablePadding="10dp"
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
@@ -99,7 +100,7 @@
 
                     <TextView
                             android:drawableTop="@drawable/fans"
-                            android:text="我的关注"
+                            android:text="@string/my_fans"
                             android:drawablePadding="10dp"
                             android:lines="1"
                             android:layout_gravity="center_vertical"
@@ -125,7 +126,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
-                        android:text="我的订单"
+                        android:text="@string/my_order"
                         android:lines="1"
                         android:layout_toRightOf="@+id/orderIcon"
                         android:layout_centerVertical="true"
@@ -157,7 +158,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
-                        android:text="我的订单"
+                        android:text="@string/my_coupon"
                         android:lines="1"
                         android:layout_toRightOf="@+id/couponIcon"
                         android:layout_centerVertical="true"
@@ -188,7 +189,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
-                        android:text="我的支付方式"
+                        android:text="@string/my_pay_type"
                         android:lines="1"
                         android:layout_toRightOf="@+id/payTypeIcon"
                         android:layout_centerVertical="true"
@@ -207,7 +208,6 @@
                     android:id="@+id/mMyEnglish"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="80dp"
                     android:background="@android:color/white"
                     android:layout_height="53dp">
 
@@ -221,7 +221,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:textSize="16sp"
-                        android:text="我的订单"
+                        android:text="@string/english"
                         android:lines="1"
                         android:layout_toRightOf="@+id/englishIcon"
                         android:layout_centerVertical="true"

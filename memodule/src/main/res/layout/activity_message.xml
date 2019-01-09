@@ -5,12 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.MyPayTypeActivity"
+        tools:context=".ui.activity.MessageActivity"
         android:background="@color/meBackground"
         android:orientation="vertical">
 
     <com.game.base.wdget.HeaderView
-            android:id="@+id/mPayHeadView"
+            android:id="@+id/mMsgHeadView"
             android:layout_width="match_parent"
             android:layout_height="44dp">
     </com.game.base.wdget.HeaderView>
@@ -23,7 +23,7 @@
         <ImageView
                 android:id="@+id/weChatIcon"
                 android:layout_width="40dp"
-                android:src="@drawable/message"
+                android:src="@drawable/message_reply"
                 android:scaleType="centerInside"
                 android:layout_marginLeft="15dp"
                 android:layout_height="match_parent"/>
@@ -31,29 +31,21 @@
         <TextView
                 android:layout_toRightOf="@+id/weChatIcon"
                 android:layout_width="wrap_content"
-                android:text="@string/we_chat_pay"
+                android:text="@string/message_reply"
                 android:layout_marginLeft="20dp"
                 android:textSize="15sp"
                 android:textColor="@color/mainTextColor"
                 android:gravity="start|center_vertical"
                 android:layout_height="match_parent"/>
 
-        <TextView
-                android:id="@+id/mWeChatPay"
+        <ImageView
+                android:id="@+id/mMsgNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
                 android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:text="@string/toPay"
-                android:textColor="@color/to_pay_color"
-                android:background="@drawable/pay_tv_bg_shape"
-                android:gravity="center"
-                android:paddingTop="9dp"
-                android:paddingBottom="9dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textSize="12sp"
-                android:layout_marginRight="15dp"
                 android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
+                android:layout_height="40dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -63,39 +55,31 @@
             android:layout_height="70dp">
 
         <ImageView
-                android:id="@+id/aliPayIcon"
+                android:id="@+id/aliMsgIcon"
                 android:layout_width="40dp"
-                android:src="@drawable/message"
+                android:src="@drawable/personal_msg"
                 android:scaleType="centerInside"
                 android:layout_marginLeft="15dp"
                 android:layout_height="match_parent"/>
 
         <TextView
-                android:layout_toRightOf="@+id/aliPayIcon"
+                android:layout_toRightOf="@+id/aliMsgIcon"
                 android:layout_width="wrap_content"
-                android:text="@string/ali_pay"
+                android:text="@string/personal_message"
                 android:layout_marginLeft="20dp"
                 android:textSize="15sp"
                 android:textColor="@color/mainTextColor"
                 android:gravity="start|center_vertical"
                 android:layout_height="match_parent"/>
 
-        <TextView
-                android:id="@+id/mALiPay"
+        <ImageView
+                android:id="@+id/mPersonalNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
                 android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:text="@string/toPay"
-                android:textColor="@color/to_pay_color"
-                android:background="@drawable/pay_tv_bg_shape"
-                android:gravity="center"
-                android:paddingTop="9dp"
-                android:paddingBottom="9dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textSize="12sp"
-                android:layout_marginRight="15dp"
                 android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
+                android:layout_height="40dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -107,7 +91,7 @@
         <ImageView
                 android:id="@+id/bankCardIcon"
                 android:layout_width="40dp"
-                android:src="@drawable/message"
+                android:src="@drawable/likes"
                 android:scaleType="centerInside"
                 android:layout_marginLeft="15dp"
                 android:layout_height="match_parent"/>
@@ -115,29 +99,21 @@
         <TextView
                 android:layout_toRightOf="@+id/bankCardIcon"
                 android:layout_width="wrap_content"
-                android:text="@string/bank_card_pay"
+                android:text="@string/who_likes_me"
                 android:layout_marginLeft="20dp"
                 android:textSize="15sp"
                 android:textColor="@color/mainTextColor"
                 android:gravity="start|center_vertical"
                 android:layout_height="match_parent"/>
 
-        <TextView
-                android:id="@+id/mBankCardPay"
+        <ImageView
+                android:id="@+id/mLikesNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
                 android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:text="@string/toPay"
-                android:textColor="@color/to_pay_color"
-                android:background="@drawable/pay_tv_bg_shape"
-                android:gravity="center"
-                android:paddingTop="9dp"
-                android:paddingBottom="9dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textSize="12sp"
-                android:layout_marginRight="15dp"
                 android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
+                android:layout_height="40dp"/>
     </RelativeLayout>
 
 </LinearLayout>

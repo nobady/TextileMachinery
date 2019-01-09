@@ -1,14 +1,16 @@
 package com.yang.mac.memodule.ui.fragment
 
-import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import com.game.base.mvp.BaseFragment
+import com.game.base.utils.toActivity
 import com.game.base.utils.toast
 import com.game.base.wdget.HeaderView
 import com.yang.mac.memodule.R
 import com.yang.mac.memodule.contract.MeContract
+import com.yang.mac.memodule.ui.activity.MessageActivity
 import com.yang.mac.memodule.ui.activity.MyPayTypeActivity
+import com.yang.mac.memodule.ui.activity.PersonalInfoActivity
 import kotlinx.android.synthetic.main.fragment_me.*
 
 /**
@@ -25,11 +27,12 @@ class MeFragment : BaseFragment(), MeContract.MeView {
     }
 
     private fun initHead() {
-        mMeHeadView.setTitle("我的")
+        mMeHeadView.setTitle(resources.getString(R.string.mine))
         mMeHeadView.setBackground(R.color.meTitleColor)
         mMeHeadView.showOneRightIv(R.drawable.message, object : HeaderView.RightIv2ClickListener {
             override fun onRightIv2Click(rightIv2: ImageView) {
-                toast("消息")
+                toast(resources.getString(R.string.message))
+                toActivity(MessageActivity::class.java)
             }
         })
     }
@@ -42,10 +45,13 @@ class MeFragment : BaseFragment(), MeContract.MeView {
     }
 
     private fun initEvent() {
-        mMyOrder.setOnClickListener { toast("我的订单") }
+        mMeAvatar.setOnClickListener {
+            toActivity(PersonalInfoActivity::class.java)
+        }
+        mMyOrder.setOnClickListener { toast(resources.getString(R.string.my_order)) }
 
-        mMyCoupon.setOnClickListener { toast("我的优惠券") }
+        mMyCoupon.setOnClickListener { toast(resources.getString(R.string.my_coupon)) }
 
-        mMyPayType.setOnClickListener { startActivity(Intent(this@MeFragment.context, MyPayTypeActivity::class.java)) }
+        mMyPayType.setOnClickListener { toActivity(MyPayTypeActivity::class.java) }
     }
 }

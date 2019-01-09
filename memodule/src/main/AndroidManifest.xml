@@ -5,6 +5,10 @@
     <application>
         <activity android:name=".ui.activity.MyPayTypeActivity">
         </activity>
+        <activity android:name=".ui.activity.MessageActivity">
+        </activity>
+        <activity android:name=".ui.activity.PersonalInfoActivity">
+        </activity>
     </application>
 
 </manifest>

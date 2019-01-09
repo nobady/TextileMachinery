@@ -4,4 +4,6 @@
     <color name="rankTextColor">#FFBF44</color>
     <color name="meBackground">#F4F4F4</color>
     <color name="meTitleColor">#03A8EC</color>
+    <color name="lineColor">#DDDDDD</color>
+    <color name="logoutTextColor">#FF6A6A</color>
 </resources>

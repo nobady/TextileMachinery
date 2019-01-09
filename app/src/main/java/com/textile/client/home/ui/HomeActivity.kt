@@ -5,6 +5,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
+import com.yang.mac.memodule.ui.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -54,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
                 "forum"-> MallFragment.newInstance()
                 "add"-> MallFragment.newInstance()
                 "shop_car"-> MallFragment.newInstance()
-                "me"-> MallFragment.newInstance()
+                "me"-> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
             }
         }
