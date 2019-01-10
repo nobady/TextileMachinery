@@ -3,8 +3,10 @@ package com.textile.client.login.ui
 import android.content.Intent
 import android.os.Handler
 import com.game.base.mvp.BaseActivity
+import com.game.base.utils.toActivity
 import com.game.base.wdget.LoadingDialog
 import com.textile.client.R
+import com.textile.client.home.ui.HomeActivity
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : BaseActivity() {
@@ -17,7 +19,10 @@ class StartActivity : BaseActivity() {
             testLoading()
 //            gotoLoginActivity()
         }
-        tv_start_register.setOnClickListener { gotoRegisterAct() }
+        tv_start_register.setOnClickListener {
+            toActivity(HomeActivity::class.java)
+//            gotoRegisterAct()
+        }
     }
 
     private fun testLoading() {

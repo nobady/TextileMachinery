@@ -17,6 +17,14 @@ import kotlinx.android.synthetic.main.fragment_me.*
  * Created by bo on 2019/1/6.
  */
 class MeFragment : BaseFragment(), MeContract.MeView {
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun dismissLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     companion object {
         fun newInstance() = MeFragment().apply { }
     }

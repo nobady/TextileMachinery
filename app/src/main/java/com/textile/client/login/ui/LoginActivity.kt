@@ -1,11 +1,9 @@
 package com.textile.client.login.ui
 
 import com.game.base.mvp.BaseActivity
-import com.game.base.mvp.BaseMvpActivity
 import com.game.base.utils.PatternUtil
 import com.game.base.utils.toast
 import com.textile.client.R
-import com.textile.client.R.id.*
 import com.textile.client.login.contract.LoginContract
 import com.textile.client.login.contract.LoginPresenterImpl
 import kotlinx.android.synthetic.main.activity_login.*

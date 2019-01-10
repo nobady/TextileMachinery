@@ -9,6 +9,8 @@
         </activity>
         <activity android:name=".ui.activity.PersonalInfoActivity">
         </activity>
+        <activity android:name=".ui.activity.MyOrderActivity">
+        </activity>
     </application>
 
 </manifest>
