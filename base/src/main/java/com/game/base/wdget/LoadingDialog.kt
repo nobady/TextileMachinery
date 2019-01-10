@@ -11,25 +11,15 @@ import com.github.ybq.android.spinkit.style.FadingCircle
  * @author ex-yangjb001
  * @date 2019/1/10.
  */
-class LoadingDialog(activity: FragmentActivity) {
-    val dialog = Dialog(activity,R.style.LoadingDialog)
-
+class LoadingDialog(activity: FragmentActivity) : Dialog(activity, R.style.LoadingDialog) {
     init {
         val view = LayoutInflater.from(activity).inflate(R.layout.loading, null, false)
-        dialog.setContentView(view)
-        dialog.setCanceledOnTouchOutside(false)
+        setContentView(view)
+        setCanceledOnTouchOutside(false)
         val mLoadingPb = view.findViewById<ProgressBar>(R.id.mLoadingPb)
         val bounce = FadingCircle()
         bounce.setBounds(0, 0, 100, 100)
         bounce.color = R.color.mainTextColor
         mLoadingPb.indeterminateDrawable = bounce
-    }
-
-    fun show() {
-        dialog.show()
-    }
-
-    fun dismiss() {
-        takeIf { dialog.isShowing }.let { dialog.dismiss() }
     }
 }

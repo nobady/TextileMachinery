@@ -14,12 +14,18 @@ class StartActivity : BaseActivity() {
 
     override fun initView() {
         tv_start_login.setOnClickListener {
-            val loadingDialog = LoadingDialog(this)
-            loadingDialog.show()
-            Handler().postDelayed({ loadingDialog.dismiss() }, 3000)
+            testLoading()
 //            gotoLoginActivity()
         }
         tv_start_register.setOnClickListener { gotoRegisterAct() }
+    }
+
+    private fun testLoading() {
+        val loadingDialog = LoadingDialog(this)
+        loadingDialog.show()
+        Handler().postDelayed({
+            loadingDialog?.takeIf { it -> it.isShowing }?.dismiss()
+        }, 3000)
     }
 
     private fun gotoRegisterAct() {
