@@ -1,24 +1,41 @@
 package com.textile.client.login.ui
 
 import com.game.base.mvp.BaseActivity
+import com.game.base.mvp.BaseMvpActivity
 import com.game.base.utils.PatternUtil
 import com.game.base.utils.toast
 import com.textile.client.R
+import com.textile.client.R.id.*
+import com.textile.client.login.contract.LoginContract
+import com.textile.client.login.contract.LoginPresenterImpl
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
  * Created by lff on 2019/1/9.
  */
-class LoginActivity : BaseActivity() {
+class LoginActivity : BaseActivity(),LoginContract.ILoginView {
+
+
+    private val loginPresenter:LoginContract.LoginPresenter by lazy { LoginPresenterImpl() }
 
     override fun startLoad() {
     }
 
-
     override fun initView() {
+
+        loginPresenter.attachView(this)
+
         login_headView.setBackground(R.color.colorPrimary)
         login_headView.setTitle(R.string.login_login)
         login_headView.showBack()
+
+        tv_login_login.setOnClickListener {
+            takeIf { checkInput() }.apply { loginPresenter.startLogin(et_login_phone.text.toString(),et_login_pwd.text.toString()) }
+        }
+
+        tv_login_forget_pwd.setOnClickListener {
+            loginPresenter.forgetPwd()
+        }
     }
 
     override fun initData() {
@@ -38,6 +55,11 @@ class LoginActivity : BaseActivity() {
             return false
         }
         return true
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        loginPresenter.detachView()
     }
 
     override fun layoutId() = R.layout.activity_login

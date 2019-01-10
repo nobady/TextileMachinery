@@ -9,7 +9,7 @@ import android.view.WindowManager
 /**
  * Created by lff on 2018/12/19.
  */
-abstract class BaseActivity:AppCompatActivity() {
+abstract class BaseActivity:AppCompatActivity(),IBaseView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,4 +36,10 @@ abstract class BaseActivity:AppCompatActivity() {
     abstract fun initData()
     /*布局id*/
     abstract fun layoutId(): Int
+
+    override fun showLoading() {
+    }
+
+    override fun dismissLoading() {
+    }
 }

@@ -8,7 +8,7 @@ import java.lang.RuntimeException
  * Created by lff on 2018/12/19.
  */
 open class BasePresenter<T: IBaseView>: IPresenter<T> {
-    var mRootView:T? = null
+    private var mRootView:T? = null
 
     private val composiDisposable by lazy { CompositeDisposable() }
 
@@ -26,8 +26,11 @@ open class BasePresenter<T: IBaseView>: IPresenter<T> {
 
     private val isViewAttached:Boolean get() = mRootView!=null
 
-    fun checkViewAttached(){
+    fun getView() = takeIf { checkViewAttached() }.apply { mRootView }
+
+    private fun checkViewAttached(): Boolean {
         if (!isViewAttached) throw MvpViewNoAttachedException()
+        return true
     }
 
     fun addSubScription(d:Disposable){

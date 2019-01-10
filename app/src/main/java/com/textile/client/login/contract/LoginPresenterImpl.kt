@@ -1,3 +1,16 @@
 package com.textile.client.login.contract
 
-class LoginPresenterImpl : LoginContract.LoginPresenter
+import com.game.base.mvp.BasePresenter
+
+class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContract.LoginPresenter{
+
+
+    override fun forgetPwd() {
+    }
+
+    override fun startLogin(phone: String, pwd: String) {
+
+
+    }
+
+}
