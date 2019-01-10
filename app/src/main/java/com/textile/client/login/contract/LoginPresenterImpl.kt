@@ -1,3 +1,3 @@
 package com.textile.client.login.contract
 
-class LoginPresenterImpl : LoginContract.LoginPresenter
+class LoginPresenterImpl : LoginContract.LoginPresenter()

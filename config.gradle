@@ -45,6 +45,7 @@ ext{
     navigation = "com.github.ittianyu:BottomNavigationViewEx:2.0.2"
 
     jpermission = "com.github.zincPower:JPermission:0.5"
+    loading = 'com.github.ybq:Android-SpinKit:1.2.0'
 
     supportLibs = supportDeps.values()
     networkLibs = retrofit.values()

@@ -1,9 +1,9 @@
 package com.textile.client.login.ui
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import android.os.Handler
 import com.game.base.mvp.BaseActivity
+import com.game.base.wdget.LoadingDialog
 import com.textile.client.R
 import kotlinx.android.synthetic.main.activity_start.*
 
@@ -13,7 +13,12 @@ class StartActivity : BaseActivity() {
     }
 
     override fun initView() {
-        tv_start_login.setOnClickListener { gotoLoginActivity() }
+        tv_start_login.setOnClickListener {
+            val loadingDialog = LoadingDialog(this)
+            loadingDialog.show()
+            Handler().postDelayed({ loadingDialog.dismiss() }, 3000)
+//            gotoLoginActivity()
+        }
         tv_start_register.setOnClickListener { gotoRegisterAct() }
     }
 
@@ -23,7 +28,7 @@ class StartActivity : BaseActivity() {
 
     private fun gotoLoginActivity() {
         val intent = Intent()
-        intent.setClass(this,LoginActivity::class.java)
+        intent.setClass(this, LoginActivity::class.java)
         startActivity(intent)
     }
 
