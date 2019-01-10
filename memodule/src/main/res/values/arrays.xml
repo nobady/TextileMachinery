@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="collectionTabs">
+        <item>@string/tech_exchange</item>
+        <item>@string/mechanical_demand</item>
+        <item>@string/mechanical_supply</item>
+        <item>@string/job_wanted</item>
+        <item>@string/recruit</item>
+    </string-array>
+</resources>

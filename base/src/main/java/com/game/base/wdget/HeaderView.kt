@@ -28,11 +28,11 @@ class HeaderView(context: Context?, attrs: AttributeSet?) : RelativeLayout(conte
         mHeadRootView.setBackgroundColor(context.resources.getColor(colorRes))
     }
 
-    fun setTitle(title:String = ""){
+    fun setTitle(title: String = "") {
         mHeadCenterTv.text = title
     }
 
-    fun setTitle(txtId:Int){
+    fun setTitle(txtId: Int) {
         mHeadCenterTv.setText(txtId)
     }
 
@@ -72,13 +72,13 @@ class HeaderView(context: Context?, attrs: AttributeSet?) : RelativeLayout(conte
         mHeadRightIv2.setOnClickListener { listener2.onRightIv2Click(it as ImageView) }
     }
 
-    fun showRightTv(msg: String = "", clickListener: View.OnClickListener) {
+    fun showRightTv(
+        msg: String = "",
+        clickListener: View.OnClickListener, @ColorRes colorRes: Int = android.R.color.white
+    ) {
         mHeadRightTv.visibility = View.VISIBLE
         mHeadRightTv.text = msg
         mHeadRightTv.setOnClickListener(clickListener)
-    }
-
-    fun showRightTvColor(@ColorRes colorRes: Int) {
         mHeadRightTv.setTextColor(context.resources.getColor(colorRes))
     }
 

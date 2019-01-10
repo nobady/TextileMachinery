@@ -7,17 +7,7 @@ import com.game.base.mvp.IPresenter
  * Created by bo on 2019/1/6.
  */
 class MeContract {
-    interface MeView :IBaseView{
+    interface IMeView : IBaseView
 
-    }
-
-    class MePresenter :IPresenter<MeView>{
-        override fun attachView(meView: MeView) {
-
-        }
-
-        override fun detachView() {
-        }
-
-    }
+    interface MePresenter : IPresenter<IMeView>
 }

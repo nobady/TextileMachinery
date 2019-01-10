@@ -8,6 +8,7 @@ import com.game.base.utils.toast
 import com.game.base.wdget.HeaderView
 import com.yang.mac.memodule.R
 import com.yang.mac.memodule.contract.MeContract
+import com.yang.mac.memodule.ui.activity.CollectionActivity
 import com.yang.mac.memodule.ui.activity.MessageActivity
 import com.yang.mac.memodule.ui.activity.MyPayTypeActivity
 import com.yang.mac.memodule.ui.activity.PersonalInfoActivity
@@ -16,14 +17,15 @@ import kotlinx.android.synthetic.main.fragment_me.*
 /**
  * Created by bo on 2019/1/6.
  */
-class MeFragment : BaseFragment(), MeContract.MeView {
+class MeFragment : BaseFragment(), MeContract.IMeView {
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun dismissLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
     companion object {
         fun newInstance() = MeFragment().apply { }
@@ -61,5 +63,7 @@ class MeFragment : BaseFragment(), MeContract.MeView {
         mMyCoupon.setOnClickListener { toast(resources.getString(R.string.my_coupon)) }
 
         mMyPayType.setOnClickListener { toActivity(MyPayTypeActivity::class.java) }
+
+        mMyCollection.setOnClickListener { toActivity(CollectionActivity::class.java) }
     }
 }

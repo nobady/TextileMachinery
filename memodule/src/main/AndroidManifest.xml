@@ -9,7 +9,7 @@
         </activity>
         <activity android:name=".ui.activity.PersonalInfoActivity">
         </activity>
-        <activity android:name=".ui.activity.MyOrderActivity">
+        <activity android:name=".ui.activity.CollectionActivity">
         </activity>
     </application>
 
