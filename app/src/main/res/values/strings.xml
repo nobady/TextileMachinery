@@ -8,8 +8,8 @@
     <!--首页底部文字-->
     <string name="title_mall">商城</string>
     <string name="title_forum">论坛</string>
-    <string name="title_shop_car">购物车</string>
-    <string name="title_me">我的</string>
+    <string name="title_shop_car" translatable="false">购物车</string>
+    <string name="title_me" translatable="false">我的</string>
     <string name="title_null"></string>
 
     <!-- TODO: Remove or change this placeholder text -->
