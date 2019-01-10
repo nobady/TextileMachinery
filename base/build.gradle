@@ -35,6 +35,8 @@ dependencies {
     api rootProject.ext.supportLibs
 
     api ('com.alibaba.android:vlayout:1.2.8@aar') { transitive = true }
+
+    implementation rootProject.ext.loading
 }
 repositories {
     mavenCentral()
