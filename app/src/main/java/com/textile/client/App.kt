@@ -3,7 +3,8 @@ package com.textile.client
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
-import com.game.base.net.RetrofitBuilder
+import com.game.base.net.OkHttpConfig
+import com.game.base.net.RxHttpUtil
 import com.tencent.bugly.crashreport.CrashReport
 
 /**
@@ -15,9 +16,19 @@ class App:Application() {
         super.onCreate()
 
         CrashReport.initCrashReport(this, "5e17ae2b2a", BuildConfig.DEBUG)
-        RetrofitBuilder.Builder().apply {
-            baseUrl = "http://haroldchan.cn:8080/api/"
+        initHttp()
+    }
+
+    private fun initHttp() {
+
+        val headerMap = HashMap<String,String>()
+
+        val okHttpClient = OkHttpConfig.getInstance().Builder().apply {
+            isDebug = BuildConfig.DEBUG
+            headMap = headerMap
         }.build()
+
+        RxHttpUtil.config().setClient(okHttpClient).setBaseUrl("http://haroldchan.cn:8080/api/")
     }
 
     override fun attachBaseContext(base: Context?) {

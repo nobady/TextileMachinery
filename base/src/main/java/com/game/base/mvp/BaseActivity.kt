@@ -21,9 +21,8 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         startLoad()
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    public fun setStatusBarColor(colorRes: Int) {
-        takeIf { Build.VERSION.SDK_INT >= 21 }.apply {
+     fun setStatusBarColor(colorRes: Int) {
+        if (Build.VERSION.SDK_INT >= 21) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.statusBarColor = colorRes
@@ -44,10 +43,10 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
 
     override fun showLoading() {
         mLoadingDialog = LoadingDialog(this)
-        mLoadingDialog?.show()
+        mLoadingDialog.show()
     }
 
     override fun dismissLoading() {
-        mLoadingDialog?.takeIf { it.isShowing }?.dismiss()
+        mLoadingDialog.takeIf { it.isShowing }?.dismiss()
     }
 }

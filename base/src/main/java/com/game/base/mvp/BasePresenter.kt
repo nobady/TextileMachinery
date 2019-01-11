@@ -26,7 +26,7 @@ open class BasePresenter<T: IBaseView>: IPresenter<T> {
 
     private val isViewAttached:Boolean get() = mRootView!=null
 
-    fun getView() = takeIf { checkViewAttached() }.apply { mRootView }
+    fun getView() = if (checkViewAttached())  mRootView else null
 
     private fun checkViewAttached(): Boolean {
         if (!isViewAttached) throw MvpViewNoAttachedException()
