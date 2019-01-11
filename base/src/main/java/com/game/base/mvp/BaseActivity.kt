@@ -1,5 +1,6 @@
 package com.game.base.mvp
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -48,5 +49,9 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
 
     override fun dismissLoading() {
         mLoadingDialog.takeIf { it.isShowing }?.dismiss()
+    }
+
+    override fun getContext(): Context {
+        return this
     }
 }
