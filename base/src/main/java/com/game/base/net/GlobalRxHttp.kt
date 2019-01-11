@@ -1,6 +1,5 @@
 package com.game.base.net
 
-import okhttp3.Call
 import okhttp3.OkHttpClient
 import retrofit2.CallAdapter
 import retrofit2.Converter
@@ -11,7 +10,7 @@ import retrofit2.Converter
 class GlobalRxHttp private constructor(){
 
     companion object {
-        fun getIntance() = SingletonHolder.holder
+        fun getInstance() = SingletonHolder.holder
     }
 
     private object SingletonHolder{
@@ -33,12 +32,12 @@ class GlobalRxHttp private constructor(){
     }
 
     fun addConverterFactors(factory:Converter.Factory): GlobalRxHttp {
-        RetorfitConfig.getInstance().addConvertFactor(factory)
+        RetrofitConfig.getInstance().addConvertFactor(factory)
         return this
     }
 
     fun addCallAdapterFactors(factory:CallAdapter.Factory): GlobalRxHttp {
-        RetorfitConfig.getInstance().addCallAdapter(factory)
+        RetrofitConfig.getInstance().addCallAdapter(factory)
         return this
     }
 

@@ -1,6 +1,5 @@
 package com.game.base.net
 
-import android.util.SparseArray
 import com.game.base.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -20,12 +19,12 @@ class OkHttpConfig private constructor(){
 
     private val okHttpClientBuilder = OkHttpClient.Builder()
 
-    fun getOkhttpCilent() = getInstance().okHttpClient
+    fun getOkhttpClient() = getInstance().okHttpClient
 
     private var okHttpClient:OkHttpClient? = null
 
     inner class Builder{
-        var defaultConnTime = 10L
+        var defaultConnTime = 30L
         var headMap = HashMap<String,String>()
         var isDebug = BuildConfig.DEBUG
         var logInterceptor:Interceptor = DefaultLogInterceptor()

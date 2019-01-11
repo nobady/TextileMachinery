@@ -2,7 +2,6 @@ package com.game.base.mvp
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import java.lang.RuntimeException
 
 /**
  * Created by lff on 2018/12/19.
@@ -10,7 +9,7 @@ import java.lang.RuntimeException
 open class BasePresenter<T: IBaseView>: IPresenter<T> {
     private var mRootView:T? = null
 
-    private val composiDisposable by lazy { CompositeDisposable() }
+    private val compositeDisposable by lazy { CompositeDisposable() }
 
     override fun attachView(mRootView: T) {
         this.mRootView = mRootView
@@ -19,8 +18,8 @@ open class BasePresenter<T: IBaseView>: IPresenter<T> {
     override fun detachView() {
         mRootView = null
 
-        if (!composiDisposable.isDisposed){
-            composiDisposable.clear()
+        if (!compositeDisposable.isDisposed){
+            compositeDisposable.clear()
         }
     }
 
@@ -33,8 +32,8 @@ open class BasePresenter<T: IBaseView>: IPresenter<T> {
         return true
     }
 
-    fun addSubScription(d:Disposable){
-        composiDisposable.add(d)
+    fun addSubscription(d:Disposable){
+        compositeDisposable.add(d)
     }
 
     private class MvpViewNoAttachedException internal constructor():RuntimeException("请调用IPresenter.attachView(IBaseView)")

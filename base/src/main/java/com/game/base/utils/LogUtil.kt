@@ -8,11 +8,11 @@ import com.game.base.BuildConfig
  */
 object LogUtil {
 
-    private val tag = "LogUtil"
+    private const val TAG = "LogUtil"
 
-    fun logv(msg:String){
-        if (BuildConfig.DEBUG){
-            Log.v(tag,msg)
+    fun logV(msg: String) {
+        if (BuildConfig.DEBUG) {
+            Log.v(TAG, msg)
         }
     }
 }
