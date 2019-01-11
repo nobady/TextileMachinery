@@ -5,7 +5,8 @@ package com.game.base.net
  */
 object RxHttpUtil {
 
-    fun config() = GlobalRxHttp.getIntance()
+
+    fun config() = GlobalRxHttp.getInstance()
 
     fun <K> createApi(cls:Class<K>) = GlobalRxHttp.getIntance().createService(cls)
 

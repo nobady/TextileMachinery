@@ -29,8 +29,8 @@ class RetrofitClient private constructor(){
     private fun initDefaultRetrofit(){
         mRetrofitBuilder = Retrofit.Builder()
 
-        val callAdapterFactors = RetorfitConfig.getInstance().getCallAdapterFactors()
-        val convertFactor = RetorfitConfig.getInstance().getConvertFactor()
+        val callAdapterFactors = RetrofitConfig.getInstance().getCallAdapterFactors()
+        val convertFactor = RetrofitConfig.getInstance().getConvertFactor()
 
         if (callAdapterFactors.size>0) {
             callAdapterFactors.forEach { mRetrofitBuilder.addCallAdapterFactory(it) }
@@ -62,8 +62,8 @@ class RetrofitClient private constructor(){
     fun getRetrofitBuilder() = mRetrofitBuilder
 
     fun getRetrofit(): Retrofit? {
-        OkHttpConfig.getInstance().getOkhttpCilent()?.let { return mRetrofitBuilder.client(it).build() }
-        OkHttpConfig.getInstance().getOkhttpCilent()?:let { return mRetrofitBuilder.client(okHttpClient).build() }
+        OkHttpConfig.getInstance().getOkhttpClient()?.let { return mRetrofitBuilder.client(it).build() }
+        OkHttpConfig.getInstance().getOkhttpClient()?:let { return mRetrofitBuilder.client(okHttpClient).build() }
         return null
     }
 
