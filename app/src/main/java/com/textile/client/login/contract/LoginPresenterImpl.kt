@@ -7,8 +7,6 @@ import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.utils.RequestbodyUtil
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposable
 
 class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContract.LoginPresenter{
 
@@ -23,13 +21,13 @@ class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContra
                 .createApi(NetApi::class.java)
                 ?.login(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<LoginModel>(getView()?.getContext()!!){
+                ?.subscribe { object : DataObserver<LoginModel>(getView()?.getContext()!!){
                     override fun onSuccess(data: LoginModel) {
                     }
 
                     override fun onError(msg: String) {
                     }
-                })
+                } }
         }
     }
 
