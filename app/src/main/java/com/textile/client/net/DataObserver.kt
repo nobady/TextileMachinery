@@ -11,23 +11,23 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by lff on 2019/1/11.
  */
-interface DataObserver<T>:Observer<BaseData<T>> {
+abstract class DataObserver<T>(context: Context):Observer<BaseData<T>> {
 
-//    private var mContext? = null
+    private var mContext = context
 
-     fun onSuccess(data:T)
+    abstract fun onSuccess(data:T)
 
-     fun onError(msg:String)
+    abstract fun onError(msg:String)
 
     override fun onError(e: Throwable) {
         e.message?.let {
             onError(it)
-//            mContext.toast(it)
+            mContext.toast(it)
         }
 
         e.message?: let {
-//            onError(mContext.getString(R.string.request_fail))
-//            mContext.toast(R.string.request_fail)
+            onError(mContext.getString(R.string.request_fail))
+            mContext.toast(R.string.request_fail)
         }
     }
 

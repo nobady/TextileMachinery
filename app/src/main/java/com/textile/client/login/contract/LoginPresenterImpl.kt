@@ -23,7 +23,7 @@ class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContra
                 .createApi(NetApi::class.java)
                 ?.login(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<LoginModel>{
+                ?.subscribe(object :DataObserver<LoginModel>(getView()?.getContext()!!){
                     override fun onSuccess(data: LoginModel) {
                     }
 
