@@ -2,9 +2,7 @@ package com.textile.client.net
 
 import android.content.Context
 import com.game.base.utils.toast
-import com.textile.client.App
 import com.textile.client.R
-import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 

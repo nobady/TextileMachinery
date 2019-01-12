@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".mall.ui.MyOrderActivity">
         </activity>
+        <activity android:name=".login.ui.RegisterActivity">
+        </activity>
     </application>
 
 </manifest>

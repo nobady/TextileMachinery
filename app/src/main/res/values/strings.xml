@@ -30,4 +30,9 @@
     <string name="toast_login_input_phone">请输入正确的手机号码</string>
     <string name="toast_login_input_pwd_error">密码长度最长不能超过20</string>
     <string name="request_fail">网络请求失败</string>
+    <string name="get_sms_code">获取验证码</string>
+    <string name="register_input_code">请输入您的验证码</string>
+    <string name="input_new_pwd">请输入您的新密码</string>
+    <string name="forget_pwd_problem_tips">如有问题请拨打0571-88888888</string>
+    <string name="register_ruler_tips">是否同意《杭州纺机用户协议》</string>
 </resources>

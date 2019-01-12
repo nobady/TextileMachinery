@@ -9,5 +9,6 @@
     <color name="grey">#929292</color>
     <color name="divide_line">#F1F1F1</color>
     <color name="text_hint_color">#CECECE</color>
+    <color name="text_dept_grey_color">#656565</color>
 
 </resources>

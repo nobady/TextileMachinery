@@ -4,6 +4,8 @@ import com.game.base.mvp.BaseActivity
 import com.game.base.utils.PatternUtil
 import com.game.base.utils.toast
 import com.textile.client.R
+import com.textile.client.R.id.et_login_phone
+import com.textile.client.R.id.et_login_pwd
 import com.textile.client.login.contract.LoginContract
 import com.textile.client.login.contract.LoginPresenterImpl
 import kotlinx.android.synthetic.main.activity_login.*
@@ -25,10 +27,9 @@ class LoginActivity : BaseActivity(),LoginContract.ILoginView {
 
         login_headView.setBackground(R.color.colorPrimary)
         login_headView.setTitle(R.string.login_login)
-        login_headView.showBack()
 
         tv_login_login.setOnClickListener {
-            takeIf { checkInput() }.apply { loginPresenter.startLogin(et_login_phone.text.toString(),et_login_pwd.text.toString()) }
+            if ( checkInput() ) { loginPresenter.startLogin(et_login_phone.text.toString(),et_login_pwd.text.toString()) }
         }
 
         tv_login_forget_pwd.setOnClickListener {
