@@ -2,6 +2,7 @@ package com.game.base.utils
 
 import android.content.Context
 import android.content.Intent
+import android.util.TypedValue
 import android.widget.Toast
 import com.game.base.mvp.BaseActivity
 import com.game.base.mvp.BaseFragment
@@ -23,4 +24,18 @@ fun BaseFragment.toActivity(cls: Class<*>) {
 fun BaseActivity.toActivity(cls: Class<*>) {
     val intent = Intent(this, cls)
     startActivity(intent)
+}
+
+fun Context.dip2Px(dip: Int): Int {
+    val density = resources.getDisplayMetrics().density
+    return (dip.toFloat() * density + 0.5f).toInt()
+}
+
+fun Context.px2dip(px: Int): Int {
+    val density = resources.getDisplayMetrics().density
+    return (px.toFloat() / density + 0.5f).toInt()
+}
+
+fun Context.sp2px(sp: Int): Int {
+    return (TypedValue.applyDimension(2, sp.toFloat(), resources.getDisplayMetrics()) + 0.5f).toInt()
 }

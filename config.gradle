@@ -46,6 +46,7 @@ ext{
 
     jpermission = "com.github.zincPower:JPermission:0.5"
     loading = 'com.github.ybq:Android-SpinKit:1.2.0'
+    swipeRecyclerView = 'com.yanzhenjie:recyclerview-swipe:1.2.1'
 
     supportLibs = supportDeps.values()
     networkLibs = retrofit.values()
