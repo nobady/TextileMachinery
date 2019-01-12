@@ -8,6 +8,7 @@
 
 
     <ImageView
+            android:id="@+id/toHome"
             android:layout_width="104dp"
             android:layout_height="104dp"
             android:src="@drawable/login_icon"

@@ -1,36 +1,60 @@
 package com.yang.mac.memodule.ui.fragment
 
 import android.content.Context
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-
+import com.game.base.mvp.BaseFragment
+import com.game.base.utils.dip2Px
 import com.yang.mac.memodule.R
+import com.yang.mac.memodule.ui.adapter.DemandAdapter
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
+import kotlinx.android.synthetic.main.fragment_demand.*
+
 /**
  * 机械需求
  */
-class DemandFragment : Fragment() {
+class DemandFragment : BaseFragment() {
+    override fun initView(view: View) {
+        initRv()
+    }
+
+    override fun lazyLoadData() {
+        
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.fragment_demand
+    }
+
+    private fun initRv() {
+        mDemandRv.layoutManager = LinearLayoutManager(activity)
+        mDemandRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                outRect.set(0, 30, 0, 0)
+            }
+        })
+        mDemandRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
+            val height = ViewGroup.LayoutParams.MATCH_PARENT
+            val deleteItem = SwipeMenuItem(this@DemandFragment.context)
+            deleteItem
+                .setBackgroundColorResource(R.color.slideDelColor)
+                .setImage(R.drawable.delete)
+                .setWidth(this@DemandFragment.context.dip2Px(57))
+                .setHeight(height)
+                .setText("删除")
+                .setTextColorResource(android.R.color.white).textSize = 10
+            rightMenu.addMenuItem(deleteItem)
+        }
+        mDemandRv.adapter = DemandAdapter()
+    }
 
     private var listener: OnFragmentInteractionListener? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_demand, container, false)
-    }
-
+    
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)

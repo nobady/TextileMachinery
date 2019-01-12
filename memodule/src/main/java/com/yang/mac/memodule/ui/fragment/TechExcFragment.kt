@@ -31,7 +31,7 @@ class TechExcFragment : BaseFragment() {
         mTechExcRv.layoutManager = LinearLayoutManager(activity)
         mTechExcRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                outRect.set(0, 20, 0, 0)
+                outRect.set(0, 30, 0, 0)
             }
         })
         mTechExcRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->

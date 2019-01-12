@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="13dp"
+        android:background="@android:color/white"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/mJobAvatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/default_header"/>
+
+    <TextView
+            android:id="@+id/mJobName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邹小旺"
+            android:textSize="16sp"
+            android:padding="2dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/mJobAvatar"/>
+
+    <TextView
+            android:id="@+id/mJobAge"
+            app:layout_constraintTop_toBottomOf="@+id/mJobName"
+            app:layout_constraintLeft_toRightOf="@+id/mJobAvatar"
+            android:text="26岁 6年工作经验"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mJobRank"
+            android:text="喷水维修工"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textSize="9sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/rankTextColor"
+            app:layout_constraintLeft_toRightOf="@+id/mJobName"
+            android:background="@drawable/rank_tv_bg_shape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mJobDate"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="2018/08/02"
+            android:layout_marginTop="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/timeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mJobDesc"
+            android:text="本人擅长......................................................................................"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/mJobAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mJobPrice"
+            app:layout_constraintTop_toBottomOf="@+id/mJobDesc"
+            android:text="期望薪资：8-10K"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/meTitleColor"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mJobContact"
+            android:textSize="10sp"
+            android:textColor="@color/rankTextColor"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/contact_it"
+            android:padding="5dp"
+            android:background="@drawable/rank_tv_bg_shape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

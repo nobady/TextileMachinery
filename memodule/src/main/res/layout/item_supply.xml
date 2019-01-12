@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+    <ImageView
+            android:id="@+id/mSupplyImage"
+            android:src="@drawable/ima_1"
+            android:padding="2dp"
+            android:layout_width="120dp"
+            android:layout_height="85dp"/>
+
+    <TextView
+            android:id="@+id/mSupplyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="津田驹 喷水纺织器械 九成新"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/mSupplyImage"/>
+
+    <TextView
+            android:id="@+id/mSupplyBrand"
+            app:layout_constraintTop_toBottomOf="@+id/mSupplyTitle"
+            app:layout_constraintLeft_toRightOf="@+id/mSupplyImage"
+            android:text="品牌:"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mSupplyModel"
+            app:layout_constraintTop_toBottomOf="@+id/mSupplyTitle"
+            app:layout_constraintLeft_toRightOf="@+id/mSupplyBrand"
+            android:text="型号:"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp"
+            android:padding="2dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mSupplyProdDate"
+            app:layout_constraintTop_toBottomOf="@+id/mSupplyModel"
+            app:layout_constraintLeft_toRightOf="@+id/mSupplyImage"
+            android:text="出厂日期:"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mSupplyPrice"
+            app:layout_constraintTop_toBottomOf="@+id/mSupplyProdDate"
+            app:layout_constraintLeft_toRightOf="@+id/mSupplyImage"
+            app:layout_constraintBottom_toBottomOf="@+id/mSupplyImage"
+            android:text="价格:"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/rankTextColor"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/mSupplyDate"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/mSupplyImage"
+            android:text="2018/08/02"
+            android:layout_marginTop="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/timeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</android.support.constraint.ConstraintLayout>
