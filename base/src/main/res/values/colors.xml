@@ -6,4 +6,6 @@
     <color name="meTitleColor">#03A8EC</color>
     <color name="lineColor">#DDDDDD</color>
     <color name="logoutTextColor">#FF6A6A</color>
+    <color name="timeColor">#CACACA</color>
+    <color name="slideDelColor">#F56036</color>
 </resources>
