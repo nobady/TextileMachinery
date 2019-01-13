@@ -32,6 +32,14 @@
         </activity>
         <activity android:name=".login.ui.RegisterActivity">
         </activity>
+        <activity android:name="com.textile.client.me.ui.activity.MyPayTypeActivity">
+        </activity>
+        <activity android:name="com.textile.client.me.ui.activity.MessageActivity">
+        </activity>
+        <activity android:name="com.textile.client.me.ui.activity.PersonalInfoActivity">
+        </activity>
+        <activity android:name="com.textile.client.me.ui.activity.CollectionActivity">
+        </activity>
     </application>
 
 </manifest>

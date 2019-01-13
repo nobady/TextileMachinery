@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.textile.client.me.ui.activity.MessageActivity"
+        android:background="@color/meBackground"
+        android:orientation="vertical">
+
+    <com.game.base.wdget.HeaderView
+            android:id="@+id/mMsgHeadView"
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+    </com.game.base.wdget.HeaderView>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="70dp">
+
+        <ImageView
+                android:id="@+id/weChatIcon"
+                android:layout_width="40dp"
+                android:src="@drawable/message_reply"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="15dp"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:layout_toRightOf="@+id/weChatIcon"
+                android:layout_width="wrap_content"
+                android:text="@string/message_reply"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:textColor="@color/mainTextColor"
+                android:gravity="start|center_vertical"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:id="@+id/mMsgNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:layout_height="70dp">
+
+        <ImageView
+                android:id="@+id/aliMsgIcon"
+                android:layout_width="40dp"
+                android:src="@drawable/personal_msg"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="15dp"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:layout_toRightOf="@+id/aliMsgIcon"
+                android:layout_width="wrap_content"
+                android:text="@string/personal_message"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:textColor="@color/mainTextColor"
+                android:gravity="start|center_vertical"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:id="@+id/mPersonalNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:layout_height="70dp">
+
+        <ImageView
+                android:id="@+id/bankCardIcon"
+                android:layout_width="40dp"
+                android:src="@drawable/likes"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="15dp"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:layout_toRightOf="@+id/bankCardIcon"
+                android:layout_width="wrap_content"
+                android:text="@string/who_likes_me"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:textColor="@color/mainTextColor"
+                android:gravity="start|center_vertical"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:id="@+id/mLikesNext"
+                android:layout_width="40dp"
+                android:src="@drawable/next"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

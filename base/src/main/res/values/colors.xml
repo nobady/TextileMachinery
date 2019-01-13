@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mainTextColor">#333333</color>
+    <color name="subTextColor">#666666</color>
     <color name="rankTextColor">#FFBF44</color>
     <color name="meBackground">#F4F4F4</color>
     <color name="meTitleColor">#03A8EC</color>
