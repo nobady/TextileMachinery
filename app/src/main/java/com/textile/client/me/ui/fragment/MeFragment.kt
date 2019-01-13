@@ -3,6 +3,7 @@ package com.textile.client.me.ui.fragment
 import android.view.View
 import android.widget.ImageView
 import com.game.base.mvp.BaseFragment
+import com.game.base.utils.StatusBarUtils
 import com.game.base.utils.toActivityNotFinish
 import com.game.base.utils.toast
 import com.game.base.wdget.HeaderView
@@ -25,12 +26,14 @@ class MeFragment : BaseFragment(), MeContract.IMeView {
     }
 
     override fun initView(view: View) {
+        StatusBarUtils.setStatusBarColor(activity!!, R.color.meTitleColor)
         initHead()
         initEvent()
     }
 
     private fun initHead() {
         mMeHeadView.setTitle(resources.getString(R.string.mine))
+        mMeHeadView.setImmerse(mMeRootView.layoutParams)
         mMeHeadView.setBackground(R.color.meTitleColor)
         mMeHeadView.showOneRightIv(R.drawable.message, object : HeaderView.RightIv2ClickListener {
             override fun onRightIv2Click(rightIv2: ImageView) {

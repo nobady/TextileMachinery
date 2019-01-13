@@ -7,9 +7,11 @@ import android.support.annotation.DrawableRes
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.game.base.R
+import com.game.base.utils.StatusBarUtils
 import kotlinx.android.synthetic.main.head_view.view.*
 
 /**
@@ -22,6 +24,17 @@ import kotlinx.android.synthetic.main.head_view.view.*
 class HeaderView(context: Context?, attrs: AttributeSet?) : RelativeLayout(context, attrs) {
     init {
         LayoutInflater.from(context).inflate(R.layout.head_view, this, true)
+    }
+
+    /**
+     * 沉浸式
+     */
+    fun setImmerse(lay: ViewGroup.LayoutParams) {
+        val statusHeight = StatusBarUtils.getStatusBarHeight(context)
+        lay?.takeIf { lay is ViewGroup.MarginLayoutParams }?.apply {
+            val marginLayoutParams = this as ViewGroup.MarginLayoutParams
+            marginLayoutParams.setMargins(0, statusHeight, 0, 0)
+        }
     }
 
     fun setBackground(@ColorRes colorRes: Int) {

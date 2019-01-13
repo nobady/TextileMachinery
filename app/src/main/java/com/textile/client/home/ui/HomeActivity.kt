@@ -42,24 +42,24 @@ class HomeActivity : AppCompatActivity() {
 
         changeOrNewFragment(getString(R.string.frag_mall))
 
-        fab_add.setOnClickListener {   changeOrNewFragment(getString(R.string.frag_add)) }
+        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add)) }
     }
 
-    private fun changeOrNewFragment(tag:String){
+    private fun changeOrNewFragment(tag: String) {
         var fragment = supportFragmentManager.findFragmentByTag(tag)
         val transaction = supportFragmentManager.beginTransaction()
 
-        fragment?:let {
-            fragment = when(tag){
-                "mall"-> MallFragment.newInstance()
-                "forum"-> MallFragment.newInstance()
-                "add"-> MallFragment.newInstance()
-                "shop_car"-> MallFragment.newInstance()
-                "me"-> MeFragment.newInstance()
+        fragment ?: let {
+            fragment = when (tag) {
+                "mall" -> MallFragment.newInstance()
+                "forum" -> MallFragment.newInstance()
+                "add" -> MallFragment.newInstance()
+                "shop_car" -> MallFragment.newInstance()
+                "me" -> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
             }
         }
-        transaction.replace(R.id.fragment,fragment!!,tag)
+        transaction.replace(R.id.fragment, fragment!!, tag)
         transaction.commit()
     }
 }

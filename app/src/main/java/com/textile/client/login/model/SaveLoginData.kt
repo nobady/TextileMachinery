@@ -1,7 +1,6 @@
 package com.textile.client.login.model
 
 import android.content.Context
-import com.textile.client.utils.SpUtil
 
 /**
  * Created by Administrator on 2019/1/13.

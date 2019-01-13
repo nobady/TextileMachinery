@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="myNavigationDrawerStyle" >
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>
