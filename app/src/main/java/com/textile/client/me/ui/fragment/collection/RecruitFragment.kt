@@ -1,8 +1,9 @@
-package com.textile.client.me.ui.fragment
+package com.textile.client.me.ui.fragment.collection
 
 import android.content.Context
 import android.graphics.Rect
 import android.net.Uri
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -10,43 +11,16 @@ import android.view.ViewGroup
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.dip2Px
 import com.textile.client.R
-import com.textile.client.me.ui.adapter.TechExcAdaper
+import com.textile.client.me.ui.adapter.RecruitAdapter
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
-import kotlinx.android.synthetic.main.fragment_tech_exc.*
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import kotlinx.android.synthetic.main.fragment_recruit.*
 
 /**
- *技术交流
+ * 招聘
  */
-class TechExcFragment : BaseFragment() {
+class RecruitFragment : BaseFragment() {
     override fun initView(view: View) {
         initRv()
-    }
-
-    private fun initRv() {
-        mTechExcRv.layoutManager = LinearLayoutManager(activity)
-        mTechExcRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                outRect.set(0, 30, 0, 0)
-            }
-        })
-        mTechExcRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
-            val height = ViewGroup.LayoutParams.MATCH_PARENT
-            val deleteItem = SwipeMenuItem(this@TechExcFragment.context)
-            deleteItem
-                .setBackgroundColorResource(R.color.slideDelColor)
-                .setImage(R.drawable.delete)
-                .setWidth(this@TechExcFragment.context.dip2Px(57))
-                .setHeight(height)
-                .setText("删除")
-                .setTextColorResource(android.R.color.white).textSize = 10
-            rightMenu.addMenuItem(deleteItem)
-        }
-        mTechExcRv.adapter = TechExcAdaper()
     }
 
     override fun lazyLoadData() {
@@ -54,11 +28,34 @@ class TechExcFragment : BaseFragment() {
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_tech_exc
+        return R.layout.fragment_recruit
+    }
+
+    private fun initRv() {
+        mRecruitRv.layoutManager = LinearLayoutManager(activity)
+        mRecruitRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                outRect.set(0, 30, 0, 0)
+            }
+        })
+        mRecruitRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
+            val height = ViewGroup.LayoutParams.MATCH_PARENT
+            val deleteItem = SwipeMenuItem(this@RecruitFragment.context)
+            deleteItem
+                .setBackgroundColorResource(R.color.slideDelColor)
+                .setImage(R.drawable.delete)
+                .setWidth(this@RecruitFragment.context.dip2Px(57))
+                .setHeight(height)
+                .setText("删除")
+                .setTextColorResource(android.R.color.white).textSize = 10
+            rightMenu.addMenuItem(deleteItem)
+        }
+        mRecruitRv.adapter = RecruitAdapter()
     }
 
     private var listener: OnFragmentInteractionListener? = null
 
+    // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
     }
@@ -78,14 +75,21 @@ class TechExcFragment : BaseFragment() {
     }
 
     interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
         fun onFragmentInteraction(uri: Uri)
     }
 
     companion object {
+        /**
+         * @return A new instance of fragment RecruitFragment.
+         */
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            TechExcFragment().apply {
+            RecruitFragment().apply {
+                arguments = Bundle().apply {
 
+                }
             }
     }
 }

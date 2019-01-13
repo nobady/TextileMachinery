@@ -5,15 +5,15 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
 import com.game.base.mvp.BaseActivity
-import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.me.contract.CollectionContract
 import com.textile.client.me.presenter.CollectionPresenterImpl
-import com.textile.client.me.ui.fragment.*
+import com.textile.client.me.ui.fragment.collection.*
 import com.textile.client.me.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_collection.*
 
-class CollectionActivity : BaseActivity(), TechExcFragment.OnFragmentInteractionListener,
+class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView,
+    TechExcFragment.OnFragmentInteractionListener,
     DemandFragment.OnFragmentInteractionListener, SupplyFragment.OnFragmentInteractionListener,
     RecruitFragment.OnFragmentInteractionListener, JobWantFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri) {
@@ -27,6 +27,7 @@ class CollectionActivity : BaseActivity(), TechExcFragment.OnFragmentInteraction
     }
 
     override fun initView() {
+        collectionPresenter.attachView(this)
         initTitle()
         initTab()
     }
@@ -36,7 +37,9 @@ class CollectionActivity : BaseActivity(), TechExcFragment.OnFragmentInteraction
         mCollHead.showBack()
         mCollHead.showRightTv(
             resources.getString(R.string.empty),
-            View.OnClickListener { toast(resources.getString(R.string.empty)) })
+            View.OnClickListener {
+                collectionPresenter.clearCollected()
+            })
     }
 
     override fun initData() {

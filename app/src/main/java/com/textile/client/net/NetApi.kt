@@ -1,13 +1,11 @@
 package com.textile.client.net
 
 import com.textile.client.login.model.LoginModel
+import com.textile.client.me.model.ClearCollModel
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
-import io.reactivex.disposables.Disposables
 import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.POST
-import java.util.*
 
 /**
  * 所有请求的定义
@@ -16,7 +14,8 @@ import java.util.*
 interface NetApi {
 
     @POST("login")
-    fun login(@Body body: RequestBody):Observable<LoginModel>
+    fun login(@Body body: RequestBody): Observable<LoginModel>
 
-
+    @POST("userCollection/emptyCollection")
+    fun clearCollected(@Body body: RequestBody): Observable<ClearCollModel>
 }

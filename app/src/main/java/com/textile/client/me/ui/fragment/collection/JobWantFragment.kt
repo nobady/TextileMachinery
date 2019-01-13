@@ -1,4 +1,4 @@
-package com.textile.client.me.ui.fragment
+package com.textile.client.me.ui.fragment.collection
 
 import android.content.Context
 import android.graphics.Rect
@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.dip2Px
 import com.textile.client.R
-import com.textile.client.me.ui.adapter.RecruitAdapter
+import com.textile.client.me.ui.adapter.JobWantAdapter
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
-import kotlinx.android.synthetic.main.fragment_recruit.*
+import kotlinx.android.synthetic.main.fragment_job_want.*
 
 /**
- * 招聘
+ *求职
  */
-class RecruitFragment : BaseFragment() {
+class JobWantFragment : BaseFragment() {
     override fun initView(view: View) {
         initRv()
     }
@@ -28,29 +28,29 @@ class RecruitFragment : BaseFragment() {
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_recruit
+        return R.layout.fragment_job_want
     }
 
     private fun initRv() {
-        mRecruitRv.layoutManager = LinearLayoutManager(activity)
-        mRecruitRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+        mJobRv.layoutManager = LinearLayoutManager(activity)
+        mJobRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 outRect.set(0, 30, 0, 0)
             }
         })
-        mRecruitRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
+        mJobRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
             val height = ViewGroup.LayoutParams.MATCH_PARENT
-            val deleteItem = SwipeMenuItem(this@RecruitFragment.context)
+            val deleteItem = SwipeMenuItem(this@JobWantFragment.context)
             deleteItem
                 .setBackgroundColorResource(R.color.slideDelColor)
                 .setImage(R.drawable.delete)
-                .setWidth(this@RecruitFragment.context.dip2Px(57))
+                .setWidth(this@JobWantFragment.context.dip2Px(57))
                 .setHeight(height)
                 .setText("删除")
                 .setTextColorResource(android.R.color.white).textSize = 10
             rightMenu.addMenuItem(deleteItem)
         }
-        mRecruitRv.adapter = RecruitAdapter()
+        mJobRv.adapter = JobWantAdapter()
     }
 
     private var listener: OnFragmentInteractionListener? = null
@@ -81,12 +81,12 @@ class RecruitFragment : BaseFragment() {
 
     companion object {
         /**
-         * @return A new instance of fragment RecruitFragment.
+         * @return A new instance of fragment JobWantFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            RecruitFragment().apply {
+            JobWantFragment().apply {
                 arguments = Bundle().apply {
 
                 }

@@ -3,7 +3,6 @@ package com.game.base.mvp
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import com.game.base.wdget.LoadingDialog

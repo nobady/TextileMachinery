@@ -3,15 +3,15 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.textile.client.me.ui.fragment.collection.SupplyFragment">
+             tools:context=".me.ui.fragment.order.AllOrderFragment">
 
     <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/mSupplyRefresh"
+            android:id="@+id/mOrderRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
-                android:id="@+id/mSupplyRv"
+                android:id="@+id/mOrderRv"
                 android:layout_width="match_parent"
                 android:overScrollMode="never"
                 android:layout_height="match_parent"/>

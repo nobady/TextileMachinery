@@ -1,4 +1,4 @@
-package com.textile.client.me.ui.fragment
+package com.textile.client.me.ui.fragment.order
 
 import android.content.Context
 import android.graphics.Rect
@@ -11,50 +11,50 @@ import android.view.ViewGroup
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.dip2Px
 import com.textile.client.R
-import com.textile.client.me.ui.adapter.SupplyAdapter
+import com.textile.client.me.ui.adapter.OrderAdapter
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
-import kotlinx.android.synthetic.main.fragment_supply.*
+import kotlinx.android.synthetic.main.fragment_all_order.*
 
 /**
- * 机械供给
+ * 全部订单
  */
-class SupplyFragment : BaseFragment() {
+class AllOrderFragment : BaseFragment() {
     override fun initView(view: View) {
         initRv()
     }
 
     override fun lazyLoadData() {
-        
+
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_supply
+        return R.layout.fragment_all_order
     }
 
     private fun initRv() {
-        mSupplyRv.layoutManager = LinearLayoutManager(activity)
-        mSupplyRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+        mOrderRv.layoutManager = LinearLayoutManager(activity)
+        mOrderRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 outRect.set(0, 30, 0, 0)
             }
         })
-        mSupplyRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
+        mOrderRv.setSwipeMenuCreator { leftMenu, rightMenu, position ->
             val height = ViewGroup.LayoutParams.MATCH_PARENT
-            val deleteItem = SwipeMenuItem(this@SupplyFragment.context)
+            val deleteItem = SwipeMenuItem(this@AllOrderFragment.context)
             deleteItem
                 .setBackgroundColorResource(R.color.slideDelColor)
                 .setImage(R.drawable.delete)
-                .setWidth(this@SupplyFragment.context.dip2Px(57))
+                .setWidth(this@AllOrderFragment.context.dip2Px(57))
                 .setHeight(height)
                 .setText("删除")
                 .setTextColorResource(android.R.color.white).textSize = 10
             rightMenu.addMenuItem(deleteItem)
         }
-        mSupplyRv.adapter = SupplyAdapter()
+        mOrderRv.adapter = OrderAdapter()
     }
 
     private var listener: OnFragmentInteractionListener? = null
-    
+
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
@@ -74,6 +74,17 @@ class SupplyFragment : BaseFragment() {
         listener = null
     }
 
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     *
+     * See the Android Training lesson [Communicating with Other Fragments]
+     * (http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
+     */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         fun onFragmentInteraction(uri: Uri)
@@ -81,11 +92,14 @@ class SupplyFragment : BaseFragment() {
 
     companion object {
         /**
-         * @return A new instance of fragment SupplyFragment.
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         * @return A new instance of fragment AllOrderFragment.
          */
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            SupplyFragment().apply {
+            AllOrderFragment().apply {
                 arguments = Bundle().apply {
 
                 }

@@ -1,7 +1,7 @@
 package com.textile.client.me.utils
 
 import android.support.v4.app.Fragment
-import com.textile.client.me.ui.fragment.*
+import com.textile.client.me.ui.fragment.collection.*
 
 /**
  * Created by bo on 2019/1/12.

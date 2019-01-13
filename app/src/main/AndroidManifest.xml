@@ -28,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".mall.ui.MyOrderActivity">
+        <activity android:name=".me.ui.activity.MyOrderActivity">
         </activity>
         <activity android:name=".login.ui.RegisterActivity">
         </activity>
