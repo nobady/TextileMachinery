@@ -4,8 +4,7 @@
         android:id="@+id/mHeadRootView"
         android:layout_width="match_parent"
         android:background="#06b2f1"
-        android:minHeight="44dp"
-        android:layout_height="wrap_content">
+        android:layout_height="41.5dp">
 
     <ImageView
             android:id="@+id/mHeadBackIv"
@@ -19,7 +18,7 @@
             android:id="@+id/mHeadCenterTv"
             android:layout_width="wrap_content"
             android:text="我的"
-            android:textSize="17sp"
+            android:textSize="17.5sp"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:layout_centerInParent="true"
@@ -49,7 +48,7 @@
             android:layout_centerVertical="true"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:textSize="14sp"
+            android:textSize="14.5sp"
             android:gravity="center"
             android:layout_marginRight="20dp"
             android:visibility="gone"/>

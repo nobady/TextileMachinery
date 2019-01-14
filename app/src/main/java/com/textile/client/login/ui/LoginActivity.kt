@@ -2,10 +2,9 @@ package com.textile.client.login.ui
 
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.PatternUtil
+import com.game.base.utils.setStatusBarColor
 import com.game.base.utils.toast
 import com.textile.client.R
-import com.textile.client.R.id.et_login_phone
-import com.textile.client.R.id.et_login_pwd
 import com.textile.client.login.contract.LoginContract
 import com.textile.client.login.contract.LoginPresenterImpl
 import kotlinx.android.synthetic.main.activity_login.*

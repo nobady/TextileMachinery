@@ -1,28 +1,21 @@
 package com.textile.client.login.ui
 
 import android.annotation.SuppressLint
-import android.content.res.Resources
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.text.SpannableString
-import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.LogUtil
 import com.game.base.utils.PatternUtil
+import com.game.base.utils.setStatusBarColor
 import com.game.base.utils.toast
 import com.textile.client.R
-import com.textile.client.R.id.login_headView
 import com.textile.client.login.contract.RegisterContract
 import com.textile.client.login.contract.RegisterPresenterImpl
 import com.textile.client.net.Transformer
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import java.util.concurrent.TimeUnit
 

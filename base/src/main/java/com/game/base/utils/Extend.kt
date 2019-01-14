@@ -1,8 +1,14 @@
 package com.game.base.utils
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
+import android.support.v4.app.Fragment
 import android.util.TypedValue
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.game.base.mvp.BaseActivity
 import com.game.base.mvp.BaseFragment
@@ -26,6 +32,34 @@ fun BaseFragment.toActivityNotFinish(cls: Class<*>) {
 fun BaseActivity.toActivityNotFinish(cls: Class<*>) {
     val intent = Intent(this, cls)
     startActivity(intent)
+}
+
+/**
+ * 设置页面为全屏
+ */
+fun Activity.setFullScreen() {
+    if (Build.VERSION.SDK_INT > 21) {
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.statusBarColor = Color.TRANSPARENT
+    } else {
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+    }
+}
+
+/**
+ * 设置状态栏颜色
+ */
+fun Activity.setStatusBarColor(colorRes: Int) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        window.statusBarColor = resources.getColor(colorRes)
+    }
+}
+
+fun Fragment.setStatusBarColor(colorRes: Int) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        activity!!.window.statusBarColor = resources.getColor(colorRes)
+    }
 }
 
 fun BaseFragment.toActivityFinish(cls: Class<*>) {
@@ -60,27 +94,27 @@ fun BaseActivity.toActivityFinish(intent: Intent) {
     finish()
 }
 
-fun BaseFragment.toActivityForResult(cls: Class<*>,requestCode:Int) {
+fun BaseFragment.toActivityForResult(cls: Class<*>, requestCode: Int) {
     activity?.let {
         val intent = Intent(it, cls)
-        it.startActivityForResult(intent,requestCode)
+        it.startActivityForResult(intent, requestCode)
         it.finish()
     }
 }
 
-fun BaseActivity.toActivityForResult(cls: Class<*>,requestCode:Int) {
+fun BaseActivity.toActivityForResult(cls: Class<*>, requestCode: Int) {
     val intent = Intent(this, cls)
-    startActivityForResult(intent,requestCode)
+    startActivityForResult(intent, requestCode)
     finish()
 }
 
-fun BaseFragment.toActivityForResult(intent: Intent,requestCode:Int) {
-    activity?.startActivityForResult(intent,requestCode)
+fun BaseFragment.toActivityForResult(intent: Intent, requestCode: Int) {
+    activity?.startActivityForResult(intent, requestCode)
     activity?.finish()
 }
 
-fun BaseActivity.toActivityForResult(intent: Intent,requestCode:Int) {
-    startActivityForResult(intent,requestCode)
+fun BaseActivity.toActivityForResult(intent: Intent, requestCode: Int) {
+    startActivityForResult(intent, requestCode)
     finish()
 }
 

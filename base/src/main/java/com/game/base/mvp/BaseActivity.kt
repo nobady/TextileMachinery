@@ -1,11 +1,7 @@
 package com.game.base.mvp
 
-import android.app.Activity
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.WindowManager
 import com.game.base.wdget.LoadingDialog
 
 /**
@@ -22,13 +18,13 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         startLoad()
     }
 
-     fun setStatusBarColor(colorRes: Int) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = colorRes
-        }
-    }
+//     fun setStatusBarColor(colorRes: Int) {
+//        if (Build.VERSION.SDK_INT >= 21) {
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+//            window.statusBarColor = colorRes
+//        }
+//    }
 
     /*加载数据*/
     abstract fun startLoad()

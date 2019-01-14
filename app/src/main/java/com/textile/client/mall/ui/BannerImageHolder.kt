@@ -12,6 +12,7 @@ class BannerImageHolder:Holder<String> {
     override fun UpdateUI(context: Context?, position: Int, data: String?) {
     }
 
-    override fun createView(context: Context?): View {
+    override fun createView(context: Context?): View? {
+            return null
     }
 }

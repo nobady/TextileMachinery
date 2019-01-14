@@ -5,6 +5,7 @@ import android.text.TextUtils
 import com.game.base.mvp.BaseActivity
 import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
+import com.game.base.utils.setFullScreen
 import com.game.base.utils.toActivityFinish
 import com.game.base.utils.toActivityNotFinish
 import com.textile.client.BuildConfig
@@ -21,18 +22,21 @@ class StartActivity : BaseActivity() {
     override fun initView() {
 
         initHttp()
-
-        if (!TextUtils.isEmpty( UserPrefs.getInstance.getToken())) {
+        setFullScreen()
+        if (!TextUtils.isEmpty(UserPrefs.getInstance.getToken())) {
             toActivityFinish(HomeActivity::class.java)
             return
+        }
+        toHome.setOnClickListener {
+            toActivityNotFinish(HomeActivity::class.java)
         }
         tv_start_login.setOnClickListener {
             toActivityFinish(LoginActivity::class.java)
         }
         tv_start_register.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("type",RegisterActivity.REGISTER_TYPE)
-            intent.setClass(this,RegisterActivity::class.java)
+            intent.putExtra("type", RegisterActivity.REGISTER_TYPE)
+            intent.setClass(this, RegisterActivity::class.java)
             toActivityFinish(intent)
         }
     }
@@ -45,7 +49,7 @@ class StartActivity : BaseActivity() {
 
     private fun initHttp() {
 
-        val headerMap = HashMap<String,String>()
+        val headerMap = HashMap<String, String>()
         headerMap["Authorization"] = UserPrefs.getInstance.getToken()
 
         val okHttpClient = OkHttpConfig.getInstance().Builder().apply {

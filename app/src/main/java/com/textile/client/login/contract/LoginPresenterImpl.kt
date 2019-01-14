@@ -5,7 +5,6 @@ import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toActivityFinish
 import com.textile.client.BuildConfig
-import com.textile.client.MainActivity
 import com.textile.client.home.ui.HomeActivity
 import com.textile.client.login.model.LoginModel
 import com.textile.client.login.model.UserPrefs

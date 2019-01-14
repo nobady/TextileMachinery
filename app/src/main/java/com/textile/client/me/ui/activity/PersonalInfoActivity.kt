@@ -15,7 +15,6 @@ class PersonalInfoActivity : BaseActivity() {
 
     private fun initTitle() {
         mPerInfoHead.showBack()
-        mPerInfoHead.setBackground(R.color.meTitleColor)
         mPerInfoHead.setTitle(resources.getString(R.string.personal_data))
     }
 
