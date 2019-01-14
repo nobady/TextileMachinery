@@ -6,12 +6,14 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alibaba.android.vlayout.DelegateAdapter
+import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.game.base.mvp.BaseFragment
 
 import com.textile.client.R
+import kotlinx.android.synthetic.main.fragment_mall.*
+import kotlinx.android.synthetic.main.fragment_mall.view.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -23,7 +25,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class MallFragment : BaseFragment() {
 
+    private lateinit var delegateAdapter: DelegateAdapter
+
     override fun initView(view: View) {
+        val layoutManager =  VirtualLayoutManager(context)
+        layoutManager.orientation = VirtualLayoutManager.VERTICAL
+        delegateAdapter = DelegateAdapter(layoutManager)
+        mall_recycler.setHasFixedSize(true)
+        mall_recycler.adapter = delegateAdapter
     }
 
     override fun lazyLoadData() {
@@ -33,14 +42,10 @@ class MallFragment : BaseFragment() {
 
     companion object {
         /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MallFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
             MallFragment().apply {

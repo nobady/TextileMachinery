@@ -47,9 +47,10 @@ ext{
     jpermission = "com.github.zincPower:JPermission:0.5"
     loading = 'com.github.ybq:Android-SpinKit:1.2.0'
     swipeRecyclerView = 'com.yanzhenjie:recyclerview-swipe:1.2.1'
+    banner = 'com.bigkoo:convenientbanner:2.0.5'
 
     supportLibs = supportDeps.values()
     networkLibs = retrofit.values()
     rxJavaLibs = rxJava.values()
-    otherLibs = [glide,jpermission,navigation]
+    otherLibs = [glide,jpermission,navigation,banner]
 }

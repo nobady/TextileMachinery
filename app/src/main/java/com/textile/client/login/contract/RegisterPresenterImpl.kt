@@ -7,8 +7,8 @@ import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toActivityFinish
 import com.game.base.utils.toast
 import com.textile.client.BuildConfig
-import com.textile.client.MainActivity
 import com.textile.client.R
+import com.textile.client.home.ui.HomeActivity
 import com.textile.client.login.model.LoginModel
 import com.textile.client.login.model.UserPrefs
 import com.textile.client.login.ui.LoginActivity
@@ -77,7 +77,7 @@ class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),Reg
                         UserPrefs.getInstance.setUser(data)
                         //登录成功，设置网络参数
                         initHttp()
-                        getView()?.getContext()?.toActivityFinish(MainActivity::class.java)
+                        getView()?.getContext()?.toActivityFinish(HomeActivity::class.java)
                     }
                     override fun onError(msg: String) {
                         getView()?.resetCountView()
