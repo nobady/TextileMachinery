@@ -30,13 +30,15 @@
         </activity>
         <activity android:name=".login.ui.RegisterActivity">
         </activity>
-        <activity android:name="com.textile.client.me.ui.activity.MyPayTypeActivity">
+        <activity android:name=".me.ui.activity.MyPayTypeActivity">
         </activity>
-        <activity android:name="com.textile.client.me.ui.activity.MessageActivity">
+        <activity android:name=".me.ui.activity.MessageActivity">
         </activity>
-        <activity android:name="com.textile.client.me.ui.activity.PersonalInfoActivity">
+        <activity android:name=".me.ui.activity.PersonalInfoActivity">
         </activity>
-        <activity android:name="com.textile.client.me.ui.activity.CollectionActivity">
+        <activity android:name=".me.ui.activity.CollectionActivity">
+        </activity>
+        <activity android:name=".me.ui.activity.SetPhoneActivity">
         </activity>
     </application>
 

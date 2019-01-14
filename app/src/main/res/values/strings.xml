@@ -23,6 +23,8 @@
     <string name="login_register">注 册</string>
     <string name="login_login">登 陆</string>
     <string name="login_hint_phone">输入您的手机号码</string>
+    <string name="input_new_phone">输入您的新手机号码</string>
+    <string name="input_pwd">请输入您的密码 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 20个字符以内</string>
     <string name="login_hint_pwd">请输入您的密码</string>
     <string name="login_limit_pwd_length">20个字符以内</string>
     <string name="forget_pwd">忘记密码</string>
@@ -74,4 +76,6 @@
     <string name="send_get_code_success">验证码发送成功</string>
     <string name="register_success">注册成功</string>
     <string name="toast_reset_pwd_success">密码设置成功</string>
+
+    <string name="commit">提交</string>
 </resources>

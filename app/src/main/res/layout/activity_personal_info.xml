@@ -114,6 +114,7 @@
                 android:layout_width="wrap_content"
                 tools:text="178****9700"
                 android:gravity="center"
+                android:textColor="@color/subTextColor"
                 android:layout_height="match_parent"/>
     </RelativeLayout>
 
@@ -151,6 +152,7 @@
             android:layout_weight="1"/>
 
     <TextView
+            android:id="@+id/mPerInfoLogout"
             android:text="@string/logout"
             android:gravity="center"
             android:textSize="16sp"
