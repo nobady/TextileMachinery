@@ -118,7 +118,7 @@
 
 
     <TextView
-            android:id="@+id/tv_login_login"
+            android:id="@+id/tv_register_login"
             android:layout_width="match_parent" android:layout_height="45dp"
             android:text="@string/login_login"
             android:background="@drawable/shape_login_btn_bg"

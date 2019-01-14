@@ -15,13 +15,14 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity : BaseActivity(),LoginContract.ILoginView {
 
-
     private val loginPresenter:LoginContract.LoginPresenter by lazy { LoginPresenterImpl() }
 
     override fun startLoad() {
     }
 
     override fun initView() {
+
+        setStatusBarColor(R.color.colorAccent)
 
         loginPresenter.attachView(this)
 

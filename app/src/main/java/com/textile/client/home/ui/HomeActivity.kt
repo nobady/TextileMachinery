@@ -3,12 +3,32 @@ package com.textile.client.home.ui
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import com.game.base.mvp.BaseActivity
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
 import com.textile.client.me.ui.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
+
+
+    override fun startLoad() {
+    }
+
+    override fun initView() {
+        navigation.onNavigationItemSelectedListener = mOnNavigationItemSelectedListener
+        navigation.enableAnimation(false)
+        navigation.enableShiftingMode(false)
+
+        changeOrNewFragment(getString(R.string.frag_mall))
+
+        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add)) }
+    }
+
+    override fun initData() {
+    }
+
+    override fun layoutId() = R.layout.activity_home
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -30,19 +50,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         false
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-
-        navigation.onNavigationItemSelectedListener = mOnNavigationItemSelectedListener
-        navigation.enableAnimation(false)
-        navigation.enableShiftingMode(false)
-
-        changeOrNewFragment(getString(R.string.frag_mall))
-
-        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add)) }
     }
 
     private fun changeOrNewFragment(tag: String) {

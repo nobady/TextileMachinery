@@ -5,6 +5,7 @@ import com.game.base.utils.toast
 import com.textile.client.R
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Consumer
 
 /**
  * Created by lff on 2019/1/11.
@@ -17,6 +18,21 @@ abstract class DataObserver<T>(context: Context):Observer<BaseData<T>> {
 
     abstract fun onError(msg:String)
 
+    override fun onComplete() {
+    }
+
+    override fun onSubscribe(d: Disposable) {
+
+    }
+
+    override fun onNext(t: BaseData<T>) {
+            if (t.code!=1000){
+                onError(t.message)
+            }else{
+                onSuccess(t.data)
+            }
+    }
+
     override fun onError(e: Throwable) {
         e.message?.let {
             onError(it)
@@ -26,20 +42,6 @@ abstract class DataObserver<T>(context: Context):Observer<BaseData<T>> {
         e.message?: let {
             onError(mContext.getString(R.string.request_fail))
             mContext.toast(R.string.request_fail)
-        }
-    }
-
-    override fun onComplete() {
-    }
-
-    override fun onSubscribe(d: Disposable) {
-    }
-
-    override fun onNext(t: BaseData<T>) {
-        if (t.code!=200){
-            onError(t.message)
-        }else{
-            onSuccess(t.data)
         }
     }
 }

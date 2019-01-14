@@ -12,7 +12,7 @@ data class LoginModel(
     var level: Int,
     var orderNum: Int,
     var phone: String,
-    var rowVersion: Int,
+    var rowVersion: String,
     var sex: Int,
     var token: String
 )

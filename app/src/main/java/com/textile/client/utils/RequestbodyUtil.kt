@@ -19,6 +19,21 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
+    fun createGetVerificationCodeBody(phone: String): RequestBody? {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("phone", phone)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createRegisterBody(phone: String, pwd: String,code:String): RequestBody? {
+
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("phone", phone)
+        jsonObject.addProperty("password", pwd)
+        jsonObject.addProperty("code", code)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
     fun createClearCollBody(): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("type", 0)

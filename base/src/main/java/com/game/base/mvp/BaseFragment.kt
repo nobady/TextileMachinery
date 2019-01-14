@@ -1,5 +1,6 @@
 package com.game.base.mvp
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -48,7 +49,7 @@ abstract class BaseFragment : Fragment(), IBaseView {
         mLoadingDialog.takeIf { it.isShowing }?.dismiss()
     }
 
-    override fun getContext(): Context {
-        return this.activity!!
+    override fun getContext(): BaseActivity {
+        return this.activity!! as BaseActivity
     }
 }

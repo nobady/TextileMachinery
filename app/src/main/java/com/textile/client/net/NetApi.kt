@@ -14,8 +14,17 @@ import retrofit2.http.POST
 interface NetApi {
 
     @POST("login")
-    fun login(@Body body: RequestBody): Observable<LoginModel>
+    fun login(@Body body: RequestBody): Observable<BaseData<LoginModel>>
+
+    @POST("sendVerificationCode")
+    fun getVerificationCode(@Body body: RequestBody):Observable<BaseData<String>>
+
+    @POST("register")
+    fun register(@Body body: RequestBody):Observable<BaseData<LoginModel>>
+
+    @POST("user/updatePassword")
+    fun resetPwd(@Body body: RequestBody):Observable<BaseData<String>>
 
     @POST("userCollection/emptyCollection")
-    fun clearCollected(@Body body: RequestBody): Observable<ClearCollModel>
+    fun clearCollected(@Body body: RequestBody): Observable<BaseData<ClearCollModel>>
 }
