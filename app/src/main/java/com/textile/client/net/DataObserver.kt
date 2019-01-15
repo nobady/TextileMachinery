@@ -1,10 +1,12 @@
 package com.textile.client.net
 
 import android.content.Context
+import android.content.Intent
 import com.game.base.utils.LogUtil
 import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.login.model.BaseModel
+import com.textile.client.login.ui.LoginActivity
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
@@ -27,13 +29,19 @@ abstract class DataObserver<T>(context: Context) : Observer<BaseModel<T>> {
     }
 
     override fun onNext(t: BaseModel<T>) {
+        if (t.code == 1006 || t.message == "token失效") {
+            val intent = Intent(mContext, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            mContext.startActivity(intent)
+        }
         if (t.code != 1000) {
             onError(t.message)
         } else {
             LogUtil.logV(t.message)
-            if (t.data == null){
+            if (t.data == null) {
                 onError(mContext.getString(R.string.request_fail))
-            }else{
+            } else {
                 onSuccess(t.data)
             }
         }
