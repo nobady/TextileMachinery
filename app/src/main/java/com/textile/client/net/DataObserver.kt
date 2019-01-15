@@ -1,6 +1,9 @@
 package com.textile.client.net
 
 import android.content.Context
+import com.game.base.mvp.BasePresenter
+import com.game.base.mvp.IBaseView
+import com.game.base.utils.LogUtil
 import com.game.base.utils.toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -10,6 +13,7 @@ import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
+import org.json.JSONArray
 import org.json.JSONObject
 
 /**
@@ -42,11 +46,12 @@ abstract class DataObserver<in T>(context: Context):Observer<ResponseBody> {
             onError(json.getString("message"))
         }else{
             val type = object :TypeToken<T>(){}.rawType
-            if (type is JSONObject){
+            LogUtil.logV("$type")
+            if(json.get("data") is String){
+                onSuccess((json.get("data") as T)!!)
+            }else{
                 val fromJson = Gson().fromJson<T>(json.getJSONObject("data").toString(), type)
                 onSuccess(fromJson!!)
-            }else{
-                onSuccess((json.get("data") as T)!!)
             }
         }
     }

@@ -11,6 +11,8 @@ import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.game.base.mvp.BaseFragment
 
 import com.textile.client.R
+import com.textile.client.mall.contract.MallContract
+import com.textile.client.mall.contract.MallPresenterImpl
 import kotlinx.android.synthetic.main.fragment_mall.*
 import kotlinx.android.synthetic.main.fragment_mall.view.*
 
@@ -23,11 +25,15 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class MallFragment : BaseFragment() {
+class MallFragment : BaseFragment(),MallContract.IMallView {
+
+    private val mPresenter by lazy { MallPresenterImpl() }
 
     private lateinit var delegateAdapter: DelegateAdapter
 
     override fun initView(view: View) {
+        mPresenter.attachView(this)
+
         val layoutManager =  VirtualLayoutManager(context)
         layoutManager.orientation = VirtualLayoutManager.VERTICAL
         delegateAdapter = DelegateAdapter(layoutManager)
@@ -36,6 +42,7 @@ class MallFragment : BaseFragment() {
     }
 
     override fun lazyLoadData() {
+        mPresenter.getBannerList(MallContract.BannerType.BANNER_MALL.ordinal)
     }
 
     override fun getLayoutId() = R.layout.fragment_mall
@@ -52,5 +59,10 @@ class MallFragment : BaseFragment() {
                 arguments = Bundle().apply {
                 }
             }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.detachView()
     }
 }

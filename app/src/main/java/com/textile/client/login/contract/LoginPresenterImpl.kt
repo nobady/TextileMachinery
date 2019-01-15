@@ -34,11 +34,9 @@ class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContra
                 ?.login(it)
                 ?.compose(Transformer.switchSchedulers())
                 ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
-                    override fun onSuccess(data: Any) {
+                    override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
-                        val loginModel =
-                            Gson().fromJson<LoginModel>((data as JSONObject).toString(), LoginModel::class.java)
-                        UserPrefs.getInstance.setUser(loginModel)
+                        UserPrefs.getInstance.setUser(data)
                         //登录成功，设置网络参数
                         LoginUtil.initHttpConfig()
                         getView()?.getContext()?.toActivityFinish(HomeActivity::class.java)
