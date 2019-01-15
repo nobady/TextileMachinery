@@ -1,38 +1,32 @@
 package com.textile.client.login.contract
 
-import android.content.Intent
 import com.game.base.mvp.BasePresenter
-import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toActivityFinish
 import com.game.base.utils.toast
-import com.google.gson.Gson
-import com.textile.client.BuildConfig
 import com.textile.client.R
 import com.textile.client.home.ui.HomeActivity
 import com.textile.client.login.LoginUtil
 import com.textile.client.login.model.LoginModel
 import com.textile.client.login.model.UserPrefs
-import com.textile.client.login.ui.LoginActivity
 import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.utils.RequestbodyUtil
 import io.reactivex.disposables.Disposable
-import org.json.JSONObject
 
 /**
  * Created by lff on 2019/1/14.
  */
-class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),RegisterContract.RegisterPresenter {
+class RegisterPresenterImpl : BasePresenter<RegisterContract.IRegisterView>(), RegisterContract.RegisterPresenter {
 
     override fun resetPwd(phone: String, pwd: String, code: String) {
         getView()?.showLoading()
         RequestbodyUtil.createRegisterBody(phone, pwd, code)?.let {
             RxHttpUtil.createApi(NetApi::class.java)?.resetPwd(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<String>(getView()?.getContext()!!){
-                    override fun onSuccess(data: String) {
+                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                    override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
                         getView()?.getContext()?.toast(R.string.toast_reset_pwd_success)
                     }
@@ -52,13 +46,15 @@ class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),Reg
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.getVerificationCode(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<String>(getView()?.getContext()!!){
-                    override fun onSuccess(data: String) {
+                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                    override fun onSuccess(data: LoginModel) {
                         getView()?.getContext()?.toast(R.string.send_get_code_success)
                     }
+
                     override fun onError(msg: String) {
                         getView()?.resetCountView()
                     }
+
                     override fun onSubscribe(d: Disposable) {
                         addSubscription(d)
                     }
@@ -73,7 +69,7 @@ class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),Reg
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.register(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<LoginModel>(getView()?.getContext()!!){
+                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
                     override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
                         getView()?.getContext()?.toast(R.string.register_success)
@@ -82,6 +78,7 @@ class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),Reg
                         LoginUtil.initHttpConfig()
                         getView()?.getContext()?.toActivityFinish(HomeActivity::class.java)
                     }
+
                     override fun onError(msg: String) {
                         getView()?.resetCountView()
                         getView()?.dismissLoading()

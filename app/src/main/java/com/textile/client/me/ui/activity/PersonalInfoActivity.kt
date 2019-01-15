@@ -40,8 +40,11 @@ class PersonalInfoActivity : BaseActivity() {
 
     override fun initData() {
         val phone = UserPrefs.getInstance.getUser().phone
-        val substring = phone.substring(4, 7)
-        mPerPhoneNum.text = phone.replace(substring, "****")
+
+        phone?.takeIf { phone.length == 11 }?.let {
+            val substring = phone?.substring(4, 7)
+            mPerPhoneNum.text = phone?.replace(substring, "****")
+        }
     }
 
     override fun layoutId(): Int {

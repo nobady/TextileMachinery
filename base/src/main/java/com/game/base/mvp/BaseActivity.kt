@@ -44,7 +44,7 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
     }
 
     override fun dismissLoading() {
-        mLoadingDialog.takeIf { it.isShowing }?.dismiss()
+        mLoadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     override fun getContext(): BaseActivity {

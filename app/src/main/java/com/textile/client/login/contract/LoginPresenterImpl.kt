@@ -1,13 +1,9 @@
 package com.textile.client.login.contract
 
 import com.game.base.mvp.BasePresenter
-import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toActivityFinish
 import com.game.base.utils.toast
-import com.google.gson.Gson
-import com.textile.client.BuildConfig
-import com.textile.client.R
 import com.textile.client.home.ui.HomeActivity
 import com.textile.client.login.LoginUtil
 import com.textile.client.login.model.LoginModel
@@ -17,7 +13,6 @@ import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.utils.RequestbodyUtil
 import io.reactivex.disposables.Disposable
-import org.json.JSONObject
 
 class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContract.LoginPresenter{
 

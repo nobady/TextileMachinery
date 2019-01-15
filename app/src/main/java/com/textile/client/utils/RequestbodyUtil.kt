@@ -25,7 +25,7 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createRegisterBody(phone: String, pwd: String,code:String): RequestBody? {
+    fun createRegisterBody(phone: String, pwd: String, code: String): RequestBody? {
 
         val jsonObject = JsonObject()
         jsonObject.addProperty("phone", phone)
@@ -34,7 +34,7 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createBannerListBody(type:Int):RequestBody?{
+    fun createBannerListBody(type: Int): RequestBody? {
         val jsonObject = JsonObject()
         jsonObject.addProperty("bannerTypeEnum", type)
         return RequestBody.create(mediaType, jsonObject.toString())
@@ -43,6 +43,13 @@ object RequestbodyUtil {
     fun createClearCollBody(): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("type", 0)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createUpdatePhoneBody(phoneNum: String, password: String): RequestBody {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("phone ", phoneNum)
+        jsonObject.addProperty("password  ", password)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 }
