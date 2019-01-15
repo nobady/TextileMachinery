@@ -8,10 +8,15 @@ import com.game.base.mvp.IPresenter
  */
 interface SetPhoneContract {
     interface ISetPhoneView : IBaseView {
-
+        fun showCountView()
+        fun resetCountView()
     }
 
     interface ISetPhonePresenter : IPresenter<ISetPhoneView> {
         fun setPhoneCommit(phoneNum: String, password: String)
+
+        fun setPasswordCommit(phoneNum: String, password: String, code: String)
+
+        fun getCode(phoneNum: String)
     }
 }

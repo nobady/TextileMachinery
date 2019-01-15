@@ -48,8 +48,16 @@ object RequestbodyUtil {
 
     fun createUpdatePhoneBody(phoneNum: String, password: String): RequestBody {
         val jsonObject = JsonObject()
-        jsonObject.addProperty("phone ", phoneNum)
-        jsonObject.addProperty("password  ", password)
+        jsonObject.addProperty("phone", phoneNum)
+        jsonObject.addProperty("password", password)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createSetPasswordBody(phoneNum: String, password: String, code: String): RequestBody{
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("phone", phoneNum)
+        jsonObject.addProperty("password", password)
+        jsonObject.addProperty("code", code)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 }

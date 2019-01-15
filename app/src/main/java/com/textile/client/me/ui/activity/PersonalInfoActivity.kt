@@ -1,5 +1,6 @@
 package com.textile.client.me.ui.activity
 
+import android.content.Intent
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.toActivityNotFinish
 import com.textile.client.R
@@ -25,12 +26,22 @@ class PersonalInfoActivity : BaseActivity() {
 
     private fun initEvent() {
         mPerPhoneRl.setOnClickListener {
-            toActivityNotFinish(SetPhoneActivity::class.java)
+            toSetActivity(0)
+        }
+
+        mPerPwdRl.setOnClickListener {
+            toSetActivity(1)
         }
         mPerInfoLogout.setOnClickListener {
             mPersonalPresenter?.logout()
         }
 
+    }
+
+    private fun toSetActivity(startCode: Int) {
+        val intent = Intent(this, SetPhoneActivity::class.java)
+        intent.putExtra(SetPhoneActivity.START_CODE, startCode)
+        toActivityNotFinish(intent)
     }
 
     private fun initTitle() {

@@ -22,7 +22,7 @@ class CollectionPresenterImpl : BasePresenter<CollectionContract.ICollectionView
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.clearCollected(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe (
+                ?.subscribe(
                     object : DataObserver<ClearCollModel>(getView()?.getContext()!!) {
                         override fun onSuccess(data: ClearCollModel) {
                             getView()?.dismissLoading()
