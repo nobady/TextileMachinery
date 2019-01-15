@@ -6,9 +6,11 @@ import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toActivityFinish
 import com.game.base.utils.toast
+import com.google.gson.Gson
 import com.textile.client.BuildConfig
 import com.textile.client.R
 import com.textile.client.home.ui.HomeActivity
+import com.textile.client.login.LoginUtil
 import com.textile.client.login.model.LoginModel
 import com.textile.client.login.model.UserPrefs
 import com.textile.client.login.ui.LoginActivity
@@ -17,6 +19,7 @@ import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.utils.RequestbodyUtil
 import io.reactivex.disposables.Disposable
+import org.json.JSONObject
 
 /**
  * Created by lff on 2019/1/14.
@@ -76,27 +79,16 @@ class RegisterPresenterImpl: BasePresenter<RegisterContract.IRegisterView>(),Reg
                         getView()?.getContext()?.toast(R.string.register_success)
                         UserPrefs.getInstance.setUser(data)
                         //登录成功，设置网络参数
-                        initHttp()
+                        LoginUtil.initHttpConfig()
                         getView()?.getContext()?.toActivityFinish(HomeActivity::class.java)
                     }
                     override fun onError(msg: String) {
                         getView()?.resetCountView()
                         getView()?.dismissLoading()
+                        getView()?.getContext()?.toast(msg)
                     }
                 })
         }
     }
 
-    private fun initHttp() {
-
-        val headerMap = HashMap<String,String>()
-        headerMap["Authorization"] = UserPrefs.getInstance.getToken()
-
-        val okHttpClient = OkHttpConfig.getInstance().Builder().apply {
-            isDebug = BuildConfig.DEBUG
-            headMap = headerMap
-        }.build()
-
-        RxHttpUtil.config().setClient(okHttpClient).setBaseUrl("http://haroldchan.cn:8080/api/")
-    }
 }

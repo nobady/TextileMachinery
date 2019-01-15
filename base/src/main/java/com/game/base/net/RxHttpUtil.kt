@@ -8,7 +8,7 @@ object RxHttpUtil {
 
     fun config() = GlobalRxHttp.getInstance()
 
-    fun <K> createApi(cls:Class<K>) = GlobalRxHttp.getInstance().createService(cls)
+    fun <K> createApi(cls:Class<K>) = config().createService(cls)
 
 
 }

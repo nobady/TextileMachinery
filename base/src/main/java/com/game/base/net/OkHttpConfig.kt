@@ -3,6 +3,7 @@ package com.game.base.net
 import com.game.base.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import java.util.concurrent.TimeUnit
 
 /**
@@ -17,21 +18,22 @@ class OkHttpConfig private constructor(){
         val holder = OkHttpConfig()
     }
 
-    private val okHttpClientBuilder = OkHttpClient.Builder()
+    private lateinit var okHttpClientBuilder:OkHttpClient.Builder
 
     fun getOkhttpClient() = getInstance().okHttpClient
 
     private var okHttpClient:OkHttpClient? = null
 
     inner class Builder{
-        var defaultConnTime = 30L
-        var headMap = HashMap<String,String>()
-        var isDebug = BuildConfig.DEBUG
-        var logInterceptor:Interceptor = DefaultLogInterceptor()
-        var interceptors = ArrayList<Interceptor>()
+        private var defaultConnTime = 30L
+        private var headMap = HashMap<String,String>()
+        private var isDebug = BuildConfig.DEBUG
+        private var logInterceptor:Interceptor = DefaultLogInterceptor()
+        private var interceptors = ArrayList<Interceptor>()
 
         fun build():OkHttpClient{
 
+            okHttpClientBuilder = OkHttpClient.Builder()
             setDebugMode()
             setHeadersConfig()
             setTimeOut()
@@ -39,6 +41,26 @@ class OkHttpConfig private constructor(){
 
             okHttpClient = okHttpClientBuilder.build()
             return okHttpClient!!
+        }
+
+        fun clearHeadMap(): Builder {
+            headMap.clear()
+            return this
+        }
+
+        fun addHead(key:String,value:String): Builder {
+            headMap[key] = value
+            return this
+        }
+
+        fun setDebugMode(isDebug:Boolean): Builder {
+            this.isDebug = isDebug
+            return this
+        }
+
+        fun setConnTime(time:Long): Builder {
+            defaultConnTime = time
+            return this
         }
 
         private fun setDebugMode(){

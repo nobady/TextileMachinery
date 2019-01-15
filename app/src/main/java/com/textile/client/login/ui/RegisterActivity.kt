@@ -132,6 +132,7 @@ class RegisterActivity : BaseActivity(),RegisterContract.IRegisterView {
         }
         if(!cb_register_ruler.isChecked){
             toast(getString(R.string.toast_check_register_ruler))
+            return false
         }
         return true
     }

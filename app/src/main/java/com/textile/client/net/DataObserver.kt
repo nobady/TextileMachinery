@@ -2,15 +2,20 @@ package com.textile.client.net
 
 import android.content.Context
 import com.game.base.utils.toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.tencent.bugly.proguard.t
 import com.textile.client.R
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
+import org.json.JSONObject
 
 /**
  * Created by lff on 2019/1/11.
  */
-abstract class DataObserver<T>(context: Context):Observer<BaseData<T>> {
+abstract class DataObserver<in T>(context: Context):Observer<ResponseBody> {
 
     private var mContext = context
 
@@ -25,12 +30,25 @@ abstract class DataObserver<T>(context: Context):Observer<BaseData<T>> {
 
     }
 
-    override fun onNext(t: BaseData<T>) {
-            if (t.code!=1000){
-                onError(t.message)
+    override fun onNext(body: ResponseBody) {
+        val bufferedSource = body.source()
+        bufferedSource?.request(Long.MAX_VALUE)
+        val buffer = bufferedSource?.buffer()
+        val jsonBody = buffer?.clone()?.readUtf8()
+        val json = JSONObject(jsonBody)
+        val code = json.getInt("code")
+
+        if (code!=1000){
+            onError(json.getString("message"))
+        }else{
+            val type = object :TypeToken<T>(){}.rawType
+            if (type is JSONObject){
+                val fromJson = Gson().fromJson<T>(json.getJSONObject("data").toString(), type)
+                onSuccess(fromJson!!)
             }else{
-                onSuccess(t.data)
+                onSuccess((json.get("data") as T)!!)
             }
+        }
     }
 
     override fun onError(e: Throwable) {

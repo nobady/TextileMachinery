@@ -24,12 +24,12 @@ class UserPrefs private constructor(){
         sharePrefsHelps.putString("phone",loginMode.phone)
         sharePrefsHelps.putString("token",loginMode.token)
         sharePrefsHelps.putInt("collectionNum",loginMode.collectionNum)
-        sharePrefsHelps.putInt("integralNum",loginMode.integralNum)
+        sharePrefsHelps.putString("integralNum",loginMode.integralNum)
         sharePrefsHelps.putInt("language",loginMode.language)
         sharePrefsHelps.putInt("orderNum",loginMode.orderNum)
         sharePrefsHelps.putString("rowVersion",loginMode.rowVersion)
-        sharePrefsHelps.putInt("sex",loginMode.sex)
-        sharePrefsHelps.putInt("level",loginMode.level)
+        sharePrefsHelps.putString("sex",loginMode.sex)
+        sharePrefsHelps.putString("level",loginMode.level)
     }
 
     fun getUser():LoginModel{
@@ -38,14 +38,14 @@ class UserPrefs private constructor(){
         val phone = sharePrefsHelps.getString("phone")
         val token = sharePrefsHelps.getString("token")
         val collectionNum = sharePrefsHelps.getInt("collectionNum")
-        val integralNum = sharePrefsHelps.getInt("integralNum")
+        val integralNum = sharePrefsHelps.getString("integralNum")
         val language = sharePrefsHelps.getInt("language")
         val orderNum = sharePrefsHelps.getInt("orderNum")
         val rowVersion = sharePrefsHelps.getString("rowVersion")
-        val sex = sharePrefsHelps.getInt("sex")
-        val level = sharePrefsHelps.getInt("level")
+        val sex = sharePrefsHelps.getString("sex")
+        val level = sharePrefsHelps.getString("level")
 
-        return LoginModel(collectionNum, image, integralNum, invitationCode, language, level, orderNum, phone, rowVersion, sex, token)
+        return LoginModel(phone,sex,image,invitationCode,level,language,integralNum,rowVersion,token,collectionNum,orderNum)
     }
 
     fun getToken():String{

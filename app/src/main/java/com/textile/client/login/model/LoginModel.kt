@@ -1,18 +1,18 @@
 package com.textile.client.login.model
 
 /**
- * Updated by lff on 2019-01-10
+ * Updated by lff on 2019-01-15
  */
 data class LoginModel(
-    var collectionNum: Int,
-    var image: String,
-    var integralNum: Int,
-    var invitationCode: String,
-    var language: Int,
-    var level: Int,
-    var orderNum: Int,
     var phone: String,
+    var sex: String,
+    var image: String,
+    var invitationCode: String,
+    var level: String,
+    var language: Int,
+    var integralNum: String,
     var rowVersion: String,
-    var sex: Int,
-    var token: String
+    var token: String,
+    var collectionNum: Int,
+    var orderNum: Int
 )

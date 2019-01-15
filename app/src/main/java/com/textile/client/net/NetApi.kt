@@ -4,6 +4,7 @@ import com.textile.client.login.model.LoginModel
 import com.textile.client.me.model.ClearCollModel
 import io.reactivex.Observable
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -14,17 +15,17 @@ import retrofit2.http.POST
 interface NetApi {
 
     @POST("login")
-    fun login(@Body body: RequestBody): Observable<BaseData<LoginModel>>
+    fun login(@Body body: RequestBody): Observable<ResponseBody>
 
     @POST("sendVerificationCode")
-    fun getVerificationCode(@Body body: RequestBody):Observable<BaseData<String>>
+    fun getVerificationCode(@Body body: RequestBody):Observable<ResponseBody>
 
     @POST("register")
-    fun register(@Body body: RequestBody):Observable<BaseData<LoginModel>>
+    fun register(@Body body: RequestBody):Observable<ResponseBody>
 
     @POST("user/updatePassword")
-    fun resetPwd(@Body body: RequestBody):Observable<BaseData<String>>
+    fun resetPwd(@Body body: RequestBody):Observable<ResponseBody>
 
     @POST("userCollection/emptyCollection")
-    fun clearCollected(@Body body: RequestBody): Observable<BaseData<ClearCollModel>>
+    fun clearCollected(@Body body: RequestBody): Observable<ResponseBody>
 }

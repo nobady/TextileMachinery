@@ -4,12 +4,15 @@ import android.util.Log
 import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
 import com.game.base.utils.toast
+import com.google.gson.Gson
+import com.textile.client.login.model.LoginModel
 import com.textile.client.me.contract.CollectionContract
 import com.textile.client.me.model.ClearCollModel
 import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.utils.RequestbodyUtil
+import org.json.JSONObject
 
 /**
  * Created by bo on 2019/1/10.
@@ -22,20 +25,21 @@ class CollectionPresenterImpl : BasePresenter<CollectionContract.ICollectionView
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.clearCollected(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe {
-                    object : DataObserver<ClearCollModel>(getView()?.getContext()!!) {
-                        override fun onSuccess(data: ClearCollModel) {
+                ?.subscribe (
+                    object : DataObserver<String>(getView()?.getContext()!!) {
+                        override fun onSuccess(data: String) {
                             getView()?.dismissLoading()
                             getView()?.getContext()?.toast("清空成功")
-                            Log.i("clearCollected", data.toString())
+                            Log.i("clearCollected", data)
                         }
 
                         override fun onError(msg: String) {
+                            getView()?.getContext()?.toast(msg)
                             getView()?.dismissLoading()
                         }
 
                     }
-                }
+                )
         }
     }
 }

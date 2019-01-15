@@ -11,6 +11,7 @@ import com.game.base.utils.toActivityNotFinish
 import com.textile.client.BuildConfig
 import com.textile.client.R
 import com.textile.client.home.ui.HomeActivity
+import com.textile.client.login.LoginUtil
 import com.textile.client.login.model.UserPrefs
 import kotlinx.android.synthetic.main.activity_start.*
 
@@ -21,7 +22,7 @@ class StartActivity : BaseActivity() {
 
     override fun initView() {
 
-        initHttp()
+        LoginUtil.initHttpConfig()
         setFullScreen()
         if (!TextUtils.isEmpty(UserPrefs.getInstance.getToken())) {
             toActivityFinish(HomeActivity::class.java)
@@ -46,17 +47,4 @@ class StartActivity : BaseActivity() {
 
     override fun layoutId() = R.layout.activity_start
 
-
-    private fun initHttp() {
-
-        val headerMap = HashMap<String, String>()
-        headerMap["Authorization"] = UserPrefs.getInstance.getToken()
-
-        val okHttpClient = OkHttpConfig.getInstance().Builder().apply {
-            isDebug = BuildConfig.DEBUG
-            headMap = headerMap
-        }.build()
-
-        RxHttpUtil.config().setClient(okHttpClient).setBaseUrl("http://haroldchan.cn:8080/api/")
-    }
 }

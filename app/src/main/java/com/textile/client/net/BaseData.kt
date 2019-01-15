@@ -5,6 +5,6 @@ package com.textile.client.net
  */
 data class BaseData<T>(
     var code: Int,
-    var data: T,
+    var data: T? = null,
     var message: String
 )
