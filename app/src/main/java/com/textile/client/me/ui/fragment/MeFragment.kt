@@ -1,6 +1,7 @@
 package com.textile.client.me.ui.fragment
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.setStatusBarColor
@@ -33,6 +34,7 @@ class MeFragment : BaseFragment(), MeContract.IMeView {
 
     private fun initHead() {
         mMeHeadView.setTitle(resources.getString(R.string.mine))
+        mMeHeadView.setImmerse(mMeHeadView.layoutParams as ViewGroup.MarginLayoutParams)
         mMeHeadView.setBackground(R.color.meTitleColor)
         mMeHeadView.showOneRightIv(R.drawable.message, object : HeaderView.RightIv2ClickListener {
             override fun onRightIv2Click(rightIv2: ImageView) {

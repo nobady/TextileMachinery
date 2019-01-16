@@ -3,6 +3,7 @@ package com.textile.client.net
 import com.textile.client.login.model.BaseModel
 import com.textile.client.login.model.LoginModel
 import com.textile.client.mall.model.BannerModel
+import com.textile.client.mall.model.CategoryModel
 import com.textile.client.me.model.ClearCollModel
 import com.textile.client.me.model.UpdatePhoneModel
 import io.reactivex.Observable
@@ -32,6 +33,9 @@ interface NetApi {
     /*商城*/
     @POST("banner/GetTotalList")
     fun getBannerList(@Body body: RequestBody): Observable<BaseModel<BannerModel>>
+
+    @POST("category/getCategoryList")
+    fun getCategoryList():Observable<BaseModel<CategoryModel>>
 
     @POST("userCollection/emptyCollection")
     fun clearCollected(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>

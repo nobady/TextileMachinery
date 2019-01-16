@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import com.game.base.mvp.BaseActivity
+import com.game.base.utils.setFullScreen
 import com.textile.client.R
 import com.textile.client.mall.ui.MallFragment
 import com.textile.client.me.ui.fragment.MeFragment
@@ -16,6 +17,8 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun initView() {
+        setFullScreen()
+
         navigation.onNavigationItemSelectedListener = mOnNavigationItemSelectedListener
         navigation.enableAnimation(false)
         navigation.enableShiftingMode(false)

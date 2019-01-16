@@ -3,18 +3,22 @@ package com.textile.client.mall.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
+import com.alibaba.android.vlayout.layout.GridLayoutHelper
+import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseFragment
+import com.game.base.utils.setStatusBarColor
 
 import com.textile.client.R
 import com.textile.client.mall.contract.MallContract
 import com.textile.client.mall.contract.MallPresenterImpl
+import com.textile.client.mall.model.BannerModel
+import com.textile.client.mall.model.CategoryModel
+import com.textile.client.mall.ui.adapter.BannerAdapter
+import com.textile.client.mall.ui.adapter.ClassifyAdapter
 import kotlinx.android.synthetic.main.fragment_mall.*
-import kotlinx.android.synthetic.main.fragment_mall.view.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -31,7 +35,13 @@ class MallFragment : BaseFragment(),MallContract.IMallView {
 
     private lateinit var delegateAdapter: DelegateAdapter
 
+    private lateinit var bannerAdapter: BannerAdapter
+    private lateinit var bdAdapter: BannerAdapter//广告
+    private lateinit var classifyAdapter: ClassifyAdapter
+
     override fun initView(view: View) {
+
+        setStatusBarColor(android.R.color.transparent)
         mPresenter.attachView(this)
 
         val layoutManager =  VirtualLayoutManager(context)
@@ -39,10 +49,40 @@ class MallFragment : BaseFragment(),MallContract.IMallView {
         delegateAdapter = DelegateAdapter(layoutManager)
         mall_recycler.setHasFixedSize(true)
         mall_recycler.adapter = delegateAdapter
+        mall_recycler.layoutManager = layoutManager
+
+        val bannerLayoutHelper = LinearLayoutHelper()
+        bannerAdapter = BannerAdapter(bannerLayoutHelper)
+        delegateAdapter.addAdapter(bannerAdapter)
+
+        val classifyLayoutHelper = GridLayoutHelper(4)
+        classifyAdapter = ClassifyAdapter(context,classifyLayoutHelper)
+        delegateAdapter.addAdapter(classifyAdapter)
+
+        val bdLayoutHelper = LinearLayoutHelper()
+        bdAdapter = BannerAdapter(bdLayoutHelper)
+        delegateAdapter.addAdapter(bdAdapter)
     }
 
     override fun lazyLoadData() {
-        mPresenter.getBannerList(MallContract.BannerType.BANNER_MALL.ordinal)
+        mPresenter.getBannerList(MallContract.BANNER_MALL)
+        mPresenter.getCategoryList()
+        mPresenter.getBannerList(MallContract.BANNER_MALL_BD)
+    }
+
+    override fun setBannerData(type:Int,bannerList: List<BannerModel.ListData>) {
+        if (type==MallContract.BANNER_MALL){
+            bannerAdapter.imageUrls = bannerList
+            bannerAdapter.notifyDataSetChanged()
+        }else{
+            bdAdapter.imageUrls = bannerList
+            bdAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun setCategoryData(mCategoryList: List<CategoryModel.ListData>) {
+        classifyAdapter.categoryList = mCategoryList
+        classifyAdapter.notifyDataSetChanged()
     }
 
     override fun getLayoutId() = R.layout.fragment_mall

@@ -68,4 +68,8 @@ class UserPrefs private constructor() {
         return sharePrefsHelps.getString("token")
     }
 
+    fun getLanguage():Int{
+        return sharePrefsHelps.getInt("language")
+    }
+
 }

@@ -20,7 +20,7 @@ abstract class DataObserver<T>(isShowErrorToast: Boolean, context: Context) : Ob
 
     abstract fun onSuccess(data: T)
 
-    abstract fun onError(msg: String)
+    open fun onError(msg: String){}
 
     override fun onComplete() {
     }

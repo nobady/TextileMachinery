@@ -14,7 +14,24 @@ import com.bumptech.glide.request.RequestOptions
 object ImageUtil {
 
     fun displayImage(context: Context,imageView: ImageView,resId:Int,defaultResId:Int){
-        val options = RequestOptions().placeholder(defaultResId).diskCacheStrategy(DiskCacheStrategy.ALL).priority(Priority.HIGH)
+        val options = RequestOptions()
+            .placeholder(defaultResId)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH)
         Glide.with(context).load(resId).apply(options).into(imageView)
+    }
+
+    fun displayImage(context: Context,imageView: ImageView,imageUrl:String,defaultResId:Int){
+        val options = RequestOptions()
+            .placeholder(defaultResId)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH)
+        Glide.with(context).load(imageUrl).apply(options).into(imageView)
+    }
+
+    fun displayCircleImage(context: Context,imageView: ImageView,imageUrl:String){
+        val crop = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH).circleCrop()
+        Glide.with(context).load(imageUrl).apply(crop).into(imageView)
     }
 }
