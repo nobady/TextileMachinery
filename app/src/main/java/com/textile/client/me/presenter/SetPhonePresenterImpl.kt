@@ -25,7 +25,7 @@ class SetPhonePresenterImpl : BasePresenter<SetPhoneContract.ISetPhoneView>(), S
                 RxHttpUtil.createApi(NetApi::class.java)
                     ?.getVerificationCode(it)
                     ?.compose(Transformer.switchSchedulers())
-                    ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                    ?.subscribe(object : DataObserver<LoginModel>(true,getView()?.getContext()!!) {
                         override fun onSuccess(data: LoginModel) {
                             getView()?.getContext()?.toast(R.string.send_get_code_success)
                         }
@@ -47,7 +47,7 @@ class SetPhonePresenterImpl : BasePresenter<SetPhoneContract.ISetPhoneView>(), S
             RxHttpUtil.createApi(NetApi::class.java)?.updatePassword(it)
                 ?.compose(Transformer.switchSchedulers())
                 ?.subscribe(
-                    object : DataObserver<ClearCollModel>(getView()?.getContext()!!) {
+                    object : DataObserver<ClearCollModel>(true,getView()?.getContext()!!) {
                         override fun onSuccess(data: ClearCollModel) {
                             getView()?.dismissLoading()
                         }
@@ -67,7 +67,7 @@ class SetPhonePresenterImpl : BasePresenter<SetPhoneContract.ISetPhoneView>(), S
             RxHttpUtil.createApi(NetApi::class.java)?.updatePhone(it)
                 ?.compose(Transformer.switchSchedulers())
                 ?.subscribe(
-                    object : DataObserver<UpdatePhoneModel>(getView()?.getContext()!!) {
+                    object : DataObserver<UpdatePhoneModel>(true,getView()?.getContext()!!) {
                         override fun onSuccess(data: UpdatePhoneModel) {
                             getView()?.dismissLoading()
                             UserPrefs.getInstance.updateToken(data.token)

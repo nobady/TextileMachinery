@@ -20,13 +20,12 @@ class MallPresenterImpl():BasePresenter<MallContract.IMallView>(),MallContract.I
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.getBannerList(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object :DataObserver<BannerModel>(getView()?.getContext()!!){
+                ?.subscribe(object :DataObserver<BannerModel>(true,getView()?.getContext()!!){
                     override fun onSuccess(data: BannerModel) {
                         LogUtil.logV("${data.list.size}")
                     }
 
                     override fun onError(msg: String) {
-                        getView()?.getContext()?.toast(msg)
                     }
 
                 })

@@ -13,9 +13,10 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by lff on 2019/1/11.
  */
-abstract class DataObserver<T>(context: Context) : Observer<BaseModel<T>> {
+abstract class DataObserver<T>(isShowErrorToast: Boolean, context: Context) : Observer<BaseModel<T>> {
 
     private var mContext = context
+    private val mIsShowErrorToast = isShowErrorToast
 
     abstract fun onSuccess(data: T)
 
@@ -38,47 +39,21 @@ abstract class DataObserver<T>(context: Context) : Observer<BaseModel<T>> {
         if (t.code != 1000) {
             onError(t.message)
         } else {
-            LogUtil.logV(t.message)
-            if (t.data == null) {
-                onError(mContext.getString(R.string.request_fail))
-            } else {
-                onSuccess(t.data)
-            }
+            onSuccess(t.data)
         }
     }
-
-
-//    override fun onNext(body: ResponseBody) {
-//        val bufferedSource = body.source()
-//        bufferedSource?.request(Long.MAX_VALUE)
-//        val buffer = bufferedSource?.buffer()
-//        val jsonBody = buffer?.clone()?.readUtf8()
-//        val json = JSONObject(jsonBody)
-//        val code = json.getInt("code")
-//
-//        if (code!=1000){
-//            onError(json.getString("message"))
-//        }else{
-//            val type = object :TypeToken<T>(){}.rawType
-//            LogUtil.logV("$type")
-//            if(json.get("data") is String){
-//                onSuccess((json.get("data") as T)!!)
-//            }else{
-//                val fromJson = Gson().fromJson<T>(json.getJSONObject("data").toString(), type)
-//                onSuccess(fromJson!!)
-//            }
-//        }
-//    }
 
     override fun onError(e: Throwable) {
         e.message?.let {
             onError(it)
-            mContext.toast(it)
+            if (mIsShowErrorToast)
+                mContext.toast(it)
         }
 
         e.message ?: let {
             onError(mContext.getString(R.string.request_fail))
-            mContext.toast(R.string.request_fail)
+            if (mIsShowErrorToast)
+                mContext.toast(R.string.request_fail)
         }
     }
 }

@@ -4,7 +4,9 @@ import com.game.base.utils.LogUtil
 import okhttp3.Interceptor
 import okhttp3.RequestBody
 import okhttp3.Response
+import okhttp3.ResponseBody
 import okio.Buffer
+import org.json.JSONObject
 import java.lang.Exception
 
 /**
@@ -27,17 +29,26 @@ class DefaultLogInterceptor:Interceptor {
             bufferedSource?.request(Long.MAX_VALUE)
             val buffer = bufferedSource?.buffer()
 
+            val json = buffer?.clone()?.readUtf8()
+            val jsonObject = JSONObject(json)
+            val code = jsonObject.getInt("code")
+            if (code!=1000){
+                jsonObject.put("data",JSONObject())
+            }
+
             val logStr = "method->${request.method()}\n" +
                     "network code->${response.code()}\n" +
                     "url->${request.url()}\n" +
                     "time->$time\n" +
                     "request header->${request.headers()}\n" +
                     "request params->${bodyToString(request.body())}\n" +
-                    "response body->${buffer?.clone()?.readUtf8()}"
+                    "response body->$jsonObject"
 
             LogUtil.logV(logStr)
 
-            return response
+            val newResponse = ResponseBody.create(response.body()?.contentType(), jsonObject.toString())
+
+            return response.newBuilder().body(newResponse).build()
         }catch (e:Exception){
             throw e
         }

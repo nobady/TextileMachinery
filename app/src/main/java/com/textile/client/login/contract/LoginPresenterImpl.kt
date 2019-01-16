@@ -28,7 +28,7 @@ class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContra
                 .createApi(NetApi::class.java)
                 ?.login(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                ?.subscribe(object : DataObserver<LoginModel>(true,getView()?.getContext()!!) {
                     override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
                         UserPrefs.getInstance.setUser(data)
@@ -39,7 +39,6 @@ class LoginPresenterImpl : BasePresenter<LoginContract.ILoginView>(),LoginContra
 
                     override fun onError(msg: String) {
                         getView()?.dismissLoading()
-                        getView()?.getContext()?.toast(msg)
                     }
 
                     override fun onSubscribe(d: Disposable) {

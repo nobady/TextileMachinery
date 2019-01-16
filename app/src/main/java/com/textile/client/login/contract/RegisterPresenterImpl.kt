@@ -25,7 +25,7 @@ class RegisterPresenterImpl : BasePresenter<RegisterContract.IRegisterView>(), R
         RequestbodyUtil.createRegisterBody(phone, pwd, code)?.let {
             RxHttpUtil.createApi(NetApi::class.java)?.resetPwd(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                ?.subscribe(object : DataObserver<LoginModel>(true,getView()?.getContext()!!) {
                     override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
                         getView()?.getContext()?.toast(R.string.toast_reset_pwd_success)
@@ -46,7 +46,7 @@ class RegisterPresenterImpl : BasePresenter<RegisterContract.IRegisterView>(), R
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.getVerificationCode(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                ?.subscribe(object : DataObserver<LoginModel>(true,getView()?.getContext()!!) {
                     override fun onSuccess(data: LoginModel) {
                         getView()?.getContext()?.toast(R.string.send_get_code_success)
                     }
@@ -69,7 +69,7 @@ class RegisterPresenterImpl : BasePresenter<RegisterContract.IRegisterView>(), R
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.register(it)
                 ?.compose(Transformer.switchSchedulers())
-                ?.subscribe(object : DataObserver<LoginModel>(getView()?.getContext()!!) {
+                ?.subscribe(object : DataObserver<LoginModel>(true,getView()?.getContext()!!) {
                     override fun onSuccess(data: LoginModel) {
                         getView()?.dismissLoading()
                         getView()?.getContext()?.toast(R.string.register_success)
@@ -82,7 +82,6 @@ class RegisterPresenterImpl : BasePresenter<RegisterContract.IRegisterView>(), R
                     override fun onError(msg: String) {
                         getView()?.resetCountView()
                         getView()?.dismissLoading()
-                        getView()?.getContext()?.toast(msg)
                     }
                 })
         }

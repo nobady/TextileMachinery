@@ -23,7 +23,7 @@ class CollectionPresenterImpl : BasePresenter<CollectionContract.ICollectionView
                 ?.clearCollected(it)
                 ?.compose(Transformer.switchSchedulers())
                 ?.subscribe(
-                    object : DataObserver<ClearCollModel>(getView()?.getContext()!!) {
+                    object : DataObserver<ClearCollModel>(true,getView()?.getContext()!!) {
                         override fun onSuccess(data: ClearCollModel) {
                             getView()?.dismissLoading()
                             getView()?.getContext()?.toast("清空成功")
@@ -31,7 +31,6 @@ class CollectionPresenterImpl : BasePresenter<CollectionContract.ICollectionView
                         }
 
                         override fun onError(msg: String) {
-                            getView()?.getContext()?.toast(msg)
                             getView()?.dismissLoading()
                         }
 
