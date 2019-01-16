@@ -14,6 +14,7 @@ import com.textile.client.me.ui.activity.CollectionActivity
 import com.textile.client.me.ui.activity.MessageActivity
 import com.textile.client.me.ui.activity.MyPayTypeActivity
 import com.textile.client.me.ui.activity.PersonalInfoActivity
+import com.textile.client.utils.AppConfig
 import kotlinx.android.synthetic.main.fragment_me.*
 
 /**
@@ -62,5 +63,10 @@ class MeFragment : BaseFragment(), MeContract.IMeView {
         mMyPayType.setOnClickListener { toActivityNotFinish(MyPayTypeActivity::class.java) }
 
         mMyCollection.setOnClickListener { toActivityNotFinish(CollectionActivity::class.java) }
+
+        mMeIsEnglish.setOnCheckedChangeListener { _, isChecked ->
+            AppConfig.instance.setLanguage(isChecked)
+            toast(if (isChecked) "语言设置为英文" else "语言设置为中文")
+        }
     }
 }

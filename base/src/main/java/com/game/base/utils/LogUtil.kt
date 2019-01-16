@@ -15,4 +15,10 @@ object LogUtil {
             Log.v(TAG, msg)
         }
     }
+
+    fun LogI(msg: String){
+        if (BuildConfig.DEBUG) {
+            Log.i(TAG, msg)
+        }
+    }
 }

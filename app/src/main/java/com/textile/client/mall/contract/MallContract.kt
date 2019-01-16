@@ -1,6 +1,5 @@
 package com.textile.client.mall.contract
 
-import com.game.base.mvp.BasePresenter
 import com.game.base.mvp.IBaseView
 import com.game.base.mvp.IPresenter
 import com.textile.client.mall.model.BannerModel
@@ -12,9 +11,9 @@ import com.textile.client.mall.model.CategoryModel
 interface MallContract {
 
     companion object {
-        val BANNER_LUNTAN = 1
-        val BANNER_MALL = 2
-        val BANNER_MALL_BD = 3
+        const val BANNER_LUNTAN   = 1
+        const val BANNER_MALL    = 2
+        const val BANNER_MALL_BD  = 3
     }
 
     interface IMallView:IBaseView{

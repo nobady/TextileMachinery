@@ -7,7 +7,6 @@ import okhttp3.Response
 import okhttp3.ResponseBody
 import okio.Buffer
 import org.json.JSONObject
-import java.lang.Exception
 
 /**
  * Created by Administrator on 2019/1/5.
@@ -44,7 +43,7 @@ class DefaultLogInterceptor:Interceptor {
                     "request params->${bodyToString(request.body())}\n" +
                     "response body->$jsonObject"
 
-            LogUtil.logV(logStr)
+            LogUtil.LogI(logStr)
 
             val newResponse = ResponseBody.create(response.body()?.contentType(), jsonObject.toString())
 

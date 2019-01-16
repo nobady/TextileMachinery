@@ -2,8 +2,6 @@ package com.textile.client.mall.contract
 
 import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
-import com.game.base.utils.LogUtil
-import com.game.base.utils.toast
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
 import com.textile.client.net.DataObserver
@@ -15,17 +13,18 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by lff on 2019/1/15.
  */
-class MallPresenterImpl:BasePresenter<MallContract.IMallView>(),MallContract.IMallPresenter {
+class MallPresenterImpl : BasePresenter<MallContract.IMallView>(), MallContract.IMallPresenter {
 
 
     override fun getCategoryList() {
         RxHttpUtil.createApi(NetApi::class.java)
             ?.getCategoryList()
             ?.compose(Transformer.switchSchedulers())
-            ?.subscribe(object :DataObserver<CategoryModel>(true,getView()?.getContext()!!){
+            ?.subscribe(object : DataObserver<CategoryModel>(true, getView()?.getContext()!!) {
                 override fun onSuccess(data: CategoryModel) {
                     getView()?.setCategoryData(data.list)
                 }
+
                 override fun onSubscribe(d: Disposable) {
                     super.onSubscribe(d)
                     addSubscription(d)

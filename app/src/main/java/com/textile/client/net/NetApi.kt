@@ -35,7 +35,11 @@ interface NetApi {
     fun getBannerList(@Body body: RequestBody): Observable<BaseModel<BannerModel>>
 
     @POST("category/getCategoryList")
-    fun getCategoryList():Observable<BaseModel<CategoryModel>>
+    fun getCategoryList(): Observable<BaseModel<CategoryModel>>
+
+    /*论坛*/
+    @POST("community/GetList")
+    fun getForumList(@Body body: RequestBody): Observable<String>
 
     @POST("userCollection/emptyCollection")
     fun clearCollected(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>

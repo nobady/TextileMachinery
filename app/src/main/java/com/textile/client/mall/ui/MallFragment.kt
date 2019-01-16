@@ -29,7 +29,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class MallFragment : BaseFragment(),MallContract.IMallView {
+class MallFragment : BaseFragment(), MallContract.IMallView {
 
     private val mPresenter by lazy { MallPresenterImpl() }
 
@@ -44,7 +44,7 @@ class MallFragment : BaseFragment(),MallContract.IMallView {
         setStatusBarColor(android.R.color.transparent)
         mPresenter.attachView(this)
 
-        val layoutManager =  VirtualLayoutManager(context)
+        val layoutManager = VirtualLayoutManager(context)
         layoutManager.orientation = VirtualLayoutManager.VERTICAL
         delegateAdapter = DelegateAdapter(layoutManager)
         mall_recycler.setHasFixedSize(true)
@@ -56,7 +56,7 @@ class MallFragment : BaseFragment(),MallContract.IMallView {
         delegateAdapter.addAdapter(bannerAdapter)
 
         val classifyLayoutHelper = GridLayoutHelper(4)
-        classifyAdapter = ClassifyAdapter(context,classifyLayoutHelper)
+        classifyAdapter = ClassifyAdapter(context, classifyLayoutHelper)
         delegateAdapter.addAdapter(classifyAdapter)
 
         val bdLayoutHelper = LinearLayoutHelper()
@@ -70,11 +70,11 @@ class MallFragment : BaseFragment(),MallContract.IMallView {
         mPresenter.getBannerList(MallContract.BANNER_MALL_BD)
     }
 
-    override fun setBannerData(type:Int,bannerList: List<BannerModel.ListData>) {
-        if (type==MallContract.BANNER_MALL){
+    override fun setBannerData(type: Int, bannerList: List<BannerModel.ListData>) {
+        if (type == MallContract.BANNER_MALL) {
             bannerAdapter.imageUrls = bannerList
             bannerAdapter.notifyDataSetChanged()
-        }else{
+        } else if (type == MallContract.BANNER_MALL_BD) {
             bdAdapter.imageUrls = bannerList
             bdAdapter.notifyDataSetChanged()
         }

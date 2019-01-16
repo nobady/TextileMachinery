@@ -40,6 +40,16 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
+    fun createForumListBody(): RequestBody {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("categoryBrandId", 0)
+        val pageJson = JsonObject()
+        pageJson.addProperty("pageIndex", 1)
+        pageJson.addProperty("pageSize", 10)
+        jsonObject.addProperty("page", pageJson.toString())
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
     fun createClearCollBody(): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("type", 0)
@@ -53,7 +63,7 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createSetPasswordBody(phoneNum: String, password: String, code: String): RequestBody{
+    fun createSetPasswordBody(phoneNum: String, password: String, code: String): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("phone", phoneNum)
         jsonObject.addProperty("password", password)
