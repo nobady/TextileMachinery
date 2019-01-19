@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
-import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
@@ -31,6 +30,13 @@ object ImageUtil {
 
     fun displayCircleImage(context: Context,imageView: ImageView,imageUrl:String){
         val crop = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            .priority(Priority.HIGH).circleCrop()
+        Glide.with(context).load(imageUrl).apply(crop).into(imageView)
+    }
+
+    fun displayCircleImage(context: Context,imageView: ImageView,imageUrl:String,defaultResId:Int){
+        val crop = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(defaultResId)
             .priority(Priority.HIGH).circleCrop()
         Glide.with(context).load(imageUrl).apply(crop).into(imageView)
     }

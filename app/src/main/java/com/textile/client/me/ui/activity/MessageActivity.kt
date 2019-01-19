@@ -21,7 +21,6 @@ class MessageActivity : BaseActivity() {
     }
 
     private fun initTitle() {
-        mMsgHeadView.setBackground(R.color.meTitleColor)
         mMsgHeadView.showBack()
     }
 }

@@ -43,7 +43,7 @@ class DefaultLogInterceptor:Interceptor {
                     "request params->${bodyToString(request.body())}\n" +
                     "response body->$jsonObject"
 
-            LogUtil.LogI(logStr)
+            LogUtil.logI(logStr)
 
             val newResponse = ResponseBody.create(response.body()?.contentType(), jsonObject.toString())
 

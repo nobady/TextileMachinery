@@ -62,8 +62,8 @@ class HomeActivity : BaseActivity() {
             fragment = when (tag) {
                 "mall" -> MallFragment.newInstance()
                 "forum" -> ForumFragment.newInstance()
-                "add" -> MallFragment.newInstance()
-                "shop_car" -> MallFragment.newInstance()
+                "add" -> MeFragment.newInstance()
+                "shop_car" -> MeFragment.newInstance()
                 "me" -> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
             }

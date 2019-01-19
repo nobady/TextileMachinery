@@ -1,9 +1,11 @@
 package com.game.base.net
 
+import android.util.Log
 import com.game.base.BuildConfig
+import com.game.base.utils.LogUtil
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
 /**
@@ -20,7 +22,7 @@ class OkHttpConfig private constructor(){
 
     private lateinit var okHttpClientBuilder:OkHttpClient.Builder
 
-    fun getOkhttpClient() = getInstance().okHttpClient
+    fun getOkHttpClient() = getInstance().okHttpClient
 
     private var okHttpClient:OkHttpClient? = null
 
@@ -29,6 +31,7 @@ class OkHttpConfig private constructor(){
         private var headMap = HashMap<String,String>()
         private var isDebug = BuildConfig.DEBUG
         private var logInterceptor:Interceptor = DefaultLogInterceptor()
+
         private var interceptors = ArrayList<Interceptor>()
 
         fun build():OkHttpClient{
@@ -65,7 +68,10 @@ class OkHttpConfig private constructor(){
 
         private fun setDebugMode(){
             if (isDebug) {
-                okHttpClientBuilder.addInterceptor(logInterceptor)
+//                okHttpClientBuilder.addInterceptor(logInterceptor)
+                okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor
+                    (HttpLoggingInterceptor.Logger { msg -> Log.i("TextileHttp :: ",msg) })
+                    .setLevel(HttpLoggingInterceptor.Level.BODY))
             }
         }
 

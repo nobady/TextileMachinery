@@ -1,6 +1,5 @@
 package com.game.base.net
 
-import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -63,10 +62,10 @@ class RetrofitClient private constructor(){
     fun getRetrofitBuilder() = mRetrofitBuilder
 
     fun getRetrofit(): Retrofit? {
-        return if (OkHttpConfig.getInstance().getOkhttpClient()==null){
+        return if (OkHttpConfig.getInstance().getOkHttpClient()==null){
             mRetrofitBuilder.client(okHttpClient).build()
         }else{
-            mRetrofitBuilder.client(OkHttpConfig.getInstance().getOkhttpClient()!!).build()
+            mRetrofitBuilder.client(OkHttpConfig.getInstance().getOkHttpClient()!!).build()
         }
     }
 

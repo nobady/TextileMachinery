@@ -1,4 +1,4 @@
-package com.textile.client.forum
+package com.textile.client.forum.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

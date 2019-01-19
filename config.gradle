@@ -30,7 +30,7 @@ ext{
             retrofit                : "com.squareup.retrofit2:retrofit:$dependVersion.retrofitSdkVersion",
             retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:$dependVersion.retrofitSdkVersion",
             retrofitAdapterRxjava2  : "com.squareup.retrofit2:adapter-rxjava2:$dependVersion.retrofitSdkVersion",
-            okhttp3LoggerInterceptor: 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+            okhttp3LoggerInterceptor: 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     ]
 
     rxJava = [

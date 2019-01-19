@@ -46,7 +46,7 @@ object RequestbodyUtil {
         val pageJson = JsonObject()
         pageJson.addProperty("pageIndex", 1)
         pageJson.addProperty("pageSize", 10)
-        jsonObject.addProperty("page", pageJson.toString())
+        jsonObject.add("page", pageJson)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
