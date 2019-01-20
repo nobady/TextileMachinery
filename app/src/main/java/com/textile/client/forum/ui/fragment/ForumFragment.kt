@@ -1,8 +1,6 @@
-package com.textile.client.forum.ui
+package com.textile.client.forum.ui.fragment
 
-import android.graphics.Rect
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
@@ -10,12 +8,14 @@ import com.alibaba.android.vlayout.layout.GridLayoutHelper
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.setStatusBarColor
+import com.game.base.utils.toActivityNotFinish
 import com.textile.client.R
 import com.textile.client.forum.adapter.ForumContentAdapter
 import com.textile.client.forum.adapter.ForumGridAdapter
 import com.textile.client.forum.contract.ForumContract
 import com.textile.client.forum.model.ForumModel
 import com.textile.client.forum.presenter.ForumPresenterImpl
+import com.textile.client.forum.ui.activity.MechSupplyActivity
 import com.textile.client.mall.contract.MallContract
 import com.textile.client.mall.contract.MallPresenterImpl
 import com.textile.client.mall.model.BannerModel
@@ -27,7 +27,26 @@ import kotlinx.android.synthetic.main.fragment_forum.*
 /**
  * 论坛
  */
-class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMallView {
+class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMallView,
+    ForumGridAdapter.ForumGridClickListener {
+    override fun onGridClick(position: Int) {
+        when (position) {
+            0 -> {
+            }
+            1 -> {
+            }
+            2 -> {
+                toActivityNotFinish(MechSupplyActivity::class.java)
+            }
+            3 -> {
+            }
+            4 -> {
+            }
+            else -> {
+            }
+        }
+    }
+
     override fun getListSuccess(data: ForumModel) {
         forumContentAdapter.setData(data.list)
     }
@@ -63,7 +82,7 @@ class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMa
         delegateAdapter.addAdapter(bannerAdapter)
 
         val gridLayoutHelper = GridLayoutHelper(5)
-        val forumGridAdapter = ForumGridAdapter(gridLayoutHelper)
+        val forumGridAdapter = ForumGridAdapter(gridLayoutHelper, this)
         delegateAdapter.addAdapter(forumGridAdapter)
 
         val contentLayoutHelper = LinearLayoutHelper()

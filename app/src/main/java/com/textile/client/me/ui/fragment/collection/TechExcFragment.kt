@@ -1,6 +1,5 @@
 package com.textile.client.me.ui.fragment.collection
 
-import android.content.Context
 import android.graphics.Rect
 import android.net.Uri
 import android.support.v7.widget.LinearLayoutManager
@@ -13,12 +12,6 @@ import com.textile.client.R
 import com.textile.client.me.ui.adapter.TechExcAdaper
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
 import kotlinx.android.synthetic.main.fragment_tech_exc.*
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  *技术交流
  */
@@ -55,30 +48,6 @@ class TechExcFragment : BaseFragment() {
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_tech_exc
-    }
-
-    private var listener: OnFragmentInteractionListener? = null
-
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(uri: Uri)
     }
 
     companion object {

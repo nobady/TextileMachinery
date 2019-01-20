@@ -80,4 +80,12 @@
     <string name="commit">提交</string>
     <string name="search_hint">请输入关键字</string>
     <string name="share">分享</string>
+    <string name="release_demand">发布需求</string>
+
+    <string name="supply_newest">最新</string>
+    <string name="supply_rapier">剑杆</string>
+    <string name="supply_dabble">喷水</string>
+    <string name="supply_spray_steam">喷汽</string>
+    <string name="supply_mech">整经机械</string>
+    <string name="supply_reform">改造研发</string>
 </resources>

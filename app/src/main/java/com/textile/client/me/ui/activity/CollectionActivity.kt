@@ -1,6 +1,5 @@
 package com.textile.client.me.ui.activity
 
-import android.net.Uri
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
@@ -8,17 +7,10 @@ import com.game.base.mvp.BaseActivity
 import com.textile.client.R
 import com.textile.client.me.contract.CollectionContract
 import com.textile.client.me.presenter.CollectionPresenterImpl
-import com.textile.client.me.ui.fragment.collection.*
 import com.textile.client.me.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_collection.*
 
-class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView,
-    TechExcFragment.OnFragmentInteractionListener,
-    DemandFragment.OnFragmentInteractionListener, SupplyFragment.OnFragmentInteractionListener,
-    RecruitFragment.OnFragmentInteractionListener, JobWantFragment.OnFragmentInteractionListener {
-    override fun onFragmentInteraction(uri: Uri) {
-
-    }
+class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView {
 
     private val collectionPresenter: CollectionContract.ICollectionPresenter by lazy { CollectionPresenterImpl() }
 

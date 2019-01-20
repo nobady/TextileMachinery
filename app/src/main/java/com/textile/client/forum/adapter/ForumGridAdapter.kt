@@ -14,7 +14,8 @@ import com.textile.client.R
 /**
  * Created by bo on 2019/1/16.
  */
-class ForumGridAdapter(private val helper: LayoutHelper) : DelegateAdapter.Adapter<ForumGridAdapter.ForumHolder>() {
+class ForumGridAdapter(private val helper: LayoutHelper, val listener: ForumGridClickListener) :
+    DelegateAdapter.Adapter<ForumGridAdapter.ForumHolder>() {
     private var mContext: Context? = null
     private val iconArray = arrayOf(
         R.drawable.tech_exchange,
@@ -43,11 +44,18 @@ class ForumGridAdapter(private val helper: LayoutHelper) : DelegateAdapter.Adapt
         val stringArray = mContext?.resources?.getStringArray(R.array.collectionTabs)
         holder.categoryName.text = stringArray?.get(position) ?: ""
         holder.categoryIcon.setImageResource(iconArray[position])
+        holder.itemView.setOnClickListener {
+            listener.onGridClick(position)
+        }
     }
 
 
     inner class ForumHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryIcon = itemView.findViewById<ImageView>(R.id.iv_category_icon)
         val categoryName = itemView.findViewById<TextView>(R.id.tv_category_name)
+    }
+
+    interface ForumGridClickListener {
+        fun onGridClick(position: Int)
     }
 }

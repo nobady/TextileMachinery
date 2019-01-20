@@ -7,4 +7,12 @@
         <item>@string/job_wanted</item>
         <item>@string/recruit</item>
     </string-array>
+    <string-array name="mechSupplyTabs">
+        <item>@string/supply_newest</item>
+        <item>@string/supply_rapier</item>
+        <item>@string/supply_dabble</item>
+        <item>@string/supply_spray_steam</item>
+        <item>@string/supply_mech</item>
+        <item>@string/supply_reform</item>
+    </string-array>
 </resources>

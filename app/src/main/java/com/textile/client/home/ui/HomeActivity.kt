@@ -4,7 +4,7 @@ import android.support.design.widget.BottomNavigationView
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.setFullScreen
 import com.textile.client.R
-import com.textile.client.forum.ui.ForumFragment
+import com.textile.client.forum.ui.fragment.ForumFragment
 import com.textile.client.mall.ui.MallFragment
 import com.textile.client.me.ui.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_home.*
