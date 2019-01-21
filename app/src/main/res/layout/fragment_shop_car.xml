@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".home.ui.HomeActivity">
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:fitsSystemWindows="true"
+            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:fitsSystemWindows="true"
+                app:title=""
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:toolbarId="@+id/toolbar"
+                app:titleEnabled="false"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:contentScrim="?attr/colorPrimary">
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_width="match_parent"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="购物车"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:text="编辑"
+                          android:textColor="@color/white"
+                          android:layout_gravity="right"
+                          android:layout_marginRight="12dp"
+                          android:textSize="@dimen/normal_font_16"
+                          android:gravity="center_vertical"
+                />
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/shopCarRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="60dp"
+            app:behavior_overlapTop="50dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    />
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                  android:orientation="horizontal"
+                  android:background="@color/white"
+                  app:layout_anchorGravity="bottom|center" app:layout_anchor="@+id/shopCarRecyclerView">
+
+        <CheckBox
+                android:id="@+id/cb_shopCar_all"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+        />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="@dimen/small_font_14"
+                  android:textColor="@color/grey"
+                  android:gravity="center_vertical"
+                  android:layout_marginLeft="6dp"
+                  android:text="@string/choose_all"
+                  android:id="@+id/tv_choose_all"
+        />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textColor="@color/black"
+                  android:gravity="center_vertical"
+                  android:text="合计金额：￥24.17万"
+                  android:layout_marginLeft="49dp"
+                  android:textSize="@dimen/small_font_14"
+                  android:id="@+id/tv_shopCar_AllMoney"
+        />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:layout_marginLeft="6dp"
+                  android:layout_weight="1"
+                  android:textColor="@color/white"
+                  android:background="@drawable/red_bg"
+                  android:id="@+id/tv_shopCar_buy"
+                  android:text="@string/shopCar_buy"
+        />
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

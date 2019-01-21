@@ -88,4 +88,8 @@
     <string name="supply_spray_steam">喷汽</string>
     <string name="supply_mech">整经机械</string>
     <string name="supply_reform">改造研发</string>
+    <string name="choose_all">全选</string>
+    <string name="shopCar_buy">立即购买</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>

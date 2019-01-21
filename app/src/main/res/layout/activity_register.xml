@@ -11,7 +11,7 @@
     <com.game.base.wdget.HeaderView
             android:id="@+id/register_headView"
             android:layout_width="match_parent"
-            android:layout_height="41.5dp"
+            android:layout_height="?attr/actionBarSize"
     />
 
     <EditText

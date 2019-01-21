@@ -7,6 +7,7 @@ import com.textile.client.R
 import com.textile.client.forum.ui.fragment.ForumFragment
 import com.textile.client.mall.ui.MallFragment
 import com.textile.client.me.ui.fragment.MeFragment
+import com.textile.client.shop_car.ShopCarFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity() {
                 "mall" -> MallFragment.newInstance()
                 "forum" -> ForumFragment.newInstance()
                 "add" -> MeFragment.newInstance()
-                "shop_car" -> MeFragment.newInstance()
+                "shop_car" -> ShopCarFragment.newInstance()
                 "me" -> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
             }

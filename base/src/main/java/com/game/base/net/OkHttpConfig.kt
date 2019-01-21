@@ -37,8 +37,8 @@ class OkHttpConfig private constructor(){
         fun build():OkHttpClient{
 
             okHttpClientBuilder = OkHttpClient.Builder()
-            setDebugMode()
             setHeadersConfig()
+            setDebugMode()
             setTimeOut()
             seInterceptors()
 

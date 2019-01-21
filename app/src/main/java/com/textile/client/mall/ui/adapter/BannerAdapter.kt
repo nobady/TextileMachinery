@@ -39,6 +39,7 @@ class BannerAdapter constructor(helper: LayoutHelper):DelegateAdapter.Adapter<Ba
                 holder.indexTv.text = "${position + 1}/${imageUrls.size}"
             }
         })
+        holder.indexTv.text = "${position + 1}/${imageUrls.size}"
         if (imageUrls.size>1){
             holder.indexTv.visibility = View.VISIBLE
             holder.searchView.visibility = View.VISIBLE

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:background="@color/white"
+                                             android:layout_height="96dp">
+
+
+    <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:id="@+id/cb_shopCar_adapter_choose"
+              android:layout_marginLeft="22dp"
+    />
+
+    <ImageView android:layout_width="80dp" android:layout_height="80dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintLeft_toRightOf="@id/cb_shopCar_adapter_choose"
+               android:id="@+id/iv_shopCar_adapter_icon"
+               android:layout_marginLeft="20dp"
+               android:src="@mipmap/ic_launcher"
+    />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:maxLines="2"
+              app:layout_constraintLeft_toRightOf="@id/iv_shopCar_adapter_icon"
+              app:layout_constraintTop_toTopOf="@id/iv_shopCar_adapter_icon"
+              android:text="金天菊 喷水脂肪器械 "
+              android:layout_marginLeft="10dp"
+              android:textColor="@color/black"
+              android:textSize="@dimen/small_font_14"
+              android:id="@+id/tv_shopCar_adapter_name"
+    />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              app:layout_constraintLeft_toRightOf="@id/iv_shopCar_adapter_icon"
+              app:layout_constraintTop_toBottomOf="@id/tv_shopCar_adapter_name"
+              android:textColor="@color/grey"
+              android:text="型号：CY-2310"
+              android:textSize="@dimen/small_font_12"
+              android:layout_marginLeft="10dp"
+              android:id="@+id/tv_shopCar_xinghao"
+    />
+
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              app:layout_constraintLeft_toRightOf="@id/iv_shopCar_adapter_icon"
+              app:layout_constraintBottom_toBottomOf="@id/iv_shopCar_adapter_icon"
+              android:layout_marginLeft="10dp"
+              android:text="￥23.74万"
+              android:textColor="@color/red"
+              android:textSize="@dimen/normal_font_16"
+              android:id="@+id/tv_shopCar_adapter_money"
+    />
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="22dp"
+                  app:layout_constraintRight_toRightOf="parent"
+                  android:layout_marginRight="12dp"
+                  android:background="@drawable/shape_grey_bg"
+                  app:layout_constraintBottom_toBottomOf="@id/iv_shopCar_adapter_icon"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                  android:layout_gravity="center_vertical"
+                  android:text="@string/minus"
+                  android:textColor="@color/grey"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:id="@+id/tv_shopCar_adapter_minus"
+        />
+
+        <View android:layout_width="0.3dp" android:layout_height="match_parent"
+              android:background="@color/grey"
+        />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:text="1"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="@color/black"
+                  android:id="@+id/tv_shopCar_adapter_num"
+        />
+
+        <View android:layout_width="0.3dp" android:layout_height="match_parent"
+              android:background="@color/grey"
+        />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                  android:layout_gravity="center_vertical"
+                  android:text="@string/plus"
+                  android:textColor="@color/grey"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:id="@+id/tv_shopCar_adapter_plus"
+        />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

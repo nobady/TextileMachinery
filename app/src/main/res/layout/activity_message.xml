@@ -12,7 +12,7 @@
     <com.game.base.wdget.HeaderView
             android:id="@+id/mMsgHeadView"
             android:layout_width="match_parent"
-            android:layout_height="41.5dp">
+            android:layout_height="?attr/actionBarSize">
     </com.game.base.wdget.HeaderView>
 
     <RelativeLayout
