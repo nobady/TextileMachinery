@@ -53,6 +53,7 @@
 
 
     <TextView
+            android:id="@+id/mDemandDate"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="一天前发布"

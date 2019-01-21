@@ -1,7 +1,6 @@
 package com.textile.client.me.ui.fragment.collection
 
 import android.graphics.Rect
-import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,6 +9,9 @@ import android.view.ViewGroup
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.dip2Px
 import com.textile.client.R
+import com.textile.client.me.contract.CollectDemandContract
+import com.textile.client.me.model.CollectDemandModel
+import com.textile.client.me.presenter.CollectDemandPresenterImpl
 import com.textile.client.me.ui.adapter.DemandAdapter
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
 import kotlinx.android.synthetic.main.fragment_demand.*
@@ -17,13 +19,21 @@ import kotlinx.android.synthetic.main.fragment_demand.*
 /**
  * 机械需求
  */
-class DemandFragment : BaseFragment() {
+class DemandFragment : BaseFragment(), CollectDemandContract.ICollectDemandView {
+    private val collectDemandPresenter by lazy { CollectDemandPresenterImpl() }
+    private lateinit var demandAdapter: DemandAdapter
+
+    override fun getListSuccess(data: CollectDemandModel) {
+        demandAdapter.setData(data.list)
+    }
+
     override fun initView(view: View) {
+        collectDemandPresenter.attachView(this)
         initRv()
     }
 
     override fun lazyLoadData() {
-        
+        collectDemandPresenter.getListDemandCollect()
     }
 
     override fun getLayoutId(): Int {
@@ -49,7 +59,8 @@ class DemandFragment : BaseFragment() {
                 .setTextColorResource(android.R.color.white).textSize = 10
             rightMenu.addMenuItem(deleteItem)
         }
-        mDemandRv.adapter = DemandAdapter()
+        demandAdapter = DemandAdapter()
+        mDemandRv.adapter = demandAdapter
     }
 
     companion object {

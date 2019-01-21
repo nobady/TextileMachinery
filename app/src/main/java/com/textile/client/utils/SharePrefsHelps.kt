@@ -7,12 +7,12 @@ import com.textile.client.App
 /**
  * Created by Administrator on 2019/1/13.
  */
-class SharePrefsHelps (name:String){
+class SharePrefsHelps(name: String) {
 
-    private var spName:String = name
+    private var spName: String = name
     private var sp: SharedPreferences = AndroidUtils.getCtx().getSharedPreferences(name, Context.MODE_PRIVATE)!!
 
-    constructor():this(COMMON_NAME)
+    constructor() : this(COMMON_NAME)
 
     companion object {
         private val COMMON_NAME = "fangji"
@@ -23,6 +23,7 @@ class SharePrefsHelps (name:String){
         editor.putBoolean(key, value)
         editor.commit()
     }
+
     fun putBooleanNoCommit(key: String, value: Boolean) {
         val editor = sp.edit()
         editor.putBoolean(key, value)
@@ -41,6 +42,7 @@ class SharePrefsHelps (name:String){
         editor.putString(key, value)
         editor.commit()
     }
+
     fun putStringNoCommit(key: String, value: String) {
         val editor = sp.edit()
         editor.putString(key, value)
@@ -61,6 +63,7 @@ class SharePrefsHelps (name:String){
         editor.putInt(key, value)
         editor.commit()
     }
+
     fun putIntNoCommit(key: String, value: Int) {
         val editor = sp.edit()
         editor.putInt(key, value)
@@ -80,6 +83,7 @@ class SharePrefsHelps (name:String){
         editor.putLong(key, value)
         editor.commit()
     }
+
     fun putLongNoCommit(key: String, value: Long) {
         val editor = sp.edit()
         editor.putLong(key, value)
@@ -98,6 +102,7 @@ class SharePrefsHelps (name:String){
         editor.putFloat(key, value)
         editor.commit()
     }
+
     fun putFloatNoCommit(key: String, value: Float) {
         val editor = sp.edit()
         editor.putFloat(key, value)
@@ -110,9 +115,16 @@ class SharePrefsHelps (name:String){
     fun getFloat(key: String): Float {
         return getFloat(key, 0f)
     }
+
     //所以调用putXXXNoCommit的方法，最后都要调用此方法
-    fun commit(){
+    fun commit() {
         sp.edit().apply()
+    }
+
+    fun remove(key: String) {
+        val editor = sp.edit()
+        editor.remove(key)
+        editor.commit()
     }
 
 }

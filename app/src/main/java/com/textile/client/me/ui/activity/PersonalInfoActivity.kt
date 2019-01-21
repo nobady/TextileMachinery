@@ -5,6 +5,7 @@ import com.game.base.mvp.BaseActivity
 import com.game.base.utils.toActivityNotFinish
 import com.textile.client.R
 import com.textile.client.login.model.UserPrefs
+import com.textile.client.login.ui.LoginActivity
 import com.textile.client.me.contract.PersonalInfoContract
 import com.textile.client.me.presenter.PersonalInfoPresenterImpl
 import kotlinx.android.synthetic.main.activity_personal_info.*
@@ -34,8 +35,17 @@ class PersonalInfoActivity : BaseActivity() {
         }
         mPerInfoLogout.setOnClickListener {
             mPersonalPresenter?.logout()
+            toLoginActivity()
+            UserPrefs.getInstance.clearToken()
         }
 
+    }
+
+    fun toLoginActivity() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
     }
 
     private fun toSetActivity(startCode: Int) {

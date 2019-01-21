@@ -4,26 +4,43 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.textile.client.R
+import com.textile.client.me.model.X
 
 /**
  * Created by bo on 2019/1/12.
  */
 class DemandAdapter : RecyclerView.Adapter<DemandAdapter.DemandHolder>() {
+    private var data: List<X>? = null
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): DemandHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_demand, parent, false)
         return DemandHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return 30
+        return if (data == null) 0 else data!!.size
     }
 
-    override fun onBindViewHolder(p0: DemandHolder, p1: Int) {
+    override fun onBindViewHolder(holder: DemandHolder, position: Int) {
+        val bean = data?.get(position)
+        holder.mDemandTitle.text = bean?.title
+        holder.mDemandDate.text = bean?.createAt
+        holder.mDemandPrice.text = bean?.expectedSalary
+        holder.mDemandContent.text = bean?.content
 
+    }
+
+    fun setData(list: List<X>) {
+        data = list
+        notifyDataSetChanged()
     }
 
     inner class DemandHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        val mDemandTitle = itemView.findViewById<TextView>(R.id.mDemandTitle)
+        val mDemandContent = itemView.findViewById<TextView>(R.id.demand_content)
+        val mDemandPrice = itemView.findViewById<TextView>(R.id.mDemandPrice)
+        val mDemandDate = itemView.findViewById<TextView>(R.id.mDemandDate)
+        val mMeUserRank = itemView.findViewById<TextView>(R.id.mMeUserRank)
     }
 }

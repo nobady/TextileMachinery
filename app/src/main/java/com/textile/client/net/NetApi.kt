@@ -6,6 +6,7 @@ import com.textile.client.login.model.LoginModel
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
 import com.textile.client.me.model.ClearCollModel
+import com.textile.client.me.model.CollectDemandModel
 import com.textile.client.me.model.UpdatePhoneModel
 import io.reactivex.Observable
 import okhttp3.RequestBody
@@ -50,4 +51,8 @@ interface NetApi {
 
     @POST("user/updatePassword")
     fun updatePassword(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>
+
+    @POST("userCollection/listDemandCollect")
+    fun getListDemandCollect(@Body body: RequestBody):Observable<BaseModel<CollectDemandModel>>
+
 }
