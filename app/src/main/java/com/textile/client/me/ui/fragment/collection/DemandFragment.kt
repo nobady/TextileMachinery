@@ -28,11 +28,11 @@ class DemandFragment : BaseFragment(), CollectDemandContract.ICollectDemandView 
     }
 
     override fun initView(view: View) {
-        collectDemandPresenter.attachView(this)
         initRv()
     }
 
     override fun lazyLoadData() {
+        collectDemandPresenter.attachView(this)
         collectDemandPresenter.getListDemandCollect()
     }
 

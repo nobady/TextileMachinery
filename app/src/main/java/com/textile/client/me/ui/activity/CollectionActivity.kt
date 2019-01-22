@@ -1,6 +1,7 @@
 package com.textile.client.me.ui.activity
 
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
 import com.game.base.mvp.BaseActivity
@@ -44,7 +45,7 @@ class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView {
 
     private fun initTab() {
         val tabArray = resources.getStringArray(R.array.collectionTabs)
-        mCollVp.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
+        mCollVp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return FragmentUtils.getFragment(position)
             }

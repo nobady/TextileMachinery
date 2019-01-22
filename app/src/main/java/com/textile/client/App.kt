@@ -20,6 +20,13 @@ class App:Application() {
         super.onCreate()
         AndroidUtils.regCtx(this)
         CrashReport.initCrashReport(this, "5e17ae2b2a", BuildConfig.DEBUG)
+        initHttpConfig()
+    }
+
+    private fun initHttpConfig() {
+        val okHttpClientBuilder = OkHttpConfig.getInstance().Builder().setDebugMode(BuildConfig.DEBUG)
+
+        RxHttpUtil.config().setClient(okHttpClientBuilder.build()).setBaseUrl("http://haroldchan.cn:8080/api/")
     }
 
     override fun attachBaseContext(base: Context?) {
