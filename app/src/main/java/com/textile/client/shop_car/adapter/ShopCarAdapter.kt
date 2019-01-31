@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.LayoutHelper
 import com.textile.client.R
+import kotlinx.android.synthetic.main.adapter_item_shop_car.view.*
 
 /**
  * Created by lff on 2019/1/21.
@@ -25,6 +26,7 @@ class ShopCarAdapter(helper: LayoutHelper): DelegateAdapter.Adapter<ShopCarAdapt
     override fun onCreateLayoutHelper() = mHelper
 
     override fun onBindViewHolder(holder: ShopCarViewHolder, position: Int) {
+        holder.itemView.tv_shopCar_adapter_num.text = "$position"
     }
 
     inner class ShopCarViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){}

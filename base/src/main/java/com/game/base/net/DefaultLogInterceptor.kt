@@ -28,26 +28,17 @@ class DefaultLogInterceptor:Interceptor {
             bufferedSource?.request(Long.MAX_VALUE)
             val buffer = bufferedSource?.buffer()
 
-            val json = buffer?.clone()?.readUtf8()
-            val jsonObject = JSONObject(json)
-            val code = jsonObject.getInt("code")
-            if (code!=1000){
-                jsonObject.put("data",JSONObject())
-            }
-
             val logStr = "method->${request.method()}\n" +
                     "network code->${response.code()}\n" +
                     "url->${request.url()}\n" +
                     "time->$time\n" +
                     "request header->${request.headers()}\n" +
                     "request params->${bodyToString(request.body())}\n" +
-                    "response body->$jsonObject"
+                    "response body->${buffer?.clone()?.readUtf8()}"
 
-            LogUtil.logI(logStr)
+            LogUtil.logV(logStr)
 
-            val newResponse = ResponseBody.create(response.body()?.contentType(), jsonObject.toString())
-
-            return response.newBuilder().body(newResponse).build()
+            return response
         }catch (e:Exception){
             throw e
         }

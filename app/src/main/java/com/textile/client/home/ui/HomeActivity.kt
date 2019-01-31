@@ -25,7 +25,9 @@ class HomeActivity : BaseActivity() {
 
         changeOrNewFragment(getString(R.string.frag_mall))
 
-        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add)) }
+        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add))
+            navigation.selectedItemId = R.id.navigation_add
+        }
     }
 
     override fun initData() {
@@ -49,6 +51,9 @@ class HomeActivity : BaseActivity() {
             }
             R.id.navigation_me -> {
                 changeOrNewFragment(getString(R.string.frag_me))
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_add ->{
                 return@OnNavigationItemSelectedListener true
             }
         }
