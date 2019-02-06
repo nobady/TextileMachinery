@@ -6,9 +6,7 @@ import android.support.multidex.MultiDex
 import com.game.base.net.OkHttpConfig
 import com.game.base.net.RxHttpUtil
 import com.tencent.bugly.crashreport.CrashReport
-import com.textile.client.login.model.UserPrefs
 import com.textile.client.utils.AndroidUtils
-import okhttp3.internal.Internal.instance
 
 /**
  * Created by Administrator on 2019/1/5.
