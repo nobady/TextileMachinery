@@ -40,6 +40,15 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
+    fun createHotProductListBody(pageIndex: Int,pageSize:Int): RequestBody? {
+        val jsonObject = JsonObject()
+        val pageJson = JsonObject()
+        pageJson.addProperty("pageIndex", pageIndex)
+        pageJson.addProperty("pageSize", pageSize)
+        jsonObject.add("page", pageJson)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
     fun createForumListBody(): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("categoryBrandId", 0)

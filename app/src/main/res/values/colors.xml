@@ -13,5 +13,6 @@
     <color name="to_pay_color">#06B2F1</color>
     <color name="black">#000000</color>
     <color name="red">#ffec362f</color>
+    <color name="hot_price">#E7A549</color>
 
 </resources>

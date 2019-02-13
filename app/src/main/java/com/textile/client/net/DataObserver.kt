@@ -2,10 +2,8 @@ package com.textile.client.net
 
 import android.content.Context
 import android.content.Intent
-import com.game.base.utils.LogUtil
 import com.game.base.utils.toast
 import com.textile.client.R
-import com.textile.client.login.model.BaseModel
 import com.textile.client.login.ui.LoginActivity
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable

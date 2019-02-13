@@ -1,4 +1,4 @@
-package com.textile.client.login.model
+package com.textile.client.net
 
 data class BaseModel<T>(
     val code: Int,

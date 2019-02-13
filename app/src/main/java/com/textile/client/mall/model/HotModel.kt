@@ -1,9 +1,9 @@
 package com.textile.client.mall.model
 
 /**
- * Updated by lff on 2019-02-13
+ * Created by lff on 2019-02-12
  */
-data class CategoryModel(
+data class HotModel(
     var current: Int,
     var size: Int,
     var total: Int,

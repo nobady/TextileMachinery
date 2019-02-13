@@ -17,8 +17,8 @@ import com.textile.client.mall.contract.MallContract
 import com.textile.client.mall.contract.MallPresenterImpl
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
-import com.textile.client.mall.ui.adapter.BannerAdapter
-import com.textile.client.mall.ui.adapter.ClassifyAdapter
+import com.textile.client.mall.model.HotModel
+import com.textile.client.mall.ui.adapter.*
 import kotlinx.android.synthetic.main.fragment_mall.*
 
 private const val ARG_PARAM1 = "param1"
@@ -32,13 +32,15 @@ private const val ARG_PARAM2 = "param2"
  */
 class MallFragment : BaseFragment(), MallContract.IMallView {
 
+
     private val mPresenter by lazy { MallPresenterImpl() }
 
     private lateinit var delegateAdapter: DelegateAdapter
 
     private lateinit var bannerAdapter: BannerAdapter
-    private lateinit var bdAdapter: BannerAdapter//广告
+    private lateinit var bdAdapter: BDAdapter//广告
     private lateinit var classifyAdapter: ClassifyAdapter
+    private lateinit var hotProductAdapter: HotProductAdapter
 
     override fun initView(view: View) {
 
@@ -61,14 +63,23 @@ class MallFragment : BaseFragment(), MallContract.IMallView {
         delegateAdapter.addAdapter(classifyAdapter)
 
         val bdLayoutHelper = LinearLayoutHelper()
-        bdAdapter = BannerAdapter(bdLayoutHelper)
+        bdAdapter = BDAdapter(bdLayoutHelper)
         delegateAdapter.addAdapter(bdAdapter)
+
+        val textLayoutHelper = LinearLayoutHelper()
+        val textAdapter = TextAdapter(textLayoutHelper)
+        delegateAdapter.addAdapter(textAdapter)
+
+        val hotLayoutHelper = GridLayoutHelper(2)
+        hotProductAdapter = HotProductAdapter(hotLayoutHelper, context)
+        delegateAdapter.addAdapter(hotProductAdapter)
     }
 
     override fun lazyLoadData() {
         mPresenter.getBannerList(MallContract.BANNER_MALL)
         mPresenter.getCategoryList()
         mPresenter.getBannerList(MallContract.BANNER_MALL_BD)
+        mPresenter.getHotProductList()
     }
 
     override fun setBannerData(type: Int, bannerList: List<BannerModel.ListData>) {
@@ -84,6 +95,11 @@ class MallFragment : BaseFragment(), MallContract.IMallView {
     override fun setCategoryData(mCategoryList: List<CategoryModel.ListData>) {
         classifyAdapter.categoryList = mCategoryList
         classifyAdapter.notifyDataSetChanged()
+    }
+
+    override fun setHotList(hotList: List<HotModel.ListData>) {
+        hotProductAdapter.hotList = hotList
+        hotProductAdapter.notifyDataSetChanged()
     }
 
     override fun getLayoutId() = R.layout.fragment_mall

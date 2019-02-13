@@ -1,10 +1,11 @@
 package com.textile.client.net
 
 import com.textile.client.forum.model.ForumModel
-import com.textile.client.login.model.BaseModel
 import com.textile.client.login.model.LoginModel
 import com.textile.client.mall.model.BannerModel
+import com.textile.client.mall.model.BrandModel
 import com.textile.client.mall.model.CategoryModel
+import com.textile.client.mall.model.HotModel
 import com.textile.client.me.model.ClearCollModel
 import com.textile.client.me.model.CollectDemandModel
 import com.textile.client.me.model.UpdatePhoneModel
@@ -38,6 +39,17 @@ interface NetApi {
 
     @POST("category/getCategoryList")
     fun getCategoryList(): Observable<BaseModel<CategoryModel>>
+
+    @POST("product/GetHotProductList")
+    fun getHotProductList(@Body body: RequestBody):Observable<BaseModel<HotModel>>
+
+    @POST("product/GetCategoryProductList")
+    fun getCategoryProductList(@Body body: RequestBody):Observable<BaseModel<CategoryModel>>
+
+    //分类产品页面中的 分类接口
+    @POST("brand/GetBrandByCategory")
+    fun getBrandData(@Body body: RequestBody):Observable<BaseModel<BrandModel>>
+
 
     /*论坛*/
     @POST("community/GetList")

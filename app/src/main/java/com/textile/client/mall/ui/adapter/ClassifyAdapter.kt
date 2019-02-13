@@ -1,6 +1,7 @@
 package com.textile.client.mall.ui.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.game.base.image.ImageUtil
 import com.textile.client.R
 import com.textile.client.login.model.UserPrefs
 import com.textile.client.mall.model.CategoryModel
+import com.textile.client.mall.ui.ClassifyInfoActivity
+import com.textile.client.utils.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.adapter_item_category.view.*
 
 /**
@@ -39,6 +42,18 @@ class ClassifyAdapter(context: Context,layoutHelper: LayoutHelper):DelegateAdapt
             holder.itemView.tv_category_name.text = categoryList[position].ename
         }
         ImageUtil.displayCircleImage(mContext,holder.itemView.iv_category_icon,categoryList[position].image)
+
+        holder.itemView.setOnClickListener {
+            gotoMallProduct(categoryList[position])
+        }
+    }
+
+    private fun gotoMallProduct(listData: CategoryModel.ListData) {
+        val intent = Intent()
+        intent.putExtra("title",listData.name)
+        intent.putExtra("id",listData.id)
+        intent.setClass(mContext,ClassifyInfoActivity::class.java)
+        mContext.startActivity(intent)
     }
 
     inner class ClassifyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView)

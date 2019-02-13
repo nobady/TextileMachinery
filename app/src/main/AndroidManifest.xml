@@ -16,6 +16,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".mall.ui.ClassifyInfoActivity">
+        </activity>
         <activity android:name=".shop_car.ConfirmOrderActivity">
         </activity>
         <activity android:name=".forum.ui.activity.MechSupplyActivity">

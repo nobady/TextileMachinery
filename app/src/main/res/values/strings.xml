@@ -12,6 +12,9 @@
     <string name="title_me" translatable="false">我的</string>
     <string name="title_null"></string>
 
+    <!--购物车-->
+    <string name="hot_price_text">价格：%d万</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="frag_mall">mall</string>
@@ -92,4 +95,7 @@
     <string name="shopCar_buy">立即购买</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
+    <string name="hot_text">热门推荐</string>
+    <string name="price_classify">价格</string>
+    <string name="classify">分类</string>
 </resources>

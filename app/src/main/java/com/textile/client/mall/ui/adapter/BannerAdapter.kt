@@ -10,16 +10,17 @@ import android.widget.TextView
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.LayoutHelper
 import com.bigkoo.convenientbanner.ConvenientBanner
+import com.game.base.utils.dip2Px
 import com.textile.client.R
 import com.textile.client.mall.model.BannerModel
 
 /**
  * Created by lff on 2019/1/14.
  */
-class BannerAdapter constructor(helper: LayoutHelper):DelegateAdapter.Adapter<BannerAdapter.BannerHolder>() {
+class BannerAdapter constructor(helper: LayoutHelper) : DelegateAdapter.Adapter<BannerAdapter.BannerHolder>() {
 
     private val mHelper = helper
-    var imageUrls:List<BannerModel.ListData> = ArrayList()
+    var imageUrls: List<BannerModel.ListData> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_mall_banner, parent, false)
@@ -40,23 +41,17 @@ class BannerAdapter constructor(helper: LayoutHelper):DelegateAdapter.Adapter<Ba
             }
         })
         holder.indexTv.text = "${position + 1}/${imageUrls.size}"
-        if (imageUrls.size>1){
-            holder.indexTv.visibility = View.VISIBLE
-            holder.searchView.visibility = View.VISIBLE
-            if (banner.isTurning) {
-                banner.stopTurning()
-            }
-            banner.startTurning(2000)
-        }else{
-            holder.mBanner.isCanLoop = false
-            holder.indexTv.visibility = View.GONE
-            holder.searchView.visibility = View.GONE
+        holder.indexTv.visibility = View.VISIBLE
+        holder.searchView.visibility = View.VISIBLE
+        if (banner.isTurning) {
+            banner.stopTurning()
         }
+        banner.startTurning(2000)
     }
 
-    inner class BannerHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        val mBanner:ConvenientBanner<BannerModel.ListData> = itemView.findViewById(R.id.conBanner)
-        val indexTv:TextView = itemView.findViewById(R.id.tv_banner_index)
-        val searchView:LinearLayout = itemView.findViewById(R.id.ll_banner_search)
+    inner class BannerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val mBanner: ConvenientBanner<BannerModel.ListData> = itemView.findViewById(R.id.conBanner)
+        val indexTv: TextView = itemView.findViewById(R.id.tv_banner_index)
+        val searchView: LinearLayout = itemView.findViewById(R.id.ll_banner_search)
     }
 }

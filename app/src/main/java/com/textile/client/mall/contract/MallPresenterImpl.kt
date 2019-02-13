@@ -4,6 +4,7 @@ import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
+import com.textile.client.mall.model.HotModel
 import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
@@ -15,6 +16,24 @@ import io.reactivex.disposables.Disposable
  */
 class MallPresenterImpl : BasePresenter<MallContract.IMallView>(), MallContract.IMallPresenter {
 
+
+    override fun getHotProductList() {
+        RequestbodyUtil.createHotProductListBody(1,4)?.let {
+            RxHttpUtil.createApi(NetApi::class.java)
+                ?.getHotProductList(it)
+                ?.compose(Transformer.switchSchedulers())
+                ?.subscribe(object :DataObserver<HotModel>(true,getView()?.getContext()!!){
+                    override fun onSuccess(data: HotModel) {
+                        getView()?.setHotList(data.list)
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+                        super.onSubscribe(d)
+                        addSubscription(d)
+                    }
+                })
+        }
+    }
 
     override fun getCategoryList() {
         RxHttpUtil.createApi(NetApi::class.java)

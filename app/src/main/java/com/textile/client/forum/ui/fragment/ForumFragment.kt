@@ -20,6 +20,7 @@ import com.textile.client.mall.contract.MallContract
 import com.textile.client.mall.contract.MallPresenterImpl
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
+import com.textile.client.mall.model.HotModel
 import com.textile.client.mall.ui.adapter.BannerAdapter
 import kotlinx.android.synthetic.main.fragment_forum.*
 
@@ -29,6 +30,9 @@ import kotlinx.android.synthetic.main.fragment_forum.*
  */
 class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMallView,
     ForumGridAdapter.ForumGridClickListener {
+    override fun setHotList(hotList: List<HotModel.ListData>) {
+    }
+
     override fun onGridClick(position: Int) {
         when (position) {
             0 -> {
