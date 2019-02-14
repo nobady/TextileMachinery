@@ -1,0 +1,31 @@
+package com.textile.client.forum.model
+
+data class SupplyModel(
+    val avatar: String,
+    val collectionStatus: Int,
+    val content: String,
+    val createAt: String,
+    val electronicControlModel: String,
+    val equipmentStatus: String,
+    val expectedSalary: String,
+    val healdFramesNumber: Int,
+    val hidePhone: Int,
+    val home: String,
+    val id: Int,
+    val imageType: Int,
+    val imageUrls: List<String>,
+    val location: String,
+    val model: String,
+    val multiArmModel: String,
+    val name: String,
+    val number: Int,
+    val phone: String,
+    val productionTime: String,
+    val remark: String,
+    val rollerRollRatio: String,
+    val specification: String,
+    val title: String,
+    val userId: Int,
+    val userPhone: String,
+    val warpBeamRatio: String
+)

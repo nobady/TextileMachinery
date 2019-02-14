@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".forum.ui.activity.MechSupplyActivity"
+        tools:context=".forum.ui.activity.ForumActivity"
         android:orientation="vertical"
         >
 
@@ -21,6 +21,7 @@
             >
 
         <android.support.v7.widget.SearchView
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >

@@ -2,13 +2,12 @@ package com.textile.client.me.ui.activity
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
 import com.game.base.mvp.BaseActivity
 import com.textile.client.R
 import com.textile.client.me.contract.CollectionContract
 import com.textile.client.me.presenter.CollectionPresenterImpl
-import com.textile.client.me.utils.FragmentUtils
+import com.textile.client.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_collection.*
 
 class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView {
@@ -47,7 +46,7 @@ class CollectionActivity : BaseActivity(), CollectionContract.ICollectionView {
         val tabArray = resources.getStringArray(R.array.collectionTabs)
         mCollVp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
-                return FragmentUtils.getFragment(position)
+                return FragmentUtils.getCollectionFragment(position)
             }
 
             override fun getCount(): Int {

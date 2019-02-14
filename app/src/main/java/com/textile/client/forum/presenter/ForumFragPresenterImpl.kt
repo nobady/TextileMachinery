@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by bo on 2019/1/16.
  */
-class ForumPresenterImpl : BasePresenter<ForumContract.IForumView>(), ForumContract.IForumPresenter {
+class ForumFragPresenterImpl : BasePresenter<ForumContract.IForumView>(), ForumContract.IForumPresenter {
     override fun getForumList() {
         RequestbodyUtil.createForumListBody().let {
             RxHttpUtil.createApi(NetApi::class.java)

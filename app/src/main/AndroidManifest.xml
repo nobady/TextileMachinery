@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.textile.client">
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.textile.client"
+        >
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -15,12 +18,19 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            >
+        <activity android:name=".ShowBigImageActivity">
+        </activity>
+        <activity android:name=".forum.ui.activity.DetailActivity">
+        </activity>
+        <activity android:name=".forum.ui.activity.TechExchangeActivity">
+        </activity>
         <activity android:name=".mall.ui.ClassifyInfoActivity">
         </activity>
         <activity android:name=".shop_car.ConfirmOrderActivity">
         </activity>
-        <activity android:name=".forum.ui.activity.MechSupplyActivity">
+        <activity android:name=".forum.ui.activity.ForumActivity">
         </activity>
         <activity android:name=".home.ui.HomeActivity">
         </activity>

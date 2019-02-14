@@ -39,9 +39,9 @@ class ClassifyAdapter(context: Context,layoutHelper: LayoutHelper):DelegateAdapt
         if (UserPrefs.getInstance.getLanguage()==1) { //中文
             holder.itemView.tv_category_name.text = categoryList[position].name
         }else{
-            holder.itemView.tv_category_name.text = categoryList[position].ename
+//            holder.itemView.tv_category_name.text = categoryList[position].ename
         }
-        ImageUtil.displayCircleImage(mContext,holder.itemView.iv_category_icon,categoryList[position].image)
+//        ImageUtil.displayCircleImage(mContext,holder.itemView.iv_category_icon,categoryList[position].image)
 
         holder.itemView.setOnClickListener {
             gotoMallProduct(categoryList[position])
