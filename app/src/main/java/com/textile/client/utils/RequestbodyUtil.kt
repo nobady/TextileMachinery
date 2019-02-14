@@ -11,7 +11,7 @@ object RequestbodyUtil {
 
     private val mediaType = MediaType.parse("application/json; charset=utf-8")
 
-    fun createLoginBody(phone: String, pwd: String): RequestBody? {
+    fun createLoginBody(phone: String, pwd: String): RequestBody {
 
         val jsonObject = JsonObject()
         jsonObject.addProperty("phone", phone)
@@ -19,13 +19,13 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createGetVerificationCodeBody(phone: String): RequestBody? {
+    fun createGetVerificationCodeBody(phone: String): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("phone", phone)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createRegisterBody(phone: String, pwd: String, code: String): RequestBody? {
+    fun createRegisterBody(phone: String, pwd: String, code: String): RequestBody {
 
         val jsonObject = JsonObject()
         jsonObject.addProperty("phone", phone)
@@ -34,18 +34,36 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createBannerListBody(type: Int): RequestBody? {
+    fun createBannerListBody(type: Int): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("bannerTypeEnum", type)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createHotProductListBody(pageIndex: Int,pageSize:Int): RequestBody? {
+    fun createHotProductListBody(pageIndex: Int,pageSize:Int): RequestBody {
         val jsonObject = JsonObject()
         val pageJson = JsonObject()
         pageJson.addProperty("pageIndex", pageIndex)
         pageJson.addProperty("pageSize", pageSize)
         jsonObject.add("page", pageJson)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createBrandDataBody(categoryId: String): RequestBody {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("categoryId", categoryId)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createCategoryProductListBody(brandId:Int,categoryId:String,priceAsc:Boolean,pageIndex: Int,pageSize:Int): RequestBody {
+        val jsonObject = JsonObject()
+        val pageJson = JsonObject()
+        pageJson.addProperty("pageIndex", pageIndex)
+        pageJson.addProperty("pageSize", pageSize)
+        jsonObject.add("page", pageJson)
+        jsonObject.addProperty("brandId",brandId)
+        jsonObject.addProperty("categoryId",categoryId)
+        jsonObject.addProperty("priceAsc",priceAsc)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 

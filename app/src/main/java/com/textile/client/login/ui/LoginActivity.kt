@@ -45,10 +45,10 @@ class LoginActivity : BaseActivity(),LoginContract.ILoginView {
             toast(R.string.toast_input_login_error)
             return false
         }
-        if (!PatternUtil.checkPhoneNum(et_login_phone.text.toString())){
-            toast(getString(R.string.toast_login_input_phone))
-            return false
-        }
+//        if (!PatternUtil.checkPhoneNum(et_login_phone.text.toString())){
+//            toast(getString(R.string.toast_login_input_phone))
+//            return false
+//        }
         if (et_login_pwd.text.length>20){
             toast(getString(R.string.toast_login_input_pwd_error))
             return false

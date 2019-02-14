@@ -9,6 +9,7 @@ import com.textile.client.mall.model.HotModel
 import com.textile.client.me.model.ClearCollModel
 import com.textile.client.me.model.CollectDemandModel
 import com.textile.client.me.model.UpdatePhoneModel
+import com.textile.client.shop_car.model.ShopCartModel
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import retrofit2.http.Body
@@ -44,11 +45,11 @@ interface NetApi {
     fun getHotProductList(@Body body: RequestBody):Observable<BaseModel<HotModel>>
 
     @POST("product/GetCategoryProductList")
-    fun getCategoryProductList(@Body body: RequestBody):Observable<BaseModel<CategoryModel>>
+    fun getCategoryProductList(@Body body: RequestBody):Observable<BaseModel<HotModel>>
 
     //分类产品页面中的 分类接口
     @POST("brand/GetBrandByCategory")
-    fun getBrandData(@Body body: RequestBody):Observable<BaseModel<BrandModel>>
+    fun getBrandData(@Body body: RequestBody):Observable<BaseModel<List<BrandModel>>>
 
 
     /*论坛*/
@@ -66,5 +67,9 @@ interface NetApi {
 
     @POST("userCollection/listDemandCollect")
     fun getListDemandCollect(@Body body: RequestBody):Observable<BaseModel<CollectDemandModel>>
+
+    /*购物车*/
+    @POST("shoppingCart/shoppingCart")
+    fun getShopCartList():Observable<BaseModel<ShopCartModel>>
 
 }

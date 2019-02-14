@@ -71,6 +71,7 @@ class MallFragment : BaseFragment(), MallContract.IMallView {
         delegateAdapter.addAdapter(textAdapter)
 
         val hotLayoutHelper = GridLayoutHelper(2)
+        hotLayoutHelper.setAutoExpand(false)
         hotProductAdapter = HotProductAdapter(hotLayoutHelper, context)
         delegateAdapter.addAdapter(hotProductAdapter)
     }
