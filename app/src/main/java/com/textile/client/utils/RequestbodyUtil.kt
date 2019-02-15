@@ -107,4 +107,14 @@ object RequestbodyUtil {
         jsonObject.add("page", pageJson)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
+
+    fun createTechExchangeList():RequestBody{
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("categoryBrandId", 0)
+        val pageJson = JsonObject()
+        pageJson.addProperty("pageIndex", 1)
+        pageJson.addProperty("pageSize", 10)
+        jsonObject.add("page", pageJson)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
 }

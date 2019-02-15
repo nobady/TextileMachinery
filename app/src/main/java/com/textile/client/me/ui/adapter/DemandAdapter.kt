@@ -24,11 +24,12 @@ class DemandAdapter : RecyclerView.Adapter<DemandAdapter.DemandHolder>() {
 
     override fun onBindViewHolder(holder: DemandHolder, position: Int) {
         val bean = data?.get(position)
-        holder.mDemandTitle.text = bean?.title
-        holder.mDemandDate.text = bean?.createAt
-        holder.mDemandPrice.text = bean?.expectedSalary
-        holder.mDemandContent.text = bean?.content
-
+        bean?.run {
+            holder.mDemandTitle.text = title
+            holder.mDemandDate.text = createAt
+            holder.mDemandPrice.text = expectedSalary
+            holder.mDemandContent.text = content
+        }
     }
 
     fun setData(list: List<X>) {

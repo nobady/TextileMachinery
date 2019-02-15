@@ -84,6 +84,9 @@
     <string name="search_hint">请输入关键字</string>
     <string name="share">分享</string>
     <string name="release_demand">发布需求</string>
+    <string name="release_supply">发布供给</string>
+    <string name="release_job">我要招人</string>
+    <string name="release_recruit">我要求职</string>
 
     <string name="supply_newest">最新</string>
     <string name="supply_rapier">剑杆</string>

@@ -1,5 +1,6 @@
 package com.textile.client.forum.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.alibaba.android.vlayout.DelegateAdapter
@@ -14,8 +15,8 @@ import com.textile.client.forum.adapter.ForumContentAdapter
 import com.textile.client.forum.adapter.ForumGridAdapter
 import com.textile.client.forum.contract.ForumContract
 import com.textile.client.forum.model.ForumModel
-import com.textile.client.forum.presenter.ForumPresenterImpl
-import com.textile.client.forum.ui.activity.MechSupplyActivity
+import com.textile.client.forum.presenter.ForumFragPresenterImpl
+import com.textile.client.forum.ui.activity.ForumActivity
 import com.textile.client.mall.contract.MallContract
 import com.textile.client.mall.contract.MallPresenterImpl
 import com.textile.client.mall.model.BannerModel
@@ -34,21 +35,28 @@ class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMa
     }
 
     override fun onGridClick(position: Int) {
+        var intent = Intent(activity, ForumActivity::class.java)
         when (position) {
             0 -> {
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_TECH_EXCHANGE)
             }
             1 -> {
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_MECHANICAL_DEMAND)
             }
             2 -> {
-                toActivityNotFinish(MechSupplyActivity::class.java)
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_MECHANICAL_SUPPLY)
             }
             3 -> {
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_JOB_WANTED)
             }
             4 -> {
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_RECRUIT)
             }
             else -> {
+                intent.putExtra(ForumActivity.FORUM_START_CODE_KEY, ForumActivity.FORUM_TECH_EXCHANGE)
             }
         }
+        toActivityNotFinish(intent)
     }
 
     override fun getListSuccess(data: ForumModel) {
@@ -69,7 +77,7 @@ class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMa
 
     }
 
-    private val mForumPresenter by lazy { ForumPresenterImpl() }
+    private val mForumPresenter by lazy { ForumFragPresenterImpl() }
     private val mMallPresenter by lazy { MallPresenterImpl() }
     override fun initView(view: View) {
         setStatusBarColor(android.R.color.transparent)

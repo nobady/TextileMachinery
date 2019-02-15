@@ -1,6 +1,6 @@
 package com.textile.client.net
 
-import com.textile.client.forum.model.ForumModel
+import com.textile.client.forum.model.*
 import com.textile.client.login.model.LoginModel
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.BrandModel
@@ -55,6 +55,21 @@ interface NetApi {
     /*论坛*/
     @POST("community/GetList")
     fun getForumList(@Body body: RequestBody): Observable<BaseModel<ForumModel>>
+
+    @POST("community/listTechnicalCommunication")
+    fun getListTechnicalCommunication(@Body body: RequestBody):Observable<BaseModel<TechModel>>
+
+    @POST("community/listDemand")
+    fun getListDemand(@Body body: RequestBody):Observable<BaseModel<DemandModel>>
+
+    @POST("community/listRecruitment")
+    fun getListRecruitment(@Body body: RequestBody):Observable<BaseModel<RecruitModel>>
+
+    @POST("community/listSupply")
+    fun getListSupply(@Body body: RequestBody):Observable<BaseModel<SupplyModel>>
+
+    @POST("community/listApplyJob")
+    fun getListApplyJob(@Body body: RequestBody):Observable<BaseModel<ApplyJobModel>>
 
     @POST("userCollection/emptyCollection")
     fun clearCollected(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>
