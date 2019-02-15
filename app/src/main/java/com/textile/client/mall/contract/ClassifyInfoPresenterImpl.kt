@@ -25,8 +25,7 @@ class ClassifyInfoPresenterImpl: BasePresenter<ClassifyInfoContract.IClassifyInf
                 ?.compose(Transformer.switchSchedulers())
                 ?.subscribe(object :DataObserver<List<BrandModel>>(true,getView()?.getContext()!!){
                     override fun onSuccess(data: List<BrandModel>) {
-
-
+                        getView()?.setBrandList(data)
                     }
 
                     override fun onSubscribe(d: Disposable) {

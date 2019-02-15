@@ -1,8 +1,10 @@
 package com.textile.client.home.ui
 
 import android.support.design.widget.BottomNavigationView
+import android.view.Gravity
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.setFullScreen
+import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.forum.ui.fragment.ForumFragment
 import com.textile.client.mall.ui.MallFragment
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
 
+    private var clickTime:Long = 0
 
     override fun startLoad() {
     }
@@ -25,8 +28,9 @@ class HomeActivity : BaseActivity() {
 
         changeOrNewFragment(getString(R.string.frag_mall))
 
-        fab_add.setOnClickListener { changeOrNewFragment(getString(R.string.frag_add))
-            navigation.selectedItemId = R.id.navigation_add
+        fab_add.setOnClickListener {
+            val bottomPopup = BottomPopup(this)
+            bottomPopup.showUpView(it)
         }
     }
 
@@ -53,9 +57,6 @@ class HomeActivity : BaseActivity() {
                 changeOrNewFragment(getString(R.string.frag_me))
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_add ->{
-                return@OnNavigationItemSelectedListener true
-            }
         }
         false
     }
@@ -68,7 +69,6 @@ class HomeActivity : BaseActivity() {
             fragment = when (tag) {
                 "mall" -> MallFragment.newInstance()
                 "forum" -> ForumFragment.newInstance()
-                "add" -> MeFragment.newInstance()
                 "shop_car" -> ShopCarFragment.newInstance()
                 "me" -> MeFragment.newInstance()
                 else -> MallFragment.newInstance()
@@ -76,5 +76,14 @@ class HomeActivity : BaseActivity() {
         }
         transaction.replace(R.id.fragment, fragment!!, tag)
         transaction.commit()
+    }
+
+    override fun onBackPressed() {
+        if ((System.currentTimeMillis()-clickTime)>2000){
+            toast(getString(R.string.again_back))
+            clickTime = System.currentTimeMillis()
+        }else{
+            finish()
+        }
     }
 }

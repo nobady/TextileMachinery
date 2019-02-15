@@ -13,5 +13,6 @@ data class BrandModel(
     var image: String,
     var lastEditAt: String,
     var lastEditId: Int,
-    var name: String
+    var name: String,
+    var isCheck:Boolean//是否选中
 )

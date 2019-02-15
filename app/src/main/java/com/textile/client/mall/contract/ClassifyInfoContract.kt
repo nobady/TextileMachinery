@@ -2,6 +2,7 @@ package com.textile.client.mall.contract
 
 import com.game.base.mvp.IBaseView
 import com.game.base.mvp.IPresenter
+import com.textile.client.mall.model.BrandModel
 import com.textile.client.mall.model.HotModel
 
 /**
@@ -10,6 +11,7 @@ import com.textile.client.mall.model.HotModel
 interface ClassifyInfoContract {
     interface IClassifyInfoView:IBaseView{
         fun setCategoryList(dataList: List<HotModel.ListData>)
+        fun setBrandList(data: List<BrandModel>)
     }
 
 

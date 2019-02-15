@@ -98,4 +98,5 @@
     <string name="hot_text">热门推荐</string>
     <string name="price_classify">价格</string>
     <string name="classify">分类</string>
+    <string name="again_back">再按一次返回键退出</string>
 </resources>
