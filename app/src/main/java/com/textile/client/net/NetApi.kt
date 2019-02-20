@@ -1,5 +1,6 @@
 package com.textile.client.net
 
+import com.google.gson.JsonObject
 import com.textile.client.forum.model.*
 import com.textile.client.login.model.LoginModel
 import com.textile.client.mall.model.BannerModel
@@ -86,5 +87,8 @@ interface NetApi {
     /*购物车*/
     @POST("shoppingCart/shoppingCart")
     fun getShopCartList():Observable<BaseModel<ShopCartModel>>
+
+    @POST("shoppingCart/modifyProductNumber")
+    fun modifyProductNumber(@Body body: RequestBody):Observable<BaseModel<JsonObject>>
 
 }

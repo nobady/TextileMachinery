@@ -2,10 +2,12 @@ package com.textile.client.shop_car.contract
 
 import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
+import com.google.gson.JsonObject
 import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
 import com.textile.client.shop_car.model.ShopCartModel
+import com.textile.client.utils.RequestbodyUtil
 import io.reactivex.disposables.Disposable
 
 /**
@@ -28,4 +30,24 @@ class ShopCartPresenterImpl:BasePresenter<ShopCartContract.IShopCartView>(),Shop
                 }
             })
     }
+
+    override fun modifyProductNumber(productId: Int, type: Int) {
+        RequestbodyUtil.createModifyProductNumber(productId, type).let {
+            RxHttpUtil.createApi(NetApi::class.java)
+                ?.modifyProductNumber(it)
+                ?.compose(Transformer.switchSchedulers())
+                ?.subscribe(object :DataObserver<JsonObject>(true,getView()?.getContext()!!){
+                    override fun onSuccess(data: JsonObject) {
+                        getView()?.setModifyProductNumberSuccess()
+                    }
+
+                    override fun onSubscribe(d: Disposable) {
+                        super.onSubscribe(d)
+                        addSubscription(d)
+                    }
+
+                })
+        }
+    }
+
 }

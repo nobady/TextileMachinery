@@ -13,12 +13,17 @@ import com.textile.client.shop_car.adapter.ShopCarAdapter
 import com.textile.client.shop_car.contract.ShopCartContract
 import com.textile.client.shop_car.contract.ShopCartPresenterImpl
 import com.textile.client.shop_car.model.ShopCartModel
+import com.textile.client.utils.RecycerItemCheckListener
+import com.textile.client.utils.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.fragment_shop_car.*
+import kotlinx.android.synthetic.main.layout_order_buy.*
 
 /**
  * Created by lff on 2019/1/17.
  */
-class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView {
+class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView,RecycerItemCheckListener<ShopCartModel.ListData>
+    ,RecyclerItemClickListener<ShopCartModel.ListData> {
+
 
     private val mPresenter by lazy { ShopCartPresenterImpl() }
 
@@ -26,6 +31,47 @@ class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView {
     override fun initView(view: View) {
         initTitle()
         mPresenter.attachView(this)
+        initRecyclerView()
+        initEvent()
+    }
+
+    private fun initEvent() {
+        cb_shopCar_all.setOnCheckedChangeListener { buttonView, isChecked ->
+            shopCarAdapter.setSelectAll(isChecked)
+            tv_shopCar_AllMoney.text = "￥${calculateMoney()}元"
+        }
+
+        tv_shopCar_buy.setOnClickListener {
+            //获取已选择的商品，跳转到确认订单页面
+        }
+    }
+
+    override fun onChecked(t: ShopCartModel.ListData, position: Int) {
+        cb_shopCar_all.isChecked = false
+        if (t.isChecked&&shopCarAdapter.shopCartList.size==shopCarAdapter.selectShopCartList.size){
+            cb_shopCar_all.isChecked = true
+        }
+        tv_shopCar_AllMoney.text = "￥${calculateMoney()}元"
+    }
+
+    override fun onItemClick(t: ShopCartModel.ListData, position: Int) {
+        //修改数量
+        mPresenter.modifyProductNumber(t.id,t.type)
+    }
+
+    override fun setModifyProductNumberSuccess() {
+        tv_shopCar_AllMoney.text = "￥${calculateMoney()}元"
+    }
+
+    private fun calculateMoney(): Int {
+        var allMoney = 0
+        shopCarAdapter.selectShopCartList.forEach {
+            allMoney+=it.amount*it.money.toInt()
+        }
+        return allMoney
+    }
+
+    private fun initRecyclerView() {
         shopCarRecyclerView.setHasFixedSize(true)
 
         val manager = VirtualLayoutManager(context)
@@ -37,7 +83,6 @@ class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView {
         adapter.addAdapter(shopCarAdapter)
 
         shopCarRecyclerView.adapter = adapter
-
     }
 
     private fun initTitle() {

@@ -10,9 +10,11 @@ import com.textile.client.shop_car.model.ShopCartModel
 interface ShopCartContract {
     interface IShopCartView:IBaseView {
         fun setShopCartData(dataList: List<ShopCartModel.ListData>)
+        fun setModifyProductNumberSuccess()
     }
 
     interface IShopCartPresenter:IPresenter<IShopCartView>{
         fun getShopCartList()
+        fun modifyProductNumber(productId:Int,type:Int)
     }
 }
