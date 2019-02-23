@@ -40,7 +40,7 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createHotProductListBody(pageIndex: Int,pageSize:Int): RequestBody {
+    fun createHotProductListBody(pageIndex: Int, pageSize: Int): RequestBody {
         val jsonObject = JsonObject()
         val pageJson = JsonObject()
         pageJson.addProperty("pageIndex", pageIndex)
@@ -49,7 +49,7 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createModifyProductNumber(productId:Int,type: Int): RequestBody {
+    fun createModifyProductNumber(productId: Int, type: Int): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("productId", productId)
         jsonObject.addProperty("type", type)
@@ -62,15 +62,21 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createCategoryProductListBody(brandId:Int,categoryId:String,priceAsc:Boolean,pageIndex: Int,pageSize:Int): RequestBody {
+    fun createCategoryProductListBody(
+        brandId: Int,
+        categoryId: String,
+        priceAsc: Boolean,
+        pageIndex: Int,
+        pageSize: Int
+    ): RequestBody {
         val jsonObject = JsonObject()
         val pageJson = JsonObject()
         pageJson.addProperty("pageIndex", pageIndex)
         pageJson.addProperty("pageSize", pageSize)
         jsonObject.add("page", pageJson)
-        jsonObject.addProperty("brandId",brandId)
-        jsonObject.addProperty("categoryId",categoryId)
-        jsonObject.addProperty("priceAsc",priceAsc)
+        jsonObject.addProperty("brandId", brandId)
+        jsonObject.addProperty("categoryId", categoryId)
+        jsonObject.addProperty("priceAsc", priceAsc)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
@@ -115,13 +121,20 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
-    fun createTechExchangeList():RequestBody{
+    fun createTechExchangeList(): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("categoryBrandId", 0)
         val pageJson = JsonObject()
         pageJson.addProperty("pageIndex", 1)
         pageJson.addProperty("pageSize", 10)
         jsonObject.add("page", pageJson)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+
+    fun createDetail(itemId: String): RequestBody {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("id", itemId)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 }

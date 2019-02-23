@@ -19,6 +19,13 @@ android {
         }
         vectorDrawables.useSupportLibrary = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -47,6 +54,7 @@ dependencies {
     implementation 'com.tencent.bugly:crashreport:2.8.6'
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.4.1'
     implementation rootProject.ext.swipeRecyclerView
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
     implementation project(':base')

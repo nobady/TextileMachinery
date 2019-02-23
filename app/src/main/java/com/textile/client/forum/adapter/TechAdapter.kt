@@ -1,6 +1,7 @@
 package com.textile.client.forum.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.game.base.utils.DataTimeUtil
 import com.textile.client.R
 import com.textile.client.forum.ForumContentHolder
 import com.textile.client.forum.model.TechModel
+import com.textile.client.forum.ui.activity.DetailActivity
 
 class TechAdapter(val data: List<TechModel.X>) : RecyclerView.Adapter<ForumContentHolder>() {
     private lateinit var mContext: Context
@@ -51,6 +53,12 @@ class TechAdapter(val data: List<TechModel.X>) : RecyclerView.Adapter<ForumConte
 
             if (!bean.imageUrls.isEmpty()) {
                 holder.mItemForumRv.adapter = ImageAdapter(bean.imageUrls)
+            }
+
+            holder.mItemForumContent.setOnClickListener {
+                val intent = Intent(mContext, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.ITEM_ID_KEY, id.toString())
+                mContext.startActivity(intent)
             }
         }
     }
