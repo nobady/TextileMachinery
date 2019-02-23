@@ -68,10 +68,10 @@ class OkHttpConfig private constructor(){
 
         private fun setDebugMode(){
             if (isDebug) {
-//                okHttpClientBuilder.addInterceptor(logInterceptor)
-                okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor
-                    (HttpLoggingInterceptor.Logger { msg -> Log.i("TextileHttp :: ",msg) })
-                    .setLevel(HttpLoggingInterceptor.Level.BODY))
+                okHttpClientBuilder.addInterceptor(logInterceptor)
+//                okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor
+//                    (HttpLoggingInterceptor.Logger { msg -> Log.i("TextileHttp :: ",msg) })
+//                    .setLevel(HttpLoggingInterceptor.Level.BODY))
             }
         }
 

@@ -13,7 +13,8 @@
     <string name="title_null"></string>
 
     <!--购物车-->
-    <string name="hot_price_text">价格：%d万</string>
+    <string name="hot_price_text">价格：¥%d元</string>
+    <string name="all_price_text">总计：¥%d元</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -103,4 +104,9 @@
     <string name="classify">分类</string>
     <string name="again_back">再按一次返回键退出</string>
     <string name="not_minus_shop_car">该宝贝不能减少了哦</string>
+    <string name="confirm_order_buy_number">购买数</string>
+    <string name="confirm_order_wuliu">物流</string>
+    <string name="confirm_order_fahuodi">发货地</string>
+    <string name="confirm_order_yunfei">运费</string>
+    <string name="confirm_order_fapiao">发票</string>
 </resources>

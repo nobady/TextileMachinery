@@ -15,6 +15,6 @@ data class ShopCartModel(var list: List<ShopCartModel.ListData>) {
         var money: String,
         var name: String,
         var isChecked:Boolean,
-        var type:Int  //加数量（1）或者减数量（0）
+        var type:Int  //加数量（1）或者减数量（2）
     )
 }

@@ -15,6 +15,7 @@ import io.reactivex.disposables.Disposable
  */
 class ShopCartPresenterImpl:BasePresenter<ShopCartContract.IShopCartView>(),ShopCartContract.IShopCartPresenter {
 
+
     override fun getShopCartList() {
         RxHttpUtil.createApi(NetApi::class.java)
             ?.getShopCartList()
@@ -48,6 +49,10 @@ class ShopCartPresenterImpl:BasePresenter<ShopCartContract.IShopCartView>(),Shop
 
                 })
         }
+    }
+
+    override fun getProductInfoById(productId: Int) {
+
     }
 
 }

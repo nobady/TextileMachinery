@@ -9,10 +9,13 @@
     <color name="grey">#929292</color>
     <color name="divide_line">#F1F1F1</color>
     <color name="text_hint_color">#CECECE</color>
+    <color name="text_333">#333333</color>
+    <color name="text_666">#666666</color>
     <color name="text_dept_grey_color">#656565</color>
     <color name="to_pay_color">#06B2F1</color>
     <color name="black">#000000</color>
     <color name="red">#ffec362f</color>
     <color name="hot_price">#E7A549</color>
+    <color name="bg_grey">#fff8f8f8</color>
 
 </resources>

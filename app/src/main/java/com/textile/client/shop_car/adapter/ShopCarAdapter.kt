@@ -44,7 +44,6 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
             shopCartList[position].imageUrl,
             R.mipmap.ic_launcher
         )
-        holder.itemView.cb_shopCar_adapter_choose.isEnabled = false
         holder.itemView.tv_shopCar_adapter_num.text = "${shopCartList[position].amount}"
         holder.itemView.cb_shopCar_adapter_choose.isChecked = shopCartList[position].isChecked
         holder.itemView.tv_shopCar_adapter_minus.setOnClickListener {
@@ -52,7 +51,7 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
                 it.context.toast(R.string.not_minus_shop_car)
             }else{
                 shopCartList[position].amount--
-                shopCartList[position].type=1
+                shopCartList[position].type=2
                 itemClickListener?.onItemClick(shopCartList[position],position)
                 notifyItemChanged(position)
             }
@@ -60,21 +59,24 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
 
         holder.itemView.tv_shopCar_adapter_plus.setOnClickListener {
             shopCartList[position].amount++
-            shopCartList[position].type=0
+            shopCartList[position].type=1
             itemClickListener?.onItemClick(shopCartList[position],position)
             notifyItemChanged(position)
         }
-        holder.itemView.setOnClickListener {
-            holder.itemView.cb_shopCar_adapter_choose.isChecked = !holder.itemView.cb_shopCar_adapter_choose.isChecked
-            if (holder.itemView.cb_shopCar_adapter_choose.isChecked){
+
+        holder.itemView.cb_shopCar_adapter_choose.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
                 (selectShopCartList as ArrayList).add(shopCartList[position])
-                shopCartList[position].isChecked = true
             }else{
                 (selectShopCartList as ArrayList).remove(shopCartList[position])
-                shopCartList[position].isChecked = false
             }
+            shopCartList[position].isChecked = isChecked
             notifyItemChanged(position)
             itemCheckListener?.onChecked(shopCartList[position],position)
+        }
+
+        holder.itemView.setOnClickListener {
+            itemClickListener?.onItemClick(shopCartList[position],-1)
         }
     }
 
@@ -83,9 +85,10 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
             it.isChecked = checked
         }
         if (checked){
-            selectShopCartList = shopCartList
+            (selectShopCartList as ArrayList).clear()
+            (selectShopCartList as ArrayList).addAll(shopCartList)
         }else{
-            selectShopCartList = ArrayList()
+            (selectShopCartList as ArrayList).clear()
         }
         notifyDataSetChanged()
     }

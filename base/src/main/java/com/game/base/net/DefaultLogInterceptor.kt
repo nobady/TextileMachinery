@@ -36,7 +36,7 @@ class DefaultLogInterceptor:Interceptor {
                     "request params->${bodyToString(request.body())}\n" +
                     "response body->${buffer?.clone()?.readUtf8()}"
 
-            LogUtil.logV(logStr)
+            LogUtil.logI(logStr)
 
             return response
         }catch (e:Exception){

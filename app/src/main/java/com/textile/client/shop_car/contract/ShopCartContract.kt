@@ -16,5 +16,6 @@ interface ShopCartContract {
     interface IShopCartPresenter:IPresenter<IShopCartView>{
         fun getShopCartList()
         fun modifyProductNumber(productId:Int,type:Int)
+        fun getProductInfoById(productId: Int)
     }
 }
