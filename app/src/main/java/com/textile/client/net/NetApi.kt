@@ -45,17 +45,17 @@ interface NetApi {
     fun getCategoryList(): Observable<BaseModel<CategoryModel>>
 
     @POST("product/GetHotProductList")
-    fun getHotProductList(@Body body: RequestBody):Observable<BaseModel<HotModel>>
+    fun getHotProductList(@Body body: RequestBody): Observable<BaseModel<HotModel>>
 
     @POST("product/GetCategoryProductList")
-    fun getCategoryProductList(@Body body: RequestBody):Observable<BaseModel<HotModel>>
+    fun getCategoryProductList(@Body body: RequestBody): Observable<BaseModel<HotModel>>
 
     @GET("product/GetProductDetail")
     fun getProductDetail(@Body body: RequestBody):Observable<BaseModel<ProductDetailModel>>
 
     //分类产品页面中的 分类接口
     @POST("brand/GetBrandByCategory")
-    fun getBrandData(@Body body: RequestBody):Observable<BaseModel<List<BrandModel>>>
+    fun getBrandData(@Body body: RequestBody): Observable<BaseModel<List<BrandModel>>>
 
 
     /*论坛*/
@@ -63,19 +63,19 @@ interface NetApi {
     fun getForumList(@Body body: RequestBody): Observable<BaseModel<ForumModel>>
 
     @POST("community/listTechnicalCommunication")
-    fun getListTechnicalCommunication(@Body body: RequestBody):Observable<BaseModel<TechModel>>
+    fun getListTechnicalCommunication(@Body body: RequestBody): Observable<BaseModel<TechModel>>
 
     @POST("community/listDemand")
-    fun getListDemand(@Body body: RequestBody):Observable<BaseModel<DemandModel>>
+    fun getListDemand(@Body body: RequestBody): Observable<BaseModel<DemandModel>>
 
     @POST("community/listRecruitment")
-    fun getListRecruitment(@Body body: RequestBody):Observable<BaseModel<RecruitModel>>
+    fun getListRecruitment(@Body body: RequestBody): Observable<BaseModel<RecruitModel>>
 
     @POST("community/listSupply")
-    fun getListSupply(@Body body: RequestBody):Observable<BaseModel<SupplyModel>>
+    fun getListSupply(@Body body: RequestBody): Observable<BaseModel<SupplyModel>>
 
     @POST("community/listApplyJob")
-    fun getListApplyJob(@Body body: RequestBody):Observable<BaseModel<ApplyJobModel>>
+    fun getListApplyJob(@Body body: RequestBody): Observable<BaseModel<ApplyJobModel>>
 
     @POST("userCollection/emptyCollection")
     fun clearCollected(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>
@@ -87,13 +87,16 @@ interface NetApi {
     fun updatePassword(@Body body: RequestBody): Observable<BaseModel<ClearCollModel>>
 
     @POST("userCollection/listDemandCollect")
-    fun getListDemandCollect(@Body body: RequestBody):Observable<BaseModel<CollectDemandModel>>
+    fun getListDemandCollect(@Body body: RequestBody): Observable<BaseModel<CollectDemandModel>>
 
     /*购物车*/
     @POST("shoppingCart/shoppingCart")
-    fun getShopCartList():Observable<BaseModel<ShopCartModel>>
+    fun getShopCartList(): Observable<BaseModel<ShopCartModel>>
 
     @POST("shoppingCart/modifyProductNumber")
-    fun modifyProductNumber(@Body body: RequestBody):Observable<BaseModel<JsonObject>>
+    fun modifyProductNumber(@Body body: RequestBody): Observable<BaseModel<JsonObject>>
+
+    @POST("api/community/getTechnicalCommunicationDetails")
+    fun loadDetail(@Body body: RequestBody): Observable<BaseModel<DetailModel>>
 
 }

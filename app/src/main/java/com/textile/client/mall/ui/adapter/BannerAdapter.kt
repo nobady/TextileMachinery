@@ -10,7 +10,6 @@ import android.widget.TextView
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.LayoutHelper
 import com.bigkoo.convenientbanner.ConvenientBanner
-import com.game.base.utils.dip2Px
 import com.textile.client.R
 import com.textile.client.mall.model.BannerModel
 
