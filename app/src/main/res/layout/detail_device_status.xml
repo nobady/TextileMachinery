@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/detail_phone_sign"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_status"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="3dp"
+                >
+
+            <TextView
+                    android:id="@+id/mRunStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_status"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailMechType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="运行良好"
+                    android:layout_toRightOf="@+id/mRunStatus"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/arm_type"
+                    android:textSize="14sp"
+                    android:layout_toLeftOf="@+id/mDetailArmType"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailArmType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-1"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="3dp"
+                >
+
+            <TextView
+                    android:id="@+id/mFrameCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frame_count"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailFrameCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="232"
+                    android:layout_toRightOf="@+id/mFrameCount"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beam_ratio"
+                    android:textSize="14sp"
+                    android:layout_toLeftOf="@+id/mDetailBeamRatio"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailBeamRatio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="津田驹X5860-1"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="3dp"
+                >
+
+            <TextView
+                    android:id="@+id/mCoilRollRatio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coil_roll_ratio"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailCoilRollRatio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="232"
+                    android:layout_toRightOf="@+id/mCoilRollRatio"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/electronic_control"
+                    android:textSize="14sp"
+                    android:layout_toLeftOf="@+id/mDetailEleControl"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailEleControl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---1"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="3dp"
+                >
+
+            <TextView
+                    android:id="@+id/mOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/other"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:layout_toRightOf="@+id/mOther"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </RelativeLayout>
+    </LinearLayout>
+</merge>

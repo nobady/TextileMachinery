@@ -41,7 +41,7 @@ class NewestFragment : BaseFragment(), CommunityContract.ICommunityView {
     override fun loadTechExcSuccess(data: TechModel) {
         val list = data.list
         if (list.isEmpty()){
-            list.add(TechModel.X(
+           val x =  TechModel.X(
                 "http://www.people.com.cn/mediafile/pic/20130608/93/7200316785493904929.jpg",
                 2,
                 1,
@@ -63,7 +63,11 @@ class NewestFragment : BaseFragment(), CommunityContract.ICommunityView {
                 "阿驴",
                 4654522,
                 "156545166"
-            ))
+            )
+            list.add(x)
+            list.add(x)
+            list.add(x)
+            list.add(x)
         }
         mNewestRv.adapter = TechAdapter(data.list)
     }

@@ -17,5 +17,6 @@
     <color name="red">#ffec362f</color>
     <color name="hot_price">#E7A549</color>
     <color name="bg_grey">#fff8f8f8</color>
+    <color name="main_bg_color">#FFF4F4F4</color>
 
 </resources>

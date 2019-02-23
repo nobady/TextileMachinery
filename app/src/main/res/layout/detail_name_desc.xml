@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="@android:color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                >
+
+            <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/detail_name_sign"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="津田驹 喷水纺织器械 九成新"
+                    android:textSize="17sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transfer_price"
+                    android:textSize="14sp"
+                    android:textColor="#FFFF4C62"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20.8W"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFFF4C62"
+                    />
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                >
+
+            <TextView
+                    android:id="@+id/mDetailBrowseTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxx人浏览"
+                    android:textSize="14sp"
+                    android:textColor="@color/descTextColor"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/publish_date"
+                    android:textSize="14sp"
+                    android:layout_toLeftOf="@+id/mDetailDate"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/descTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-01-21"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/descTextColor"
+                    />
+
+        </RelativeLayout>
+    </LinearLayout>
+</merge>

@@ -96,7 +96,7 @@ interface NetApi {
     @POST("shoppingCart/modifyProductNumber")
     fun modifyProductNumber(@Body body: RequestBody): Observable<BaseModel<JsonObject>>
 
-    @POST("api/community/getTechnicalCommunicationDetails")
+    @POST("community/getTechnicalCommunicationDetails")
     fun loadDetail(@Body body: RequestBody): Observable<BaseModel<DetailModel>>
 
 }

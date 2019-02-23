@@ -109,4 +109,24 @@
     <string name="confirm_order_fahuodi">发货地</string>
     <string name="confirm_order_yunfei">运费</string>
     <string name="confirm_order_fapiao">发票</string>
+    <string name="tel">电话</string>
+    <string name="address">地址</string>
+    <string name="transfer_price">转让价格:</string>
+    <string name="publish_date">发布时间:</string>
+    <string name="basic_info">基本信息</string>
+    <string name="mech_type">机型:</string>
+    <string name="spec">规格:</string>
+    <string name="count">数量:</string>
+    <string name="product_date">生产日期:</string>
+    <string name="location">所在地:</string>
+    <string name="device_status">设备状态</string>
+    <string name="run_status">运行状态:</string>
+    <string name="arm_type">多臂型号:</string>
+    <string name="frame_count">综框数量:</string>
+    <string name="beam_ratio">经轴比:</string>
+    <string name="coil_roll_ratio">卷布辊比:</string>
+    <string name="electronic_control">电控型号:</string>
+    <string name="other">其他:</string>
+    <string name="info_supplement">信息补充</string>
+    <string name="contact_us">联系我们</string>
 </resources>

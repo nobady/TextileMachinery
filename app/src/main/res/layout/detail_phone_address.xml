@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@android:color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/detail_phone_sign"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tel"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1254****5456"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFFFBF44"
+                    />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="3dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/mainTextColor"
+                    />
+
+            <TextView
+                    android:id="@+id/mDetailAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="浙江宁波市镇海新城骆驼街道镇海大道001号"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FF414141"
+                    />
+
+        </LinearLayout>
+    </LinearLayout>
+</merge>
