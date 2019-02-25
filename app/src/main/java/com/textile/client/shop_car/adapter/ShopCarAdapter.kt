@@ -37,13 +37,14 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
     override fun onBindViewHolder(holder: ShopCarViewHolder, position: Int) {
         holder.itemView.tv_shopCar_adapter_name.text = shopCartList[position].name
         holder.itemView.tv_shopCar_xinghao.text = shopCartList[position].model
-        holder.itemView.tv_shopCar_adapter_money.text = shopCartList[position].money
+        holder.itemView.tv_shopCar_adapter_money.text = holder.itemView.context.getString(R.string.order_price_text,shopCartList[position].money)
         ImageUtil.displayImage(
             holder.itemView.context,
             holder.itemView.iv_shopCar_adapter_icon,
             shopCartList[position].imageUrl,
             R.mipmap.ic_launcher
         )
+        holder.itemView.cb_shopCar_adapter_choose.isEnabled = false
         holder.itemView.tv_shopCar_adapter_num.text = "${shopCartList[position].amount}"
         holder.itemView.cb_shopCar_adapter_choose.isChecked = shopCartList[position].isChecked
         holder.itemView.tv_shopCar_adapter_minus.setOnClickListener {
@@ -64,20 +65,19 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
             notifyItemChanged(position)
         }
 
-        holder.itemView.cb_shopCar_adapter_choose.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
+        holder.itemView.setOnClickListener {
+            var isCheck = holder.itemView.cb_shopCar_adapter_choose.isChecked
+            holder.itemView.cb_shopCar_adapter_choose.isChecked = !isCheck
+            if (!isCheck){
                 (selectShopCartList as ArrayList).add(shopCartList[position])
             }else{
                 (selectShopCartList as ArrayList).remove(shopCartList[position])
             }
-            shopCartList[position].isChecked = isChecked
-            notifyItemChanged(position)
+            shopCartList[position].isChecked = holder.itemView.cb_shopCar_adapter_choose.isChecked
             itemCheckListener?.onChecked(shopCartList[position],position)
+            notifyItemChanged(position)
         }
 
-        holder.itemView.setOnClickListener {
-            itemClickListener?.onItemClick(shopCartList[position],-1)
-        }
     }
 
     fun setSelectAll(checked: Boolean) {
@@ -90,7 +90,6 @@ class ShopCarAdapter(helper: LayoutHelper) : DelegateAdapter.Adapter<ShopCarAdap
         }else{
             (selectShopCartList as ArrayList).clear()
         }
-        notifyDataSetChanged()
     }
 
     inner class ShopCarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}

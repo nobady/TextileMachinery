@@ -3,13 +3,18 @@ package com.textile.client.shop_car
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseFragment
+import com.game.base.utils.StatusBarUtils.setStatusBarColor
 import com.game.base.utils.setStatusBarColor
 import com.game.base.utils.toActivityNotFinish
+import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.shop_car.adapter.ShopCarAdapter
 import com.textile.client.shop_car.contract.ShopCartContract
@@ -23,66 +28,71 @@ import kotlinx.android.synthetic.main.layout_order_buy.*
 /**
  * Created by lff on 2019/1/17.
  */
-class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView,RecycerItemCheckListener<ShopCartModel.ListData>
-    ,RecyclerItemClickListener<ShopCartModel.ListData> {
+class ShopCarFragment : BaseFragment(), ShopCartContract.IShopCartView, RecycerItemCheckListener<ShopCartModel.ListData>
+    , RecyclerItemClickListener<ShopCartModel.ListData> {
 
 
     private val mPresenter by lazy { ShopCartPresenterImpl() }
 
-    private lateinit var shopCarAdapter:ShopCarAdapter
+    private lateinit var shopCarAdapter: ShopCarAdapter
     override fun initView(view: View) {
         initTitle()
         mPresenter.attachView(this)
         initRecyclerView()
-        setAllMoneyText()
+
         initEvent()
     }
 
     private fun initEvent() {
-        cb_shopCar_all.setOnCheckedChangeListener { buttonView, isChecked ->
-            shopCarAdapter.setSelectAll(isChecked)
+        cb_shopCar_all.setOnClickListener {
+            shopCarAdapter.setSelectAll(cb_shopCar_all.isChecked)
             setAllMoneyText()
+            shopCarAdapter.notifyDataSetChanged()
         }
 
         tv_shopCar_buy.setOnClickListener {
             //获取已选择的商品，跳转到确认订单页面
+            if (shopCarAdapter.selectShopCartList.isEmpty()){
+                toast(getString(R.string.bug_error_toast))
+                return@setOnClickListener
+            }
             val intent = Intent()
-            intent.putExtra("selectList",shopCarAdapter.selectShopCartList as ArrayList)
-            intent.setClass(context,ConfirmOrderActivity::class.java)
+            intent.putExtra("selectList", shopCarAdapter.selectShopCartList as ArrayList<ShopCartModel.ListData>)
+            intent.setClass(context, ConfirmOrderActivity::class.java)
             toActivityNotFinish(intent)
         }
     }
 
     override fun onChecked(t: ShopCartModel.ListData, position: Int) {
         cb_shopCar_all.isChecked = false
-        if (t.isChecked&&shopCarAdapter.shopCartList.size==shopCarAdapter.selectShopCartList.size){
+        if (t.isChecked && shopCarAdapter.shopCartList.size == shopCarAdapter.selectShopCartList.size) {
             cb_shopCar_all.isChecked = true
         }
         setAllMoneyText()
     }
 
-    private fun setAllMoneyText(){
-        tv_shopCar_AllMoney.text = getString(R.string.all_price_text,calculateMoney())
+    private fun setAllMoneyText() {
+        val spannableString = SpannableString(getString(R.string.all_price_text, calculateMoney()))
+        val foregroundColorSpan = ForegroundColorSpan(resources.getColor(R.color.red))
+        spannableString.setSpan(foregroundColorSpan,5,spannableString.length,Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        tv_shopCar_AllMoney.text = spannableString
     }
 
     override fun onItemClick(t: ShopCartModel.ListData, position: Int) {
-        if (position==-1){
-            //查看订单详情
-            mPresenter.getProductInfoById(t.id)
-        }else{
-            //修改数量
-            mPresenter.modifyProductNumber(t.id,t.type)
-        }
+
+        //修改数量
+        mPresenter.modifyProductNumber(t.id, t.type)
+
     }
 
     override fun setModifyProductNumberSuccess() {
         setAllMoneyText()
     }
 
-    private fun calculateMoney(): Double {
-        var allMoney = 0.0
+    private fun calculateMoney(): Int {
+        var allMoney = 0
         shopCarAdapter.selectShopCartList.forEach {
-            allMoney+=it.amount*it.money.toDouble()
+            allMoney += it.amount * it.money
         }
         return allMoney
     }
@@ -112,6 +122,7 @@ class ShopCarFragment:BaseFragment(),ShopCartContract.IShopCartView,RecycerItemC
     override fun setShopCartData(dataList: List<ShopCartModel.ListData>) {
         shopCarAdapter.shopCartList = dataList
         shopCarAdapter.notifyDataSetChanged()
+        setAllMoneyText()
     }
 
     override fun lazyLoadData() {

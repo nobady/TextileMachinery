@@ -10,6 +10,7 @@ import com.textile.client.mall.model.HotModel
 import com.textile.client.me.model.ClearCollModel
 import com.textile.client.me.model.CollectDemandModel
 import com.textile.client.me.model.UpdatePhoneModel
+import com.textile.client.shop_car.model.ConfirmOrderModel
 import com.textile.client.shop_car.model.ProductDetailModel
 import com.textile.client.shop_car.model.ShopCartModel
 import io.reactivex.Observable
@@ -95,6 +96,10 @@ interface NetApi {
 
     @POST("shoppingCart/modifyProductNumber")
     fun modifyProductNumber(@Body body: RequestBody): Observable<BaseModel<JsonObject>>
+
+    /*订单*/
+    @POST("order/shoppingCartPurchase")
+    fun getConfrimOrderList(@Body body: RequestBody):Observable<BaseModel<ConfirmOrderModel>>
 
     @POST("community/getTechnicalCommunicationDetails")
     fun loadDetail(@Body body: RequestBody): Observable<BaseModel<DetailModel>>

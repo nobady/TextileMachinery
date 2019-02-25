@@ -1,6 +1,8 @@
 package com.textile.client.utils
 
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.textile.client.shop_car.model.ShopCartModel
 import okhttp3.MediaType
 import okhttp3.RequestBody
 
@@ -135,6 +137,20 @@ object RequestbodyUtil {
     fun createDetail(itemId: String): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("id", itemId)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createConfirmOrderBody(dataList:List<ShopCartModel.ListData>):RequestBody{
+
+        val jsonArray = JsonArray()
+        dataList.forEach {
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("amount",it.amount)
+            jsonObject.addProperty("productId",it.id)
+            jsonArray.add(jsonObject)
+        }
+        val jsonObject = JsonObject()
+        jsonObject.add("shoppingCartProducts",jsonArray)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 }
