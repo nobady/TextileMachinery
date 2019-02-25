@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.view.View
 import com.game.base.mvp.BaseActivity
+import com.game.base.utils.toActivityNotFinish
 import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.forum.contract.MechSupplyContract
 import com.textile.client.forum.presenter.MechSupplyPresenterImpl
+import com.textile.client.search.SearchActivity
 import com.textile.client.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_forum.*
 
@@ -34,6 +36,13 @@ class ForumActivity : BaseActivity(), MechSupplyContract.IMechSupplyView {
         mStartCode = intent.getIntExtra(FORUM_START_CODE_KEY, FORUM_TECH_EXCHANGE)
         initTitle()
         initTabs()
+        initEvent()
+    }
+
+    private fun initEvent() {
+        mActSearchLl.setOnClickListener {
+            toActivityNotFinish(SearchActivity::class.java)
+        }
     }
 
     private fun initTabs() {

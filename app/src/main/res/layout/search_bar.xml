@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/to_pay_color"
+        android:gravity="center_vertical"
+        >
+
+    <ImageView
+            android:id="@+id/search_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back"
+            android:scaleType="centerInside"
+            />
+
+    <EditText
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="12dp"
+            android:id="@+id/query"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/search_et_bg"
+            android:drawableLeft="@drawable/icon_search"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:drawablePadding="8dp"
+            android:textColorHint="@android:color/white"
+            android:textSize="14sp"
+            android:hint="@string/search_hint"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            />
+
+    <ImageButton
+            android:id="@+id/search_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:background="@android:color/transparent"
+            android:visibility="invisible"
+            />
+
+</LinearLayout>

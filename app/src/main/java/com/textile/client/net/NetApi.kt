@@ -18,6 +18,7 @@ import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 /**
  * 所有请求的定义
@@ -103,5 +104,8 @@ interface NetApi {
 
     @POST("community/getTechnicalCommunicationDetails")
     fun loadDetail(@Body body: RequestBody): Observable<BaseModel<DetailModel>>
+
+    @GET("user/v1.0/search/{searchKey}")
+    fun searchUser(@Path("searchKey") searchKey: String): Observable<BaseModel<ArrayList<String>>>
 
 }

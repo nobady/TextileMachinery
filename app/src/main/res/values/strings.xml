@@ -132,4 +132,6 @@
     <string name="contact_us">联系我们</string>
     <string name="confirm_order_title">确认订单</string>
     <string name="bug_error_toast">请至少选择一件商品</string>
+    <string name="cancel">取消</string>
+    <string name="search">搜索</string>
 </resources>

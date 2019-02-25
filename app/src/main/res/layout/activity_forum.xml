@@ -16,17 +16,26 @@
             />
 
     <LinearLayout
+            android:id="@+id/mActSearchLl"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="46dp"
+            android:paddingLeft="15dp"
+            android:background="@android:color/white"
+            android:paddingRight="15dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
             >
 
-        <android.support.v7.widget.SearchView
-                android:background="@color/white"
+        <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-
-        </android.support.v7.widget.SearchView>
+                android:layout_height="30dp"
+                android:paddingLeft="12dp"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/icon_search_gray"
+                android:background="@drawable/forum_search_bg"
+                android:text="@string/search"
+                />
     </LinearLayout>
 
     <android.support.design.widget.TabLayout
