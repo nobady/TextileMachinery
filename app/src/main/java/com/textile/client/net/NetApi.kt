@@ -11,6 +11,7 @@ import com.textile.client.me.model.ClearCollModel
 import com.textile.client.me.model.CollectDemandModel
 import com.textile.client.me.model.UpdatePhoneModel
 import com.textile.client.shop_car.model.ConfirmOrderModel
+import com.textile.client.shop_car.model.MyAddressModel
 import com.textile.client.shop_car.model.ProductDetailModel
 import com.textile.client.shop_car.model.ShopCartModel
 import io.reactivex.Observable
@@ -98,6 +99,9 @@ interface NetApi {
     @POST("shoppingCart/modifyProductNumber")
     fun modifyProductNumber(@Body body: RequestBody): Observable<BaseModel<JsonObject>>
 
+    @POST("shoppingCart/removeProduct")
+    fun removeShopCartProduct(@Body body: RequestBody):Observable<BaseModel<JsonObject>>
+
     /*订单*/
     @POST("order/shoppingCartPurchase")
     fun getConfrimOrderList(@Body body: RequestBody):Observable<BaseModel<ConfirmOrderModel>>
@@ -107,5 +111,9 @@ interface NetApi {
 
     @GET("user/v1.0/search/{searchKey}")
     fun searchUser(@Path("searchKey") searchKey: String): Observable<BaseModel<ArrayList<String>>>
+
+    /*地址*/
+    @POST("user/userAddressList")
+    fun getUserAddressList():Observable<BaseModel<List<MyAddressModel>>>
 
 }

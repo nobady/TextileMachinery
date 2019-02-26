@@ -21,6 +21,7 @@ class HotProductAdapter constructor(helper: LayoutHelper,context: Context):Deleg
     var hotList:List<HotModel.ListData> = ArrayList()
     private val mContext = context
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotProductHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_hot, parent, false)
         return HotProductHolder(view)
@@ -36,6 +37,9 @@ class HotProductAdapter constructor(helper: LayoutHelper,context: Context):Deleg
         holder.itemView.tv_hot_adapter_name.text = listData.name
         holder.itemView.tv_hot_adapter_style.text = listData.modeName
         holder.itemView.tv_hot_adapter_price.text = mContext.getString(R.string.hot_price_text,listData.price)
+        holder.itemView.iv_hot_adapter_car.setOnClickListener {
+
+        }
     }
 
     inner class HotProductHolder(itemView:View):RecyclerView.ViewHolder(itemView)

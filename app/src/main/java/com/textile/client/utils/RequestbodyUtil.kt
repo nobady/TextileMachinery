@@ -58,6 +58,14 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
+    fun createDeleteShopCartProductBody(productId: Int):RequestBody{
+        val jsonArray = JsonArray()
+        jsonArray.add(productId)
+        val jsonObject = JsonObject()
+        jsonObject.add("productIds",jsonArray)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
     fun createBrandDataBody(categoryId: String): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("categoryId", categoryId)
@@ -153,4 +161,6 @@ object RequestbodyUtil {
         jsonObject.add("shoppingCartProducts",jsonArray)
         return RequestBody.create(mediaType, jsonObject.toString())
     }
+
+
 }

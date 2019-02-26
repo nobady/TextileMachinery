@@ -1,22 +1,19 @@
-package com.textile.client.shop_car
+package com.textile.client.shop_car.ui
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseActivity
-import com.tencent.bugly.proguard.t
 import com.textile.client.R
 import com.textile.client.shop_car.adapter.ConfirmOrderAdapter
-import com.textile.client.shop_car.adapter.ShopCarAdapter
-import com.textile.client.shop_car.contract.ConfirmOrderPresenterImpl
+import com.textile.client.shop_car.presenter.ConfirmOrderPresenterImpl
 import com.textile.client.shop_car.contract.ConfrimOrderContract
 import com.textile.client.shop_car.model.ConfirmOrderModel
 import com.textile.client.shop_car.model.ShopCartModel
 import com.textile.client.utils.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.activity_confirm_order.*
+import kotlinx.android.synthetic.main.layout_address.*
 import kotlinx.android.synthetic.main.layout_order_buy.*
 
 class ConfirmOrderActivity : BaseActivity(),ConfrimOrderContract.IConfirmOrderView,
@@ -43,6 +40,14 @@ class ConfirmOrderActivity : BaseActivity(),ConfrimOrderContract.IConfirmOrderVi
         cb_shopCar_all.visibility = View.GONE
         tv_choose_all.visibility = View.GONE
 
+        initEvent()
+
+    }
+
+    private fun initEvent() {
+        layout_address.setOnClickListener {
+
+        }
     }
 
     private fun initRecyclerView() {

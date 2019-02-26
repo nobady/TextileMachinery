@@ -1,7 +1,6 @@
 package com.textile.client.home.ui
 
 import android.support.design.widget.BottomNavigationView
-import android.view.Gravity
 import com.game.base.mvp.BaseActivity
 import com.game.base.utils.setFullScreen
 import com.game.base.utils.toast
@@ -9,7 +8,7 @@ import com.textile.client.R
 import com.textile.client.forum.ui.fragment.ForumFragment
 import com.textile.client.mall.ui.MallFragment
 import com.textile.client.me.ui.fragment.MeFragment
-import com.textile.client.shop_car.ShopCarFragment
+import com.textile.client.shop_car.ui.ShopCarFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {

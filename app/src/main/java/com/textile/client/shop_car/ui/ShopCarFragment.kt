@@ -1,4 +1,4 @@
-package com.textile.client.shop_car
+package com.textile.client.shop_car.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,21 +7,23 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import android.view.ViewGroup
 import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseFragment
-import com.game.base.utils.StatusBarUtils.setStatusBarColor
+import com.game.base.utils.dip2Px
 import com.game.base.utils.setStatusBarColor
 import com.game.base.utils.toActivityNotFinish
 import com.game.base.utils.toast
 import com.textile.client.R
 import com.textile.client.shop_car.adapter.ShopCarAdapter
 import com.textile.client.shop_car.contract.ShopCartContract
-import com.textile.client.shop_car.contract.ShopCartPresenterImpl
+import com.textile.client.shop_car.presenter.ShopCartPresenterImpl
 import com.textile.client.shop_car.model.ShopCartModel
 import com.textile.client.utils.RecycerItemCheckListener
 import com.textile.client.utils.RecyclerItemClickListener
+import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem
 import kotlinx.android.synthetic.main.fragment_shop_car.*
 import kotlinx.android.synthetic.main.layout_order_buy.*
 
@@ -110,6 +112,23 @@ class ShopCarFragment : BaseFragment(), ShopCartContract.IShopCartView, RecycerI
         shopCarAdapter.itemCheckListener = this
         shopCarAdapter.itemClickListener = this
 
+        shopCarRecyclerView.setSwipeMenuCreator { leftMenu, rightMenu, position ->
+                val height = ViewGroup.LayoutParams.MATCH_PARENT
+                val deleteItem = SwipeMenuItem(this@ShopCarFragment.context)
+                deleteItem
+                    .setBackgroundColorResource(R.color.slideDelColor)
+                    .setImage(R.drawable.delete)
+                    .setWidth(this@ShopCarFragment.context.dip2Px(57))
+                    .setHeight(height)
+                    .setText("删除")
+                    .setTextColorResource(android.R.color.white).textSize = 10
+                rightMenu.addMenuItem(deleteItem)
+            }
+        shopCarRecyclerView.setSwipeMenuItemClickListener { menuBridge, position ->
+            mPresenter.deleteProduct(position,shopCarAdapter.shopCartList[position].id)
+        }
+
+
         shopCarRecyclerView.adapter = adapter
     }
 
@@ -123,6 +142,12 @@ class ShopCarFragment : BaseFragment(), ShopCartContract.IShopCartView, RecycerI
         shopCarAdapter.shopCartList = dataList
         shopCarAdapter.notifyDataSetChanged()
         setAllMoneyText()
+    }
+
+    override fun setDeleteSuccess(position: Int) {
+        toast(getString(R.string.delete_success))
+        (shopCarAdapter.shopCartList as ArrayList).removeAt(position)
+        shopCarAdapter.notifyItemRemoved(position)
     }
 
     override fun lazyLoadData() {

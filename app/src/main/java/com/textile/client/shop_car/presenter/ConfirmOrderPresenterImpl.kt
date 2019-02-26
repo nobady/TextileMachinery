@@ -1,4 +1,4 @@
-package com.textile.client.shop_car.contract
+package com.textile.client.shop_car.presenter
 
 import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
@@ -6,6 +6,7 @@ import com.google.gson.JsonObject
 import com.textile.client.net.DataObserver
 import com.textile.client.net.NetApi
 import com.textile.client.net.Transformer
+import com.textile.client.shop_car.contract.ConfrimOrderContract
 import com.textile.client.shop_car.model.ConfirmOrderModel
 import com.textile.client.shop_car.model.ShopCartModel
 import com.textile.client.utils.RequestbodyUtil
@@ -14,7 +15,8 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by admin on 2019/2/25.
  */
-class ConfirmOrderPresenterImpl:BasePresenter<ConfrimOrderContract.IConfirmOrderView>(),ConfrimOrderContract.IConfirmOrderPresenter {
+class ConfirmOrderPresenterImpl:BasePresenter<ConfrimOrderContract.IConfirmOrderView>(),
+    ConfrimOrderContract.IConfirmOrderPresenter {
 
     private var productVOSList: List<ConfirmOrderModel.ProductVOS> = ArrayList()
 

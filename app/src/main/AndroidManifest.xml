@@ -17,6 +17,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".shop_car.ui.ChangeAddressActivity">
+        </activity>
+        <activity android:name=".shop_car.ui.MyAddressActivity">
+        </activity>
         <activity android:name=".mall.ui.ProductInfoActivity">
         </activity>
         <activity android:name=".ShowBigImageActivity">
@@ -27,7 +31,7 @@
         </activity>
         <activity android:name=".mall.ui.ClassifyInfoActivity">
         </activity>
-        <activity android:name=".shop_car.ConfirmOrderActivity">
+        <activity android:name=".shop_car.ui.ConfirmOrderActivity">
         </activity>
         <activity android:name=".forum.ui.activity.ForumActivity">
         </activity>

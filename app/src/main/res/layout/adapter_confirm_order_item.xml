@@ -130,6 +130,7 @@
                   android:layout_gravity="center_vertical"
                   android:text="@string/plus"
                   android:textColor="@color/grey"
+                  android:background="@color/bg_grey"
                   android:paddingLeft="10dp"
                   android:paddingRight="10dp"
                   android:id="@+id/tv_confirmOrder_adapter_plus"

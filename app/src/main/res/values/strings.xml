@@ -134,4 +134,12 @@
     <string name="bug_error_toast">请至少选择一件商品</string>
     <string name="cancel">取消</string>
     <string name="search">搜索</string>
+    <string name="title_my_address">我的收货地址</string>
+    <string name="title_address_add_new">添加新地址</string>
+    <string name="address_receiver_people">收货人：%s</string>
+    <string name="default_address_text">默认地址</string>
+    <string name="shouhuo_address">收货地址：%s</string>
+    <string name="receiver_people_change_address">收货人</string>
+    <string name="receiver_phone_change_address">手机号码</string>
+    <string name="delete_success">删除成功</string>
 </resources>

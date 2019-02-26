@@ -11,11 +11,13 @@ interface ShopCartContract {
     interface IShopCartView:IBaseView {
         fun setShopCartData(dataList: List<ShopCartModel.ListData>)
         fun setModifyProductNumberSuccess()
+        fun setDeleteSuccess(position: Int)
     }
 
     interface IShopCartPresenter:IPresenter<IShopCartView>{
         fun getShopCartList()
         fun modifyProductNumber(productId:Int,type:Int)
         fun getProductInfoById(productId: Int)
+        fun deleteProduct(position: Int, productId: Int)
     }
 }
