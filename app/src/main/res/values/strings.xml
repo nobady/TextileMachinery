@@ -142,4 +142,5 @@
     <string name="receiver_people_change_address">收货人</string>
     <string name="receiver_phone_change_address">手机号码</string>
     <string name="delete_success">删除成功</string>
+    <string name="add_success">添加成功</string>
 </resources>

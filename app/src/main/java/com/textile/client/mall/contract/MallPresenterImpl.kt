@@ -2,6 +2,8 @@ package com.textile.client.mall.contract
 
 import com.game.base.mvp.BasePresenter
 import com.game.base.net.RxHttpUtil
+import com.google.gson.JsonObject
+import com.textile.client.R
 import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
 import com.textile.client.mall.model.HotModel
@@ -18,7 +20,7 @@ class MallPresenterImpl : BasePresenter<MallContract.IMallView>(), MallContract.
 
 
     override fun getHotProductList() {
-        RequestbodyUtil.createHotProductListBody(1,4)?.let {
+        RequestbodyUtil.createHotProductListBody(1,4).let {
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.getHotProductList(it)
                 ?.compose(Transformer.switchSchedulers())
@@ -52,7 +54,7 @@ class MallPresenterImpl : BasePresenter<MallContract.IMallView>(), MallContract.
     }
 
     override fun getBannerList(bannerTypeEnum: Int) {
-        RequestbodyUtil.createBannerListBody(bannerTypeEnum)?.let {
+        RequestbodyUtil.createBannerListBody(bannerTypeEnum).let {
             RxHttpUtil.createApi(NetApi::class.java)
                 ?.getBannerList(it)
                 ?.compose(Transformer.switchSchedulers())
@@ -60,6 +62,24 @@ class MallPresenterImpl : BasePresenter<MallContract.IMallView>(), MallContract.
                     override fun onSuccess(data: BannerModel) {
                         getView()?.setBannerData(bannerTypeEnum,data.list)
                     }
+                    override fun onSubscribe(d: Disposable) {
+                        super.onSubscribe(d)
+                        addSubscription(d)
+                    }
+                })
+        }
+    }
+
+    override fun addShopCartProduct(productId: Int) {
+        RequestbodyUtil.createAddShopCartProductBody(productId).let {
+            RxHttpUtil.createApi(NetApi::class.java)
+                ?.addShoppingCartProduct(it)
+                ?.compose(Transformer.switchSchedulers())
+                ?.subscribe(object :DataObserver<JsonObject>(true,getView()?.getContext()!!){
+                    override fun onSuccess(data: JsonObject) {
+                        getView()?.showAddProductSuccess()
+                    }
+
                     override fun onSubscribe(d: Disposable) {
                         super.onSubscribe(d)
                         addSubscription(d)

@@ -51,6 +51,12 @@ object RequestbodyUtil {
         return RequestBody.create(mediaType, jsonObject.toString())
     }
 
+    fun createAddShopCartProductBody(productId: Int):RequestBody{
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("productId",productId)
+        return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
     fun createModifyProductNumber(productId: Int, type: Int): RequestBody {
         val jsonObject = JsonObject()
         jsonObject.addProperty("productId", productId)

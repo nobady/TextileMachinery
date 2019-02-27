@@ -11,6 +11,7 @@ import com.alibaba.android.vlayout.layout.GridLayoutHelper
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.game.base.mvp.BaseFragment
 import com.game.base.utils.setStatusBarColor
+import com.game.base.utils.toast
 
 import com.textile.client.R
 import com.textile.client.mall.contract.MallContract
@@ -19,6 +20,7 @@ import com.textile.client.mall.model.BannerModel
 import com.textile.client.mall.model.CategoryModel
 import com.textile.client.mall.model.HotModel
 import com.textile.client.mall.ui.adapter.*
+import com.textile.client.utils.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.fragment_mall.*
 
 private const val ARG_PARAM1 = "param1"
@@ -30,8 +32,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class MallFragment : BaseFragment(), MallContract.IMallView {
-
+class MallFragment : BaseFragment(), MallContract.IMallView, RecyclerItemClickListener<HotModel.ListData> {
 
     private val mPresenter by lazy { MallPresenterImpl() }
 
@@ -73,6 +74,7 @@ class MallFragment : BaseFragment(), MallContract.IMallView {
         val hotLayoutHelper = GridLayoutHelper(2)
         hotLayoutHelper.setAutoExpand(false)
         hotProductAdapter = HotProductAdapter(hotLayoutHelper, context)
+        hotProductAdapter.itemClickListener = this
         delegateAdapter.addAdapter(hotProductAdapter)
     }
 
@@ -91,6 +93,18 @@ class MallFragment : BaseFragment(), MallContract.IMallView {
             bdAdapter.imageUrls = bannerList
             bdAdapter.notifyDataSetChanged()
         }
+    }
+
+
+    override fun onItemClick(t: HotModel.ListData, position: Int) {
+        if (position==-1){
+            //添加到购物车
+            mPresenter.addShopCartProduct(t.id)
+        }
+    }
+
+    override fun showAddProductSuccess() {
+        toast(getString(R.string.add_success))
     }
 
     override fun setCategoryData(mCategoryList: List<CategoryModel.ListData>) {

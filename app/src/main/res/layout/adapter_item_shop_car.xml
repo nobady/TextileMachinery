@@ -4,7 +4,6 @@
                                     android:layout_width="match_parent"
                                     app:cardCornerRadius="8dp"
                                     android:layout_margin="8dp"
-                                    app:cardElevation="8dp"
                                     android:layout_height="96dp">
 
     <android.support.constraint.ConstraintLayout

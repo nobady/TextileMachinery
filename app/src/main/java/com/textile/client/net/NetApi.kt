@@ -102,6 +102,9 @@ interface NetApi {
     @POST("shoppingCart/removeProduct")
     fun removeShopCartProduct(@Body body: RequestBody):Observable<BaseModel<JsonObject>>
 
+    @POST("shoppingCart/addProduct")
+    fun addShoppingCartProduct(@Body body: RequestBody):Observable<BaseModel<JsonObject>>
+
     /*订单*/
     @POST("order/shoppingCartPurchase")
     fun getConfrimOrderList(@Body body: RequestBody):Observable<BaseModel<ConfirmOrderModel>>

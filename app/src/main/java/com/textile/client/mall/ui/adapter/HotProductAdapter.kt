@@ -10,6 +10,7 @@ import com.alibaba.android.vlayout.LayoutHelper
 import com.game.base.image.ImageUtil
 import com.textile.client.R
 import com.textile.client.mall.model.HotModel
+import com.textile.client.utils.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.adapter_item_hot.view.*
 
 /**
@@ -20,6 +21,7 @@ class HotProductAdapter constructor(helper: LayoutHelper,context: Context):Deleg
     private val mHelper = helper
     var hotList:List<HotModel.ListData> = ArrayList()
     private val mContext = context
+    var itemClickListener:RecyclerItemClickListener<HotModel.ListData>? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotProductHolder {
@@ -38,7 +40,7 @@ class HotProductAdapter constructor(helper: LayoutHelper,context: Context):Deleg
         holder.itemView.tv_hot_adapter_style.text = listData.modeName
         holder.itemView.tv_hot_adapter_price.text = mContext.getString(R.string.hot_price_text,listData.price)
         holder.itemView.iv_hot_adapter_car.setOnClickListener {
-
+            itemClickListener?.onItemClick(listData,-1)
         }
     }
 

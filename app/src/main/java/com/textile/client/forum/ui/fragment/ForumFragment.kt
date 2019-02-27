@@ -31,6 +31,9 @@ import kotlinx.android.synthetic.main.fragment_forum.*
  */
 class ForumFragment : BaseFragment(), ForumContract.IForumView, MallContract.IMallView,
     ForumGridAdapter.ForumGridClickListener {
+    override fun showAddProductSuccess() {
+    }
+
     override fun setHotList(hotList: List<HotModel.ListData>) {
     }
 

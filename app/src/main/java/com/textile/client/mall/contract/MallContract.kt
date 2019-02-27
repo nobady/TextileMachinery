@@ -21,11 +21,13 @@ interface MallContract {
         fun setBannerData(type:Int,bannerList: List<BannerModel.ListData>)
         fun setCategoryData(mCategoryList: List<CategoryModel.ListData>)
         fun setHotList(hotList: List<HotModel.ListData>)
+        fun showAddProductSuccess()
     }
 
     interface IMallPresenter:IPresenter<IMallView>{
          fun getBannerList(bannerTypeEnum:Int)
         fun getCategoryList()
         fun getHotProductList()
+        fun addShopCartProduct(productId: Int)
     }
 }

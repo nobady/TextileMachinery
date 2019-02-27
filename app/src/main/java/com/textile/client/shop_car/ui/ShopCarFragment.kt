@@ -120,6 +120,7 @@ class ShopCarFragment : BaseFragment(), ShopCartContract.IShopCartView, RecycerI
                     .setImage(R.drawable.delete)
                     .setWidth(this@ShopCarFragment.context.dip2Px(57))
                     .setHeight(height)
+
                     .setText("删除")
                     .setTextColorResource(android.R.color.white).textSize = 10
                 rightMenu.addMenuItem(deleteItem)
