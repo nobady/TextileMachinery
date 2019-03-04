@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
 
-    private var clickTime:Long = 0
+    private var clickTime: Long = 0
 
     override fun startLoad() {
     }
@@ -78,10 +78,10 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if ((System.currentTimeMillis()-clickTime)>2000){
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
             toast(getString(R.string.again_back))
             clickTime = System.currentTimeMillis()
-        }else{
+        } else {
             finish()
         }
     }

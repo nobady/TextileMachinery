@@ -20,5 +20,6 @@
     <color name="bg_grey">#fff3f3f3</color>
     <color name="main_bg_color">#FFF4F4F4</color>
     <color name="title_right_bg">#4f4f4f</color>
+    <color name="publish_line_color">#5C5C5C</color>
 
 </resources>

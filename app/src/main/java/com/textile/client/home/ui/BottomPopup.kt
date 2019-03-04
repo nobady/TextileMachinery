@@ -15,6 +15,8 @@ import com.alibaba.android.vlayout.layout.GridLayoutHelper
 import com.game.base.utils.toActivityNotFinish
 import com.textile.client.R
 import com.textile.client.forum.adapter.ForumGridAdapter
+import com.textile.client.publish.PublishDemandActivity
+import com.textile.client.publish.PublishExchangeActivity
 import kotlinx.android.synthetic.main.fragment_forum.*
 import kotlinx.android.synthetic.main.layout_bottom_popup_home.view.*
 
@@ -80,11 +82,13 @@ class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.Forum
     override fun onGridClick(position: Int) {
         when (position) {
             0 -> {
+                toActivityNotFinish(PublishExchangeActivity::class.java)
             }
             1 -> {
+                toActivityNotFinish(PublishDemandActivity::class.java)
             }
             2 -> {
-//                toActivityNotFinish(Mech::class.java)
+
             }
             3 -> {
             }
@@ -95,10 +99,11 @@ class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.Forum
         }
     }
 
-//    private fun toActivityNotFinish(clazz: Class<MechSupplyActivity>) {
-//        val intent = Intent(mContext, clazz)
-//        mContext.startActivity(intent)
-//    }
+    private fun toActivityNotFinish(clazz: Class<*>) {
+        val intent = Intent(mContext, clazz)
+        mContext.startActivity(intent)
+        dismiss()
+    }
 
 
 }

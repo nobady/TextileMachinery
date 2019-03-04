@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/main_bg_color"
+        tools:context=".publish.PublishExchangeActivity"
+        >
+
+    <com.game.base.wdget.HeaderView
+            android:id="@+id/mPublishHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+            <include layout="@layout/publish_category"/>
+
+            <include layout="@layout/publish_select_pic"/>
+
+            <include layout="@layout/publish_idea_question"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:textColor="@color/rankTextColor"
+                    android:text="@string/commit_check"
+                    />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
