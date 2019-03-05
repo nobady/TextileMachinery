@@ -17,23 +17,25 @@ import com.textile.client.R
 import com.textile.client.forum.adapter.ForumGridAdapter
 import com.textile.client.publish.PublishDemandActivity
 import com.textile.client.publish.PublishExchangeActivity
+import com.textile.client.publish.PublishFindJobActivity
+import com.textile.client.publish.PublishSupplyActivity
 import kotlinx.android.synthetic.main.fragment_forum.*
 import kotlinx.android.synthetic.main.layout_bottom_popup_home.view.*
 
 /**
  * Created by lff on 2019/2/14.
  */
-class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.ForumGridClickListener {
+class BottomPopup(context: Activity) : PopupWindow(context), ForumGridAdapter.ForumGridClickListener {
 
     private val mContext = context
-    private var measuredWidth:Int = 0
-    private var measuredHeight:Int = 0
+    private var measuredWidth: Int = 0
+    private var measuredHeight: Int = 0
 
     init {
         init()
     }
 
-    private fun init(){
+    private fun init() {
 
         val view = LayoutInflater.from(mContext).inflate(R.layout.layout_bottom_popup_home, null)
         initRecyclerView(view)
@@ -48,9 +50,9 @@ class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.Forum
 
         setOnDismissListener { backgroundAlpha(1f) }
 
-        view.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED)
-         measuredWidth = view.measuredWidth
-         measuredHeight = view.measuredHeight
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+        measuredWidth = view.measuredWidth
+        measuredHeight = view.measuredHeight
 
         contentView = view
     }
@@ -66,13 +68,18 @@ class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.Forum
         delegateAdapter.addAdapter(forumGridAdapter)
     }
 
-    fun showUpView(view: View){
+    fun showUpView(view: View) {
         val location = IntArray(2)
         view.getLocationOnScreen(location)
-        showAtLocation(view,Gravity.NO_GRAVITY,(location[0]+view.width/2)-measuredWidth/2,location[1]-measuredHeight)
+        showAtLocation(
+            view,
+            Gravity.NO_GRAVITY,
+            (location[0] + view.width / 2) - measuredWidth / 2,
+            location[1] - measuredHeight
+        )
     }
 
-    private fun backgroundAlpha(bgAlpha:Float){
+    private fun backgroundAlpha(bgAlpha: Float) {
         val attributes = mContext.window.attributes
         attributes.alpha = bgAlpha
         mContext.window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
@@ -88,11 +95,13 @@ class BottomPopup(context: Activity):PopupWindow(context),ForumGridAdapter.Forum
                 toActivityNotFinish(PublishDemandActivity::class.java)
             }
             2 -> {
-
+                toActivityNotFinish(PublishSupplyActivity::class.java)
             }
             3 -> {
+                toActivityNotFinish(PublishFindJobActivity::class.java)
             }
             4 -> {
+                toActivityNotFinish(PublishFindJobActivity::class.java)
             }
             else -> {
             }

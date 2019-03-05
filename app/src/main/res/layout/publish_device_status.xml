@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:background="@color/main_bg_color"
+                android:text="@string/device_status"
+                />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textSize="18sp"
+                    android:textColor="@color/red"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/run_status"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/select_device_status"
+                    android:textSize="14sp"
+                    />
+
+            <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/next"
+                    android:scaleType="centerInside"
+                    />
+
+        </LinearLayout>
+
+        <View
+                style="@style/Line"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/arm_type"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_device_arm"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+
+        <View
+                style="@style/Line"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/frame_count"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_frame_count"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+
+        <View
+                style="@style/Line"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/beam_ratio"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_beam_ratio"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+
+        <View
+                style="@style/Line"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/coil_roll_ratio"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_coil_roll_ratio"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+
+        <View
+                style="@style/Line"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/electronic_control"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_electronic_control"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/electronic_control"
+                    android:gravity="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="@dimen/tab_font_size"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/subTextColor"
+                    android:hint="@string/input_electronic_control"
+                    android:textSize="14sp"
+                    />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</merge>

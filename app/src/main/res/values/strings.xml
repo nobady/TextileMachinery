@@ -175,4 +175,21 @@
     <string name="supply_add">需求补充</string>
     <string name="input_supply_add">根据您的需求补充产品信息</string>
     <string name="supply_publish">需求发布</string>
+    <string name="select_device_status">请选择当前设备状态</string>
+    <string name="input_device_arm">请输入设备多臂型号</string>
+    <string name="input_frame_count">请输入设备综框数量</string>
+    <string name="input_beam_ratio">请输入设备经轴比</string>
+    <string name="input_coil_roll_ratio">请输入设备卷布辊比</string>
+    <string name="input_electronic_control">请输入设备电控型号</string>
+    <string name="work_exp">工作经验</string>
+    <string name="age">年龄</string>
+    <string name="full_name">姓名</string>
+    <string name="sex">性别</string>
+    <string name="education">学历</string>
+    <string name="main_info">主要信息</string>
+    <string name="hope_salary">期望薪资</string>
+    <string name="input_hope_salary">输入您期望的薪资范围</string>
+    <string name="hope_area">期望地区</string>
+    <string name="input_hope_area">请输入期望的工作地区</string>
+    <string name="work_experience">工作经历</string>
 </resources>

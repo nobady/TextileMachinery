@@ -20,6 +20,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             >
+        <activity android:name=".publish.PublishFindJobActivity">
+        </activity>
+        <activity android:name=".publish.PublishSupplyActivity">
+        </activity>
         <activity android:name=".publish.PublishDemandActivity">
         </activity>
         <activity android:name=".publish.PublishExchangeActivity">
