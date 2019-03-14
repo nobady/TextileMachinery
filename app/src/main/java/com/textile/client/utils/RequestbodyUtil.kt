@@ -4,7 +4,10 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.textile.client.shop_car.model.ShopCartModel
 import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import java.io.File
+import java.nio.file.Files
 
 /**
  * Created by Administrator on 2019/1/11.
@@ -155,7 +158,6 @@ object RequestbodyUtil {
     }
 
     fun createConfirmOrderBody(dataList:List<ShopCartModel.ListData>):RequestBody{
-
         val jsonArray = JsonArray()
         dataList.forEach {
             val jsonObject = JsonObject()
@@ -166,6 +168,11 @@ object RequestbodyUtil {
         val jsonObject = JsonObject()
         jsonObject.add("shoppingCartProducts",jsonArray)
         return RequestBody.create(mediaType, jsonObject.toString())
+    }
+
+    fun createUploadFileBody(file:File): MultipartBody.Part? {
+        val requestBody = RequestBody.create(MediaType.parse("*/*"), file)
+        return MultipartBody.Part.createFormData("file",file.name, requestBody)
     }
 
 

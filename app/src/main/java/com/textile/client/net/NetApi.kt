@@ -15,11 +15,9 @@ import com.textile.client.shop_car.model.MyAddressModel
 import com.textile.client.shop_car.model.ProductDetailModel
 import com.textile.client.shop_car.model.ShopCartModel
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  * 所有请求的定义
@@ -118,5 +116,9 @@ interface NetApi {
     /*地址*/
     @POST("user/userAddressList")
     fun getUserAddressList():Observable<BaseModel<List<MyAddressModel>>>
+
+    @Multipart
+    @POST("uploadFile/uploadFile")
+    fun uploadFile(@Part file:MultipartBody.Part)
 
 }
